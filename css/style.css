@@ -306,6 +306,87 @@ nav ul {
     padding: 0 20px;
 }
 
+.social {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px 0;
+    width: 100%;
+}
+
+/* Styles communs à tous les liens */
+.social a {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    font-size: 1.5em;
+    border: solid 2px var(--text-color);
+    background: transparent;  /* Assurez-vous que le fond est transparent */
+    color: var(--background-color-secondary);
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Pseudo-élément commun, puis surchargé pour chaque lien */
+.social a::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    z-index: 0; /* On le place derrière le contenu */
+    transition: width 0.1s ease-in-out;
+}
+
+/* Lien 1 */
+.social a:nth-child(1)::before {
+    background-color: var(--background-color);
+}
+.social a:nth-child(1):hover::before {
+    width: 100%;
+}
+
+/* Lien 2 */
+.social a:nth-child(2)::before {
+    background-color: #0A66C2;
+}
+.social a:nth-child(2):hover::before {
+    width: 100%;
+}
+
+/* Lien 3 */
+.social a:nth-child(3)::before {
+    background-color: #0D1117;
+}
+.social a:nth-child(3):hover::before {
+    width: 100%;
+}
+
+/* Lien 4 */
+.social a:nth-child(4)::before {
+    background-color: #FF0000;
+}
+.social a:nth-child(4):hover::before {
+    width: 100%;
+}
+
+/* Lien 5 */
+.social a:nth-child(5)::before {
+    background-color: #3c00aa;
+}
+.social a:nth-child(5):hover::before {
+    width: 100%;
+}
+
+/* Assurez-vous que le contenu du lien (texte, icônes) reste au-dessus */
+.social a * {
+    position: relative;
+    z-index: 1;
+}
+
 .box.github {
     max-width: none;
     width: 100%;
