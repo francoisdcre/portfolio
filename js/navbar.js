@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function() {
     hamburger.addEventListener('click', function() {
         if (nav.style.top === "0px") {
             // Masquer la navbar
-            nav.style.top = "-100vh";
+            nav.style.top = "-100%";
             hamburger.classList.remove("is-active");
             menu.style.backgroundColor = "var(--background-color-secondary)";
             nav.classList.remove("active");

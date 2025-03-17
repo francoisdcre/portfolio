@@ -37,4 +37,4 @@ setTimeout(() => {
             document.querySelector('.ml11 .line').style.display = "none"; // Cache complètement après le fondu
         }
     });
-}, 3000); // ⏳ Attendre 5 secondes avant de démarrer l'animation
+}, 4000); // ⏳ Attendre 5 secondes avant de démarrer l'animation

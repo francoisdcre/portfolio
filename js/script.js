@@ -10,5 +10,5 @@ document.addEventListener("DOMContentLoaded", function () {
             welcomeScreen.style.display = "none"; // Cache après l'animation
             document.getElementById("main-content").style.display = "flex";
         }, 1000); // Délai pour la transition
-    }, 2000); // Affiché pendant 5 secondes
+    }, 3000); // Affiché pendant 5 secondes
 });
