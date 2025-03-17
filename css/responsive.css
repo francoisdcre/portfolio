@@ -1,0 +1,34 @@
+@media screen and (max-width: 788px) {
+    .ml11 {
+        font-size: 1.5em;
+    }
+}
+
+@media screen and (max-width: 780px) {
+    .ml16 {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .inline {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 410px) {
+    .ml16 {
+        font-size: 0.5em;
+    }
+
+    .menu {
+        top: 20px;
+        right: 20px;
+    }
+}
+
+@media screen and (max-width: 354px) {
+    .ml11 {
+        font-size: 1em;
+    }
+}
