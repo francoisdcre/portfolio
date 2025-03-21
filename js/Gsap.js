@@ -10,9 +10,9 @@ gsap.from('.box', {
     },
     opacity: 0,
     stagger: 0.1,
-    y: 200,
-    duration: 1,
-    ease: 'power2.out',
+    y: 300,
+    duration: 1.5,
+    ease: 'power.out',
 });
 
 // Texte animé
@@ -45,7 +45,40 @@ animatedTexts.forEach((el, index) => {
         opacity: 0,
         stagger: 0.03,
         duration: 0.6,
-        ease: 'power2.out',
+        ease: 'power.out',
         delay: index * 0.2
     });
 });
+
+// Compétences
+
+gsap.from(".hero", {
+    scrollTrigger: {
+        trigger: "#competences",
+        start: "top 20%",
+      toggleActions: "play none none reverse" // Se joue une seule fois
+    },
+    y: 300,
+    opacity: 0,
+    duration: 1.5,
+    ease: "power.out"
+});
+
+  // Animation en cascade pour .competence-box
+gsap.fromTo(".competence-box",{
+        opacity: 0,
+        y: 50
+    },
+    {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        ease: "power.out",
+        stagger: 0.2,
+        scrollTrigger: {
+            trigger: "#competences",
+            start: "top 20%",
+            toggleActions: "play none none reverse"
+        }
+    }
+);

@@ -79,7 +79,7 @@ nav {
     justify-content: center;
     z-index: 100;
     font-family: 'Roboto', sans-serif;
-    font-size: 50px;
+    font-size: 40px;
     background-color: var(--background-color-secondary);
     top: -150%;
     transition: top 1s cubic-bezier(0, 0, 0.2, 1);
@@ -173,8 +173,6 @@ nav ul {
     line-height: 1em;
 }
 
-
-
 .scroll-down {
     opacity: 1;
     -webkit-transition: all .5s ease-in 3s;
@@ -243,6 +241,8 @@ nav ul {
     flex-direction: column;
     min-height: 100vh;
     background-color: var(--color-background-secondary);
+    background: url(../assets/background/background.png) no-repeat center center fixed;
+    background-size: cover;
 }
 
 .container {
@@ -327,13 +327,16 @@ nav ul {
     position: relative;
     overflow: hidden;
     font-size: 2em;
-    border: solid 2px var(--text-color);
     background: transparent;
     color: var(--background-color-secondary);
     padding: 10px;
     border-radius: 10px;
     text-decoration: none;
-    transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+    transition: transform 0.3s ease-out;
+}
+
+.social a:hover {
+    transform: scale(1.4);
 }
 
 .Link--muted {
@@ -342,4 +345,62 @@ nav ul {
 
 .contrib-column.table-column {
     display: none;
+}
+
+/* ******************************
+    Compétences
+****************************** */
+
+#competences {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 30px;
+    background: url(../assets/background/background.png) no-repeat center center fixed;
+    background-size: cover;
+}
+
+.hero {
+    width: 100%;
+    max-width: 940px;
+    background-color: var(--background-color-tertiary);
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
+    border: solid 4px var(--text-color);
+    border-radius: 20px 20px 0 0;
+}
+
+.competence-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.competence-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: transform 0.3s ease-out;
+    width: 100px;
+    height: 100px;
+}
+
+.competence-box i {
+    font-size: 5em;
+    color: var(--text-color);
+}
+
+.competence-top, .competence-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 10px;
+    width: 100%;
 }
