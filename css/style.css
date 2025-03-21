@@ -81,7 +81,7 @@ nav {
     font-family: 'Roboto', sans-serif;
     font-size: 50px;
     background-color: var(--background-color-secondary);
-    transform: translateY(-100%);
+    top: -100%;
     transition: top 1s cubic-bezier(0, 0, 0.2, 1);
 }
 
