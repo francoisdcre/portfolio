@@ -33,7 +33,7 @@ body {
 #welcome-screen {
     position: fixed;
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     background-color: var(--background-color-secondary);
     color: var(--text-color);
     display: flex;
@@ -123,7 +123,7 @@ nav ul {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 100vh;
+    height: 100dvh;
     width: 100%;
     padding: 0 20px;
 }
@@ -241,7 +241,7 @@ nav ul {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 100dvh;
     background-color: var(--color-background-secondary);
 }
 
