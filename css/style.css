@@ -240,8 +240,8 @@ nav ul {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
-    background-color: var(--color-background-secondary);
-    background: url(../assets/background/background.png) no-repeat center center fixed;
+    /* background-color: var(--color-background-secondary);
+    background: url(../assets/background/background.png) no-repeat center center fixed; */
     background-size: cover;
 }
 
@@ -270,10 +270,10 @@ nav ul {
     background-color: var(--background-color-tertiary);
     border: solid 4px var(--text-color);
     border-radius: 20px 20px 0 0;
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
     flex: 1 ;
     display: flex;
     flex-direction: column;
-    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .box.github {
@@ -358,25 +358,17 @@ nav ul {
     flex-direction: column;
     min-height: 100vh;
     padding: 0 30px;
-    background: url(../assets/background/background.png) no-repeat center center fixed;
-    background-size: cover;
+    /* background: url(../assets/background/background.png) no-repeat center center fixed;
+    background-size: cover; */
 }
 
 .hero {
     width: 100%;
     max-width: 940px;
-    background-color: var(--background-color-tertiary);
-    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
-    border: solid 4px var(--text-color);
-    border-radius: 20px 20px 0 0;
-}
-
-.competence-row {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-around;
+    flex-wrap: wrap;
     gap: 50px;
 }
 
@@ -385,22 +377,13 @@ nav ul {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition: transform 0.3s ease-out;
-    width: 100px;
-    height: 100px;
+    flex: 1 1 200px;
+    border: solid 4px var(--text-color);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
 }
 
 .competence-box i {
     font-size: 5em;
-    color: var(--text-color);
-}
-
-.competence-top, .competence-bottom {
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    flex-direction: row;
-    gap: 10px;
-    width: 100%;
+    padding: 20px;
 }
