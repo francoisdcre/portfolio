@@ -354,6 +354,12 @@ nav ul {
     border-bottom: solid 4px var(--text-color);
 }
 
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .icon img {
     width: 20px;
     height: 20px;
@@ -449,9 +455,84 @@ nav ul {
 #projets {
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: column;
+    justify-content: end;
+    flex-direction: row;
     min-height: 100vh;
     padding: 0 30px;
     gap: 50px;
+}
+
+.test {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+}
+
+.git-repo {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: space-around;
+}
+
+.git-repo hr {
+    width: 100%;
+    border: 1px solid var(--text-color-secondary);
+}
+
+.repo-title {
+    cursor: pointer;
+}
+
+.readme {
+    max-height: 80vh;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    border: solid 4px var(--text-color);
+    border-radius: 20px 20px 0 0;
+    box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
+    background-color: var(--background-color-tertiary);
+    position: relative;
+}
+
+#close-readme-text-btn {
+    margin: 20px;
+    cursor: pointer;
+}
+
+.readme-content {
+    padding: 30px;
+    overflow: scroll;
+}
+
+.repo-readme h2 {
+    color: var(--text-color-secondary);
+}
+
+.repo-readme a,
+#close-readme-text-btn {
+    text-decoration: none;
+    padding: 8px 15px;
+    border: 2px solid var(--text-color-secondary);
+    border-radius: 10px;
+    color: var(--text-color-secondary);
+    background-color: transparent;
+    transition: all 0.25s ease-in-out;
+    display: inline-block;
+}
+
+.repo-readme a:hover,
+#close-readme-text-btn:hover {
+    background-color: var(--text-color-secondary);
+    color: var(--background-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.repo-readme img {
+    width: 100%;
 }

@@ -1,0 +1,27 @@
+{
+    "titre": "L'Attelages Français",
+    "description": "Ce site Web est le résultat de mon stage de première année de BTS SIO au sein de l'entreprise Aura Marketing. Ce site sert à une association dédiée pour tout ce qui est en rapport avec l'équitation. Il permet de voir des articles, les dates de concours ou encore des photos exclusives prises par des internautes.",
+    "technologie": [
+        "WorPpress"
+    ],
+    "lien" : "https://attelages.org/",
+    "images": [
+        {
+            "src": "../assets/img/projets/attelages/home.JPG",
+            "alt": "Page d'accueil du site"
+        },
+        {
+            "src": "../assets/img/projets/attelages/concours.JPG",
+            "alt": "Page des concours"
+        },
+        {
+            "src": "../assets/img/projets/attelages/actualités.JPG",
+            "alt": "Page des actualités"
+        }
+    ],
+    "competences_acquises": [
+        "Configuration Wordpress",
+        "Création de site web sous WordPress",
+        "Utilisation de plugins / thème Wordpress"
+    ]
+}

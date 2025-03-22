@@ -1,3 +1,17 @@
+@media screen and (max-width: 1734px) {
+    .test {
+        max-width: 1300px;
+    }
+    
+}
+
+@media screen and (max-width: 1634px) {
+    .test {
+        max-width: 1200px;
+    }
+    
+}
+
 @media screen and (max-width: 1536px) {
     .title {
         position: inherit;
@@ -30,6 +44,10 @@
     .title h1 {
         writing-mode: horizontal-tb;
     }
+
+    #projets {
+        flex-direction: column;
+    }
 }
 
 @media screen and (max-width: 788px) {
@@ -47,6 +65,16 @@
 @media screen and (max-width: 750px) {
     .inline {
         flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 696px) {
+    .test {
+        flex-direction: column;
+    }
+
+    .readme {
+        width: 100%;
     }
 }
 
