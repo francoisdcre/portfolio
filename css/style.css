@@ -243,9 +243,6 @@ nav ul {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
-    /* background-color: var(--color-background-secondary);
-    background: url(../assets/background/background.png) no-repeat center center fixed; */
-    background-size: cover;
     padding: 0 30px;
 }
 
@@ -300,7 +297,7 @@ nav ul {
     writing-mode: sideways-lr;
     font-size: clamp(1rem, 5vw, 3rem);
     font-family: 'SundayMidnight', sans-serif;
-    line-height: 2;
+    line-height: 3;
 }
 
 .container {
@@ -417,8 +414,6 @@ nav ul {
     min-height: 100vh;
     padding: 0 30px;
     gap: 50px;
-    /* background: url(../assets/background/background.png) no-repeat center center fixed;
-    background-size: cover; */
 }
 
 .hero {
@@ -445,4 +440,18 @@ nav ul {
 .competence-box i {
     font-size: 5em;
     padding: 20px;
+}
+
+/* ******************************
+    Projets
+****************************** */
+
+#projets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 30px;
+    gap: 50px;
 }
