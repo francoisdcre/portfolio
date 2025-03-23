@@ -26,20 +26,38 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     }
 
+    // Fonction pour ouvrir la navbar
+    function openNav() {
+        nav.style.top = "0px";
+        hamburger.classList.add("is-active");
+        menu.style.backgroundColor = "var(--background-color)";
+        nav.classList.add("active");
+        document.body.style.overflow = "hidden"; // Empêche le scroll
+        animateNavText();
+    }
+
+    // Fonction pour fermer la navbar
+    function closeNav() {
+        nav.style.top = "-150%";
+        hamburger.classList.remove("is-active");
+        menu.style.backgroundColor = "var(--background-color-secondary)";
+        nav.classList.remove("active");
+        document.body.style.overflow = ""; // Réactive le scroll
+    }
+
+    // Clic sur le hamburger
     hamburger.addEventListener('click', function() {
-        if (nav.style.top === "0px") {
-            // Masquer la navbar
-            nav.style.top = "-150%";
-            hamburger.classList.remove("is-active");
-            menu.style.backgroundColor = "var(--background-color-secondary)";
-            nav.classList.remove("active");
+        if (nav.classList.contains("active")) {
+            closeNav();
         } else {
-            // Afficher la navbar et déclencher l'animation
-            nav.style.top = "0px";
-            hamburger.classList.add("is-active");
-            menu.style.backgroundColor = "var(--background-color)";
-            nav.classList.add("active");
-            animateNavText();
+            openNav();
         }
+    });
+
+    // Clic sur un lien => fermeture du menu
+    navLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            closeNav();
+        });
     });
 });
