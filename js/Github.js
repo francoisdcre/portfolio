@@ -1,5 +1,4 @@
 // Remplacez par votre token GitHub valide
-const token = '';
 
 document.addEventListener("DOMContentLoaded", () => {
   fetchRepos();
@@ -10,14 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 async function fetchRepos() {
   try {
-    const response = await fetch(
-      'https://api.github.com/user/repos?visibility=public&affiliation=owner&sort=updated',
-      {
-        headers: {
-          Authorization: `token ${token}`
-        }
-      }
-    );
+    const response = await fetch('php/github-proxy.php?action=repos');
     if (!response.ok) {
       throw new Error(`Erreur lors de la récupération des repos: ${response.status}`);
     }
@@ -27,6 +19,7 @@ async function fetchRepos() {
     console.error("Erreur dans fetchRepos():", error);
   }
 }
+
 
 function displayRepos(repos) {
   const container = document.querySelector('.git-repo');
@@ -61,18 +54,12 @@ function displayRepos(repos) {
 }
 
 async function loadReadme(owner, repoName) {
-  const url = `https://api.github.com/repos/${owner}/${repoName}/readme`;
   const readmeContainer = document.querySelector('.repo-readme');
+  const url = `php/github-proxy.php?action=readme&username=${encodeURIComponent(owner)}&repo=${encodeURIComponent(repoName)}`;
 
   try {
-    const response = await fetch(url, {
-      headers: {
-        Authorization: `token ${token}`,
-        Accept: 'application/vnd.github.v3.raw'
-      }
-    });
+    const response = await fetch(url);
 
-    // === GESTION DU CAS « PAS DE README » ===
     if (response.status === 404) {
       readmeContainer.classList.add("readme");
       readmeContainer.innerHTML = `<p class="error">Aucun README disponible pour <strong>${repoName}</strong>.</p>`;
@@ -99,7 +86,7 @@ async function loadReadme(owner, repoName) {
         <div class="icon">
           <img src="assets/icon/minimize.png" alt="Minimize">
           <img src="assets/icon/copy.png" alt="Copy">
-          <img src="assets/icon/close-window.png" alt="Close" id="close-readme-btn">
+          <img src="assets/icon/close-window.png" id="close-readme-btn">
         </div>
       </div>
       <button id="close-readme-text-btn">Fermer le README</button>
@@ -119,6 +106,7 @@ async function loadReadme(owner, repoName) {
     readmeContainer.innerHTML = `<p class="error">Erreur : impossible de charger le README.</p>`;
   }
 }
+
 
 async function loadLocalProject(jsonPath) {
   const readmeContainer = document.querySelector('.repo-readme');
