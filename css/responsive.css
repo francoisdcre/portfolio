@@ -56,6 +56,15 @@
     }
 }
 
+@media screen and (max-width: 1122px) {
+    .veille-intro h2,
+    .veille-sources h3,
+    .veille-conclusion h3 {
+        font-size: 1em;
+        line-height: 5;
+    }
+}
+
 @media screen and (max-width: 800px) {
     .timeline {
         display: flex;
@@ -118,6 +127,20 @@
 
     .readme {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 622px) {
+    .veille-intro h2,
+    .veille-sources h3,
+    .veille-conclusion h3 {
+        font-size: 0.8em;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .framework-card {
+        width: 250px;
     }
 }
 
