@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/responsive.css">
     <link href="assets/lib/hamburger/hamburgers.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/01607bf9c6.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.2.12/marked.min.js"></script>
@@ -396,6 +397,195 @@
             <div class="repo-readme"></div>
         </div>
     </section>
+    <!-- Veille -->
+    <section id="veille">
+        <aside class="title">
+            <h1>Veille</h1>
+            <div class="line">
+                <div class="circle"></div>
+            </div>
+        </aside>
+        <div class="veille-container">
+            <div class="veille-intro">
+                <h2>Frameworks de Développement Émergents</h2>
+                <p>Ma veille technologique se concentre sur les frameworks de développement émergents qui transforment l'écosystème du développement web et logiciel.</p>
+            </div>
+            
+            <div class="framework-timeline">
+                <!-- Swiper container -->
+                <div class="swiper framework-swiper">
+                    <div class="swiper-wrapper">
+                        <!-- First slide - Svelte -->
+                        <div class="swiper-slide">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <i class="fas fa-bolt"></i>
+                                    <h3>Svelte</h3>
+                                    <span class="year-tag">2019</span>
+                                </div>
+                                <div class="framework-content">
+                                    <p>Compilateur plutôt qu'un framework traditionnel, Svelte déplace le travail du navigateur vers le build.</p>
+                                    <div class="tech-tags">
+                                        <span>Front-end</span>
+                                        <span>Léger</span>
+                                        <span>Réactif</span>
+                                    </div>
+                                </div>
+                                <div class="code-snippet">
+                                    <pre><code>// Exemple Svelte
+&lt;script&gt;
+  let count = 0;
+  const increment = () => count += 1;
+&lt;/script&gt;
+
+&lt;button on:click={increment}&gt;
+  Clicks: {count}
+&lt;/button&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Second slide - Deno -->
+                        <div class="swiper-slide">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <i class="fas fa-wind"></i>
+                                    <h3>Deno</h3>
+                                    <span class="year-tag">2020</span>
+                                </div>
+                                <div class="framework-content">
+                                    <p>Runtime JavaScript/TypeScript sécurisé par défaut, créé par le fondateur de Node.js.</p>
+                                    <div class="tech-tags">
+                                        <span>Runtime</span>
+                                        <span>TypeScript</span>
+                                        <span>Sécurité</span>
+                                    </div>
+                                </div>
+                                <div class="code-snippet">
+                                    <pre><code>// Exemple Deno
+import { serve } from "https://deno.land/std/http/server.ts";
+
+const server = serve({ port: 8000 });
+console.log("Serveur lancé sur http://localhost:8000/");
+
+for await (const req of server) {
+  req.respond({ body: "Hello World\n" });
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Third slide - Flutter -->
+                        <div class="swiper-slide">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <i class="fas fa-feather-alt"></i>
+                                    <h3>Flutter</h3>
+                                    <span class="year-tag">2018</span>
+                                </div>
+                                <div class="framework-content">
+                                    <p>Framework UI de Google pour créer des applications natives multi-plateformes depuis une seule base de code.</p>
+                                    <div class="tech-tags">
+                                        <span>Mobile</span>
+                                        <span>Multi-plateforme</span>
+                                        <span>Dart</span>
+                                    </div>
+                                </div>
+                                <div class="code-snippet">
+                                    <pre><code>// Exemple Flutter
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('Flutter Demo')),
+        body: Center(child: Text('Hello World')),
+      ),
+    );
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Fourth slide - Next.js -->
+                        <div class="swiper-slide">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <i class="fas fa-atom"></i>
+                                    <h3>Next.js</h3>
+                                    <span class="year-tag">2021</span>
+                                </div>
+                                <div class="framework-content">
+                                    <p>Framework React avec rendu côté serveur et génération de sites statiques offrant des performances optimales.</p>
+                                    <div class="tech-tags">
+                                        <span>React</span>
+                                        <span>SSR</span>
+                                        <span>Vercel</span>
+                                    </div>
+                                </div>
+                                <div class="code-snippet">
+                                    <pre><code>// Exemple Next.js
+// pages/index.js
+export default function Home() {
+  return (
+    &lt;div&gt;
+      &lt;h1&gt;Welcome to Next.js!&lt;/h1&gt;
+    &lt;/div&gt;
+  )
+}
+
+export async function getStaticProps() {
+  return {
+    props: { /* données */ },
+  }
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Add pagination -->
+                    <div class="swiper-pagination"></div>
+                    
+                    <!-- Navigation buttons -->
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-button-next"></div>
+                </div>
+            </div>
+            
+            <div class="veille-sources">
+                <h3>Sources et méthodes de veille</h3>
+                <div class="sources-grid">
+                    <div class="source-item">
+                        <i class="fab fa-github"></i>
+                        <h4>GitHub Trending</h4>
+                        <p>Suivi hebdomadaire des repositories tendance</p>
+                    </div>
+                    <div class="source-item">
+                        <i class="fab fa-dev"></i>
+                        <h4>Dev.to</h4>
+                        <p>Articles de la communauté et retours d'expérience</p>
+                    </div>
+                    <div class="source-item">
+                        <i class="fas fa-rss"></i>
+                        <h4>Newsletters tech</h4>
+                        <p>JavaScript Weekly, Frontend Focus</p>
+                    </div>
+                    <div class="source-item">
+                        <i class="fab fa-twitter"></i>
+                        <h4>Twitter Tech</h4>
+                        <p>Veille via les influenceurs techniques</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="veille-conclusion">
+                <h3>Impact sur mon apprentissage</h3>
+                <p>Cette veille me permet d'anticiper les évolutions du marché et d'adapter mon apprentissage aux technologies les plus prometteuses. Comprendre les nouvelles approches de développement enrichit ma capacité à concevoir des solutions innovantes.</p>
+            </div>
+        </div>
+    </section>
     <!-- Script -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
@@ -407,8 +597,57 @@
     <script src="assets/lib/vanilla-tilt.min.js"></script>
     <script src="js/Github.js"></script>
     <script src="js/theme.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         GitHubCalendar(".github-calendar", "francoisdcre", { responsive: true });
+
+        // Initialize the framework swiper
+        const frameworkSwiper = new Swiper('.framework-swiper', {
+            // Optional parameters
+            slidesPerView: 1,
+            spaceBetween: 30,
+            centeredSlides: true,
+            loop: true,
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            // Responsive breakpoints
+            breakpoints: {
+                // Small screens
+                576: {
+                    slidesPerView: 1.2, /* Show partial slides on sides */
+                    centeredSlides: true,
+                    spaceBetween: 20
+                },
+                // Medium screens
+                768: {
+                    slidesPerView: 1.8, /* Show more of side slides */
+                    spaceBetween: 30,
+                    centeredSlides: true
+                },
+                // Large screens
+                1024: {
+                    slidesPerView: 2.5, /* Show partial slides on sides */
+                    spaceBetween: 40,
+                    centeredSlides: true
+                },
+                // Extra large screens
+                1200: {
+                    slidesPerView: 3,
+                    spaceBetween: 40,
+                    centeredSlides: true
+                }
+            }
+        });
     </script>
 </body>
 </html>
