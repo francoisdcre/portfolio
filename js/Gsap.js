@@ -50,6 +50,52 @@ animatedTexts.forEach((el, index) => {
     });
 });
 
+// Parcours
+
+// Animation de la section Parcours
+gsap.from('.timeline-header', {
+    scrollTrigger: {
+        trigger: '#parcours',
+        start: 'top 20%',
+        toggleActions: 'play none none reverse',
+    },
+    opacity: 0,
+    y: 50,
+    duration: 0.8,
+    ease: 'power.out',
+});
+
+// Animation pour les éléments de la timeline
+gsap.utils.toArray('.timeline-item').forEach((item, i) => {
+    const direction = item.classList.contains('left') ? -1 : 1;
+    
+    gsap.from(item, {
+        scrollTrigger: {
+            trigger: item,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+        },
+        opacity: 0,
+        x: 50 * direction,
+        duration: 0.8,
+        ease: 'power.out',
+        delay: i * 0.2
+    });
+});
+
+// Animation pour les cercles de la timeline
+gsap.from('.timeline-item::after', {
+    scrollTrigger: {
+        trigger: '.timeline',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse',
+    },
+    scale: 0,
+    stagger: 0.2,
+    duration: 0.6,
+    ease: 'back.out(1.7)',
+});
+
 // Compétences
 
 gsap.from(".hero", {

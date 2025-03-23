@@ -50,6 +50,43 @@
     }
 }
 
+@media screen and (max-width: 800px) {
+    .timeline {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 50px;
+    }
+    .timeline::after {
+        /* Masquer la ligne verticale de la timeline en mode responsive */
+        display: none;
+    }
+    
+    .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .timeline-item.left {
+        left: auto;
+        padding: 0;
+    }
+    
+    .timeline-item.right {
+        left: auto;
+        padding: 0;
+    }
+    
+    .timeline-item.left::after,
+    .timeline-item.right::after {
+        left: 15px; /* Ajustement plus précis pour l'alignement en mode mobile */
+    }
+}
+
 @media screen and (max-width: 788px) {
     .ml11 {
         font-size: 1.5em;

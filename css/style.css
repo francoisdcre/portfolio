@@ -410,6 +410,122 @@ nav ul {
 }
 
 /* ******************************
+    Parcours
+****************************** */
+
+#parcours {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 0 30px;
+    position: relative;
+}
+
+.timeline-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 40px 15px;
+    width: 100%;
+}
+
+.timeline-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.timeline-title {
+    color: var(--text-color-secondary);
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    font-family: 'SundayMidnight', sans-serif;
+}
+
+.timeline-subtitle {
+    color: var(--text-color-secondary);
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    background-color: var(--background-color-secondary);
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -2.5px;
+}
+
+.timeline-item {
+    position: relative;
+    width: 50%;
+    margin-bottom: 50px;
+}
+
+.timeline-item.left {
+    left: 0;
+    padding-right: 50px;
+}
+
+.timeline-item.right {
+    left: 50%;
+    padding-left: 50px;
+}
+
+.timeline-item::after {
+    /* Suppression des bulles après les éléments de la timeline */
+    display: none; /* Cache le pseudo-élément au lieu de le supprimer complètement */
+}
+
+/* Ajuster la position des cercles pour qu'ils soient parfaitement centrés sur la ligne */
+.timeline-item.left::after {
+    /* right: 27px; */ /* Ajustement plus précis */
+}
+
+.timeline-item.right::after {
+    /* left: 27px; */ /* Ajustement plus précis */
+}
+
+.timeline-box {
+    position: relative;
+    padding: 0;
+    background-color: var(--background-color-tertiary);
+}
+
+.timeline-content {
+    padding: 20px;
+}
+
+.timeline-content .date {
+    display: inline-block;
+    padding: 5px 15px;
+    background-color: var(--background-color-secondary);
+    color: var(--text-color-secondary);
+    border-radius: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.timeline-content h3 {
+    margin: 10px 0;
+    color: var(--text-color-secondary);
+}
+
+.timeline-content p {
+    margin: 5px 0;
+    line-height: 1.5;
+}
+
+/* ******************************
     Compétences
 ****************************** */
 
