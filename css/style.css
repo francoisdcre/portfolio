@@ -558,11 +558,41 @@ nav ul {
     border: solid 4px var(--text-color);
     border-radius: 20px 20px 0 0;
     box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease-out, box-shadow 0.3s ease-out;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 15px;
+}
+
+.competence-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 25px 25px 0 rgba(0, 0, 0, 0.6);
 }
 
 .competence-box i {
     font-size: 5em;
     padding: 20px;
+    transition: transform 0.3s ease;
+}
+
+.competence-box:hover i {
+    transform: scale(1.1);
+}
+
+.skill-info {
+    width: 100%;
+    padding: 0 15px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Suppression du style du pourcentage */
+
+.skill-description {
+    font-size: 0.9em;
+    color: var(--text-color-secondary);
+    margin-top: 0; /* Ajusté pour compenser la suppression du pourcentage */
+    font-style: italic;
 }
 
 /* ******************************
