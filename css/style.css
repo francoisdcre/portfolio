@@ -57,6 +57,103 @@ body {
 }
 
 /* ******************************
+    Barre de progression
+****************************** */
+
+.progress-container {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 60%;
+    display: flex;
+    flex-direction: column;
+    z-index: 99;
+}
+
+.progress-bar {
+    position: absolute;
+    width: 2px;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    right: 10px;
+    z-index: -1;
+}
+
+.progress-indicator {
+    position: absolute;
+    width: 100%;
+    background-color: var(--background-color-secondary);
+    top: 0;
+    height: 0%;
+    transition: height 0.3s ease;
+}
+
+.section-dots {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    align-items: center;
+}
+
+.section-dot {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: var(--background-color-tertiary);
+    border: 2px solid var(--background-color-secondary);
+    position: relative;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-dot:before {
+    content: '';
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: var(--background-color-secondary);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.section-dot.active {
+    transform: scale(1.2);
+}
+
+.section-dot.active:before {
+    opacity: 1;
+}
+
+.section-dot:hover {
+    transform: scale(1.3);
+}
+
+.dot-tooltip {
+    position: absolute;
+    right: 30px;
+    background-color: var(--background-color-secondary);
+    color: var(--text-color);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    white-space: nowrap;
+    opacity: 0;
+    transform: translateX(10px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+}
+
+.section-dot:hover .dot-tooltip {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ******************************
     Menu
 ****************************** */
 
@@ -428,24 +525,6 @@ nav ul {
     margin: 0 auto;
     padding: 40px 15px;
     width: 100%;
-}
-
-.timeline-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.timeline-title {
-    color: var(--text-color-secondary);
-    font-size: 2.5em;
-    margin-bottom: 10px;
-    font-family: 'SundayMidnight', sans-serif;
-}
-
-.timeline-subtitle {
-    color: var(--text-color-secondary);
-    font-size: 1.2em;
-    font-weight: normal;
 }
 
 .timeline {
