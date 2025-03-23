@@ -11,7 +11,7 @@ gsap.from('.box', {
     opacity: 0,
     stagger: 0.1,
     y: 300,
-    duration: 1.5,
+    duration: 1,
     ease: 'power.out',
 });
 
@@ -60,11 +60,11 @@ gsap.from(".hero", {
     },
     y: 300,
     opacity: 0,
-    duration: 1.5,
+    duration: 1,
     ease: "power.out"
 });
 
-  // Animation en cascade pour .competence-box
+// Animation en cascade pour .competence-box
 gsap.fromTo(".competence-box",{
         opacity: 0,
         y: 50

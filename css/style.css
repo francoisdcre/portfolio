@@ -462,12 +462,13 @@ nav ul {
     gap: 50px;
 }
 
-.test {
+.main-content {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
     max-width: 1400px;
+    gap: 20px;
 }
 
 .git-repo {
@@ -485,6 +486,12 @@ nav ul {
 
 .repo-title {
     cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.repo-title:hover {
+    color: var(--background-color-secondary);
+    transform: scale(1.05);
 }
 
 .readme {

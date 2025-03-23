@@ -1,0 +1,23 @@
+{
+    "titre": "FolloYou",
+    "description": "Cette application Web est le résultat de mon stage de deuxième année de BTS SIO au sein de l'entreprise Utopia Informatique. Cette application web consiste à reconstruire un client lourd en client léger pour les entreprises utilisant Batigest. Elle permet de gérer les clients, les devis lié aux chantiers des entreprises.",
+    "technologie": [
+        "PHP",
+        "WAMP",
+        "phpMyAdmin",
+        "GitHub",
+        "Git"
+    ],
+    "lien" : "https://folloyou.com/",
+    "images": [
+        {
+            "src": "../assets/img/projets/folloyou/home.jpg",
+            "alt": "Page d'accueil du site"
+        }
+    ],
+    "competences_acquises": [
+        "Travail en équipe",
+        "Git : Utilisation d'un dépot GitHub",
+        "Logique de code en programmation"
+    ]
+}
