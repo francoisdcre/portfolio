@@ -12,6 +12,18 @@
     --background-color-tertiary: #FFF;
     --text-color: #000;
     --text-color-secondary: #402d2d;
+    
+    /* Transition for smooth theme switching */
+    --transition-time: 0.3s;
+}
+
+/* Dark theme variables */
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --background-color-secondary: rgb(142, 107, 64);
+    --background-color-tertiary: #2d2d2d;
+    --text-color: #f1f1f1;
+    --text-color-secondary: #d4a373;
 }
 
 * {
@@ -29,6 +41,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 50px;
+    transition: background-color var(--transition-time), color var(--transition-time);
 }
 
 /* ******************************
@@ -768,4 +781,75 @@ nav ul {
 
 .repo-readme img {
     width: 100%;
+}
+
+/* Nouveau conteneur pour le theme switch à gauche */
+.theme-container {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40px;
+    left: 40px;
+    z-index: 101;
+}
+
+/* Theme toggle switch styles */
+.theme-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: var(--background-color-tertiary);
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    z-index: 102;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background-color var(--transition-time);
+}
+
+.theme-switch i {
+    font-size: 1em;
+    color: var(--text-color);
+    transition: color var(--transition-time);
+}
+
+.theme-switch .toggle-ball {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--background-color-secondary);
+    border-radius: 50%;
+    left: 3px;
+    transform: translateX(0);
+    transition: transform var(--transition-time), background-color var(--transition-time);
+}
+
+[data-theme="dark"] .theme-switch .toggle-ball {
+    transform: translateX(30px);
+}
+
+/* All elements with transition for theme change */
+.box, .top-box, .competence-box, 
+.timeline-box, .timeline-content, .date,
+.section-dot, .dot-tooltip,
+nav, .menu, .hamburger-inner, 
+.hamburger-inner::before, .hamburger-inner::after {
+    transition: background-color var(--transition-time), color var(--transition-time), border-color var(--transition-time);
+}
+
+/* Fix for hamburger menu in dark mode */
+[data-theme="dark"] .hamburger-inner,
+[data-theme="dark"] .hamburger-inner::before,
+[data-theme="dark"] .hamburger-inner::after {
+    background-color: var(--text-color);
+}
+
+[data-theme="dark"] .hamburger.is-active .hamburger-inner,
+[data-theme="dark"] .hamburger.is-active .hamburger-inner::before,
+[data-theme="dark"] .hamburger.is-active .hamburger-inner::after {
+    background-color: var(--text-color);
 }
