@@ -697,6 +697,12 @@ nav ul {
     gap: 40px;
 }
 
+@media (max-width: 1100px) {
+    .hero {
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    }
+}
+
 /* Styles pour chaque box de compétence */
 .competence-box {
     display: flex;
