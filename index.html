@@ -36,7 +36,7 @@
             <a href="#projets" class="section-dot" data-section="projets">
                 <span class="dot-tooltip">Projets</span>
             </a>
-            <a href="#experience" class="section-dot" data-section="experience">
+            <a href="#veille" class="section-dot" data-section="experience">
                 <span class="dot-tooltip">Veille</span>
             </a>
             <a href="#contact" class="section-dot" data-section="contact">
@@ -76,7 +76,7 @@
             <li><a href="#parcours">Parcours</a></li>
             <li><a href="#competences">Compétences</a></li>
             <li><a href="#projets">Projets</a></li>
-            <li><a href="#experience">Veille</a></li>
+            <li><a href="#veille">Veille</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -598,56 +598,9 @@ export async function getStaticProps() {
     <script src="js/Github.js"></script>
     <script src="js/theme.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="js/Swiper.js"></script>
     <script>
         GitHubCalendar(".github-calendar", "francoisdcre", { responsive: true });
-
-        // Initialize the framework swiper
-        const frameworkSwiper = new Swiper('.framework-swiper', {
-            // Optional parameters
-            slidesPerView: 1,
-            spaceBetween: 30,
-            centeredSlides: true,
-            loop: true,
-            autoplay: {
-                delay: 5000,
-                disableOnInteraction: false,
-            },
-            pagination: {
-                el: '.swiper-pagination',
-                clickable: true,
-            },
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-            // Responsive breakpoints
-            breakpoints: {
-                // Small screens
-                576: {
-                    slidesPerView: 1.2, /* Show partial slides on sides */
-                    centeredSlides: true,
-                    spaceBetween: 20
-                },
-                // Medium screens
-                768: {
-                    slidesPerView: 1.8, /* Show more of side slides */
-                    spaceBetween: 30,
-                    centeredSlides: true
-                },
-                // Large screens
-                1024: {
-                    slidesPerView: 2.5, /* Show partial slides on sides */
-                    spaceBetween: 40,
-                    centeredSlides: true
-                },
-                // Extra large screens
-                1200: {
-                    slidesPerView: 3,
-                    spaceBetween: 40,
-                    centeredSlides: true
-                }
-            }
-        });
     </script>
 </body>
 </html>
