@@ -26,6 +26,7 @@ function displayRepos(repos) {
   if (!container) return;
 
   repos.forEach(repo => {
+    console.log(repo.name);
     const repoDiv = document.createElement('div');
     repoDiv.className = 'repo-title';
     repoDiv.innerHTML = `<h1>${repo.name}</h1>`;
