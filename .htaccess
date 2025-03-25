@@ -1,10 +1,10 @@
 # Activer la réécriture d'URL
-RewriteEngine On
+RewriteEngine Off
 
-# Enlever l'extension .html
-RewriteCond %{REQUEST_METHOD} !POST
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^([^\.]+)$ $1.html [NC,L]
+# --- Enlever l'extension .html ---
+#RewriteCond %{REQUEST_METHOD} !POST
+#RewriteCond %{REQUEST_FILENAME}.html -f
+#RewriteRule ^([^\.]+)$ $1.html [NC,L]
 
 # --- Désactivé : suppression de l’extension .php ---
 #RewriteCond %{REQUEST_METHOD} !POST
@@ -12,9 +12,9 @@ RewriteRule ^([^\.]+)$ $1.html [NC,L]
 #RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
 # Rediriger proprement les URL avec .html vers l'URL sans extension
-RewriteCond %{REQUEST_METHOD} !POST
-RewriteCond %{THE_REQUEST} \.html
-RewriteRule ^(.*)\.html$ /$1 [R=301,L]
+#RewriteCond %{REQUEST_METHOD} !POST
+#RewriteCond %{THE_REQUEST} \.html
+#RewriteRule ^(.*)\.html$ /$1 [R=301,L]
 
 # --- Désactivé : redirection .php vers URL sans extension ---
 #RewriteCond %{REQUEST_METHOD} !POST
