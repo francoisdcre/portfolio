@@ -16,6 +16,7 @@
     <script src="js/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.2.12/marked.min.js"></script>
     <script src="js/Progression.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body>
@@ -983,7 +984,7 @@ export default component$(() => {
                         </div>
                     </div>
                     
-                    <form id="contact-form" class="contact-form">
+                    <form id="contact-form" class="contact-form" method="post" action="php/send-mail.php">
                         <div class="form-row">
                             <div class="form-group">
                                 <input type="text" id="name" name="name" required>
@@ -1009,7 +1010,9 @@ export default component$(() => {
                             <label for="message">Message</label>
                             <div class="input-line"></div>
                         </div>
-                        
+                        <div class="recaptcha">
+                            <div class="g-recaptcha" data-sitekey="6Ld3AQArAAAAAE9Le5179dadeLq9VNvhUE0CARqR"></div>
+                        </div>
                         <button type="submit" class="submit-btn">
                             <span>Envoyer</span>
                             <i class="fas fa-paper-plane"></i>

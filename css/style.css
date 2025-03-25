@@ -1516,6 +1516,12 @@ nav,
     background-color: var(--background-color-secondary);
 }
 
+.recaptcha {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .submit-btn {
     align-self: center;
     background-color: var(--background-color-secondary);
