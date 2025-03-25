@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $responseData = json_decode($result);
 
     if (!$responseData || !$responseData->success) {
-        echo "La vérification reCAPTCHA a échoué. Veuillez réessayer.";
+        $_SESSION['error'] = true;
+        header('Location: ../index.php#contact');
         exit;
     }
 
