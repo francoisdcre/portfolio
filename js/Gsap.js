@@ -145,7 +145,6 @@ gsap.from('.framework-card', {
         toggleActions: 'play none none reverse',
     },
     opacity: 0,
-    y: 70,
     stagger: 0.1,
     duration: 0.7,
     ease: 'back.out(1.2)'
