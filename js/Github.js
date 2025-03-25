@@ -51,6 +51,7 @@ function displayRepos(repos) {
     });
   });
   
+}
 
 async function loadReadme(owner, repoName) {
   const readmeContainer = document.querySelector('.repo-readme');
