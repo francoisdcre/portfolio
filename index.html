@@ -9,8 +9,8 @@
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/theme.css" />
     <link href="assets/lib/hamburger/hamburgers.css" rel="stylesheet" />
-    <link href="assets/lib/notification-master/notification.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar-responsive.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/01607bf9c6.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
@@ -1072,31 +1072,49 @@ export default component$(() => {
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/Swiper.js"></script>
     <script src="js/Competences.js"></script>
-    <script src="assets/lib/notification-master/notification.js"></script>
     <script>
         GitHubCalendar(".github-calendar", "francoisdcre", { responsive: true });
+
+        // Initialisation de notification-master
         const popup = Notification({
             position: 'top-right',
             duration: 5000
         });
-    </script>
-        <?php
-        if (isset($_SESSION['error'])) {
-            if ($_SESSION['error'] === true) {
-                echo '<script>popup.error({title: "Erreur", message: "Le reCAPTCHA n\'a pas été validé."});</script>';
-                unset($_SESSION['error']);
-            }
-        }
 
-        if (isset($_SESSION['success'])) {
-            if ($_SESSION['success'] === true) {
-                echo '<script>popup.success({title: "Mail envoyé !", message: "Le mail a bien été envoyé avec succès !"});</script>';
-                unset($_SESSION['success']);
-            } else {
-                echo '<script>popup.error({title: "Erreur", message: "Le mail n\'a pas été envoyé suite à une erreur."});</script>';
-                unset($_SESSION['success']);
-            }
-        }
-    ?>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("contact-form").addEventListener("submit", function(e) {
+                e.preventDefault(); // Empêche le rechargement de la page
+                var formData = new FormData(this);
+
+                fetch('php/send-mail.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success){
+                        popup.success({
+                            title: "Mail envoyé !",
+                            message: "Le mail a bien été envoyé avec succès !"
+                        });
+                        // Réinitialiser le formulaire si nécessaire
+                        document.getElementById("contact-form").reset();
+                    } else {
+                        popup.error({
+                            title: "Erreur",
+                            message: data.error || "Le mail n'a pas pu être envoyé."
+                        });
+                    }
+                })
+                .catch(error => {
+                    popup.error({
+                        title: "Erreur",
+                        message: "Erreur réseau"
+                    });
+                });
+            });
+        });
+    </script>
 </body>
+
 </html>
