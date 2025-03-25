@@ -135,7 +135,8 @@ gsap.from('.veille-intro', {
     y: 50,
     opacity: 0,
     duration: 0.8,
-    ease: 'power2.out'
+    ease: 'power2.out',
+    clearProps: 'all'
 });
 
 gsap.from('.framework-card', {
@@ -147,7 +148,8 @@ gsap.from('.framework-card', {
     opacity: 0,
     stagger: 0.1,
     duration: 0.7,
-    ease: 'back.out(1.2)'
+    ease: 'back.out(1.2)',
+    clearProps: 'transform,opacity,scale' // Permet aux hovers de fonctionner une fois l'animation terminée
 });
 
 gsap.from('.source-item', {
@@ -160,7 +162,8 @@ gsap.from('.source-item', {
     opacity: 0,
     stagger: 0.15,
     duration: 0.6,
-    ease: 'power1.out'
+    ease: 'power1.out',
+    clearProps: 'transform,opacity,scale' // Permet aux hovers de fonctionner une fois l'animation terminée
 });
 
 gsap.utils.toArray('.comparison-card').forEach((card, i) => {
@@ -174,7 +177,8 @@ gsap.utils.toArray('.comparison-card').forEach((card, i) => {
         opacity: 0,
         duration: 0.8,
         delay: i * 0.2,
-        ease: 'power2.out'
+        ease: 'power2.out',
+        clearProps: 'transform,opacity,x' // Permet aux hovers de fonctionner une fois l'animation terminée
     });
 });
 
@@ -189,7 +193,8 @@ gsap.utils.toArray('.comparison-table tbody tr').forEach((row, i) => {
         y: 20,
         duration: 0.4,
         delay: i * 0.1 + 0.4,
-        ease: 'power1.out'
+        ease: 'power1.out',
+        clearProps: 'transform,opacity,y' // Permet aux hovers de fonctionner une fois l'animation terminée
     });
 });
 
@@ -202,5 +207,6 @@ gsap.from('.veille-conclusion', {
     y: 40,
     opacity: 0,
     duration: 0.9,
-    ease: 'power2.out'
+    ease: 'power2.out',
+    clearProps: 'all'
 });
