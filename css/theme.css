@@ -1,0 +1,106 @@
+:root {
+    --background-color: #faedcd;
+    --background-color-secondary: #d4a373;
+    --background-color-tertiary: #FFF;
+    --text-color: #000;
+    --text-color-secondary: #402d2d;
+    --transition-time: 0.3s;
+}
+
+[data-theme="dark"] {
+    --background-color: #1a1a1a;
+    --background-color-secondary: rgb(142, 107, 64);
+    --background-color-tertiary: #2d2d2d;
+    --text-color: #f1f1f1;
+    --text-color-secondary: #d4a373;
+}
+
+.theme-container {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: 40px;
+    left: 40px;
+    z-index: 101;
+}
+
+.theme-switch {
+    position: relative;
+    width: 60px;
+    height: 30px;
+    background-color: var(--background-color-tertiary);
+    border-radius: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5px;
+    z-index: 102;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
+    transition: background-color var(--transition-time);
+}
+
+.theme-switch i {
+    font-size: 1em;
+    color: var(--text-color);
+    transition: color var(--transition-time);
+}
+
+.theme-switch .toggle-ball {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    background-color: var(--background-color-secondary);
+    border-radius: 50%;
+    left: 3px;
+    transform: translateX(0);
+    transition: transform var(--transition-time), background-color var(--transition-time);
+}
+
+[data-theme="dark"] .theme-switch .toggle-ball {
+    transform: translateX(30px);
+}
+
+[data-theme="dark"] .repo-readme pre {
+    background-color: #212121;
+    border-left-color: var(--background-color-secondary);
+}
+
+[data-theme="dark"] .hamburger-inner,
+[data-theme="dark"] .hamburger-inner::before,
+[data-theme="dark"] .hamburger-inner::after {
+    background-color: var(--text-color);
+}
+
+[data-theme="dark"] .hamburger.is-active .hamburger-inner,
+[data-theme="dark"] .hamburger.is-active .hamburger-inner::before,
+[data-theme="dark"] .hamburger.is-active .hamburger-inner::after {
+    background-color: var(--text-color);
+}
+
+[data-theme="dark"] .code-snippet {
+    background-color: #121212;
+}
+
+[data-theme="dark"] .comparison-table {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+[data-theme="dark"] .comparison-table tr:nth-child(even) {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .comparison-table th:first-child,
+[data-theme="dark"] .comparison-table td:first-child {
+    background-color: rgba(255, 255, 255, 0.03);
+    border-right: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+[data-theme="dark"] .comparison-table tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="dark"] .comparison-table tr:hover td {
+    background-color: rgba(212, 163, 115, 0.2);
+}

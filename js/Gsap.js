@@ -128,3 +128,89 @@ gsap.fromTo(".competence-box",{
         }
     }
 );
+
+// Animations pour la section Veille
+gsap.from('.veille-intro', {
+    scrollTrigger: {
+        trigger: '#veille',
+        start: 'top 60%',
+        toggleActions: 'play none none reverse',
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out'
+});
+
+// Animation des cartes de frameworks dans le swiper
+gsap.from('.framework-card', {
+    scrollTrigger: {
+        trigger: '.framework-timeline',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse',
+    },
+    opacity: 0,
+    y: 70,
+    stagger: 0.1,
+    duration: 0.7,
+    ease: 'back.out(1.2)'
+});
+
+// Animation des items de sources
+gsap.from('.source-item', {
+    scrollTrigger: {
+        trigger: '.veille-sources',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse',
+    },
+    scale: 0.8,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.6,
+    ease: 'power1.out'
+});
+
+// Animation des cartes de comparaison
+gsap.utils.toArray('.comparison-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+        },
+        x: i % 2 === 0 ? -50 : 50, // Alternance gauche-droite
+        opacity: 0,
+        duration: 0.8,
+        delay: i * 0.2,
+        ease: 'power2.out'
+    });
+});
+
+// Animation des lignes de tableau avec effet cascade
+gsap.utils.toArray('.comparison-table tbody tr').forEach((row, i) => {
+    gsap.from(row, {
+        scrollTrigger: {
+            trigger: row.closest('.comparison-card'),
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+        },
+        opacity: 0,
+        y: 20,
+        duration: 0.4,
+        delay: i * 0.1 + 0.4, // Délai progressif après l'animation de la carte
+        ease: 'power1.out'
+    });
+});
+
+// Animation de la conclusion
+gsap.from('.veille-conclusion', {
+    scrollTrigger: {
+        trigger: '.veille-conclusion',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power2.out'
+});
