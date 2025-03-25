@@ -34,24 +34,23 @@ function displayRepos(repos) {
     container.appendChild(document.createElement('hr'));
   });
 
-  // Lancement de l’animation GSAP **après** l’injection
   gsap.registerPlugin(ScrollTrigger);
 
-  // Après avoir ajouté tous les .repo-title au DOM :
   gsap.utils.toArray(".repo-title").forEach(el => {
     gsap.from(el, {
       scrollTrigger: {
         trigger: el,
         start: "top 80%",
-        toggleActions: "play none none reverse"
+        toggleActions: "play none none reverse",
+        markers: true
       },
       x: -300,
       opacity: 0,
-      duration: 0.2,
+      duration: 0.6,
       ease: "power.out"
     });
-  });  
-}
+  });
+  
 
 async function loadReadme(owner, repoName) {
   const readmeContainer = document.querySelector('.repo-readme');
