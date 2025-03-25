@@ -630,6 +630,147 @@ export async function getStaticProps() {
                                 </div>
                             </div>
                         </div>
+                        
+                        <!-- Fifth slide - Astro -->
+                        <div class="swiper-slide">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <i class="fas fa-rocket"></i>
+                                    <h3>Astro</h3>
+                                    <span class="year-tag">2022</span>
+                                </div>
+                                <div class="framework-content">
+                                    <p>
+                                        Framework web moderne axé sur le contenu qui livre moins de JavaScript
+                                        tout en offrant une expérience développeur exceptionnelle.
+                                    </p>
+                                    <div class="tech-tags">
+                                        <span>Content-focused</span>
+                                        <span>Islandable</span>
+                                        <span>Multi-framework</span>
+                                    </div>
+                                </div>
+                                <div class="code-snippet">
+                                    <pre><code>// Exemple Astro
+---
+// Frontmatter pour la logique de composant
+const title = "Hello Astro";
+---
+&lt;html&gt;
+  &lt;head&gt;&lt;title&gt;{title}&lt;/title&gt;&lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;{title}&lt;/h1&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Sixth slide - Bun -->
+                        <div class="swiper-slide">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <i class="fas fa-hamburger"></i>
+                                    <h3>Bun</h3>
+                                    <span class="year-tag">2023</span>
+                                </div>
+                                <div class="framework-content">
+                                    <p>
+                                        Runtime JavaScript tout-en-un ultra-rapide avec bundler, 
+                                        transpileur, gestionnaire de packages et runner de tests intégrés.
+                                    </p>
+                                    <div class="tech-tags">
+                                        <span>Runtime</span>
+                                        <span>Performance</span>
+                                        <span>JavaScript/TypeScript</span>
+                                    </div>
+                                </div>
+                                <div class="code-snippet">
+                                    <pre><code>// Exemple Bun
+// server.js
+export default {
+  port: 3000,
+  fetch(request) {
+    return new Response("Hello from Bun!");
+  },
+};
+
+// Démarrer avec: bun server.js</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Seventh slide - SolidJS -->
+                        <div class="swiper-slide">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <i class="fas fa-cube"></i>
+                                    <h3>SolidJS</h3>
+                                    <span class="year-tag">2018</span>
+                                </div>
+                                <div class="framework-content">
+                                    <p>
+                                        Framework déclaratif qui compile les expressions réactives en micro-tâches 
+                                        ciblées sans DOM virtuel, offrant des performances supérieures.
+                                    </p>
+                                    <div class="tech-tags">
+                                        <span>Réactivité fine</span>
+                                        <span>Sans VDOM</span>
+                                        <span>Ultra-performant</span>
+                                    </div>
+                                </div>
+                                <div class="code-snippet">
+                                    <pre><code>// Exemple SolidJS
+import { createSignal } from "solid-js";
+
+function Counter() {
+  const [count, setCount] = createSignal(0);
+  
+  return (
+    &lt;button onClick={() => setCount(count() + 1)}&gt;
+      Clicks: {count()}
+    &lt;/button&gt;
+  );
+}</code></pre>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Eighth slide - Qwik -->
+                        <div class="swiper-slide">
+                            <div class="framework-card">
+                                <div class="framework-header">
+                                    <i class="fas fa-bolt-lightning"></i>
+                                    <h3>Qwik</h3>
+                                    <span class="year-tag">2022</span>
+                                </div>
+                                <div class="framework-content">
+                                    <p>
+                                        Framework "resumable" qui élimine l'hydratation en chargeant uniquement le JavaScript 
+                                        nécessaire lors de l'interaction, pour une performance initiale inégalée.
+                                    </p>
+                                    <div class="tech-tags">
+                                        <span>Resumable</span>
+                                        <span>Lazy-loading</span>
+                                        <span>Builder.io</span>
+                                    </div>
+                                </div>
+                                <div class="code-snippet">
+                                    <pre><code>// Exemple Qwik
+import { component$, useSignal } from '@builder.io/qwik';
+
+export default component$(() => {
+  const count = useSignal(0);
+  
+  return (
+    &lt;button onClick$={() => count.value++}&gt;
+      Clicks: {count.value}
+    &lt;/button&gt;
+  );
+});</code></pre>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Add pagination -->
@@ -663,6 +804,144 @@ export async function getStaticProps() {
                         <i class="fab fa-twitter"></i>
                         <h4>Twitter Tech</h4>
                         <p>Veille via les influenceurs techniques</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Nouvelle section de comparaisons de frameworks -->
+            <div class="framework-comparisons">
+                <h3>Comparaisons de Frameworks</h3>
+                <p>Ma veille me permet d'analyser et de comparer les forces et faiblesses des différentes solutions technologiques.</p>
+                
+                <div class="comparison-container">
+                    <div class="comparison-card">
+                        <h4>Runtimes JavaScript</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Critère</th>
+                                    <th>Node.js</th>
+                                    <th>Deno</th>
+                                    <th>Bun</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Performance</td>
+                                    <td>Bonne</td>
+                                    <td>Meilleure</td>
+                                    <td>Excellente</td>
+                                </tr>
+                                <tr>
+                                    <td>Sécurité</td>
+                                    <td>Standard</td>
+                                    <td>Sécurisé par défaut</td>
+                                    <td>Standard</td>
+                                </tr>
+                                <tr>
+                                    <td>Écosystème</td>
+                                    <td>Très mature</td>
+                                    <td>En croissance</td>
+                                    <td>Naissant</td>
+                                </tr>
+                                <tr>
+                                    <td>TypeScript</td>
+                                    <td>Avec transpilation</td>
+                                    <td>Natif</td>
+                                    <td>Natif</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>Frameworks UI</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Critère</th>
+                                    <th>React</th>
+                                    <th>Svelte</th>
+                                    <th>Vue</th>
+                                    <th>SolidJS</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Bundle size</td>
+                                    <td>Lourd</td>
+                                    <td>Très léger</td>
+                                    <td>Modéré</td>
+                                    <td>Très léger</td>
+                                </tr>
+                                <tr>
+                                    <td>Performances</td>
+                                    <td>Bonnes</td>
+                                    <td>Excellentes</td>
+                                    <td>Très bonnes</td>
+                                    <td>Excellentes</td>
+                                </tr>
+                                <tr>
+                                    <td>Adoption</td>
+                                    <td>Massive</td>
+                                    <td>Croissante</td>
+                                    <td>Importante</td>
+                                    <td>Émergente</td>
+                                </tr>
+                                <tr>
+                                    <td>Paradigme</td>
+                                    <td>Virtuel DOM</td>
+                                    <td>Compilation</td>
+                                    <td>Hybride</td>
+                                    <td>Réactivité fine</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="comparison-card">
+                        <h4>Meta-frameworks</h4>
+                        <table class="comparison-table">
+                            <thead>
+                                <tr>
+                                    <th>Critère</th>
+                                    <th>Next.js</th>
+                                    <th>SvelteKit</th>
+                                    <th>Astro</th>
+                                    <th>Qwik</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Base</td>
+                                    <td>React</td>
+                                    <td>Svelte</td>
+                                    <td>Multi-frameworks</td>
+                                    <td>Qwik</td>
+                                </tr>
+                                <tr>
+                                    <td>Rendu</td>
+                                    <td>SSR, SSG, CSR</td>
+                                    <td>SSR, SSG, CSR</td>
+                                    <td>SSG, Îles</td>
+                                    <td>SSR, Resumable</td>
+                                </tr>
+                                <tr>
+                                    <td>JavaScript client</td>
+                                    <td>Complet</td>
+                                    <td>Modéré</td>
+                                    <td>Minimal</td>
+                                    <td>Progressif</td>
+                                </tr>
+                                <tr>
+                                    <td>Focus</td>
+                                    <td>Applications</td>
+                                    <td>Applications</td>
+                                    <td>Sites de contenu</td>
+                                    <td>Performance</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>
