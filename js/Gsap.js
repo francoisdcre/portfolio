@@ -101,8 +101,8 @@ gsap.from('.timeline-item::after', {
 gsap.from(".hero", {
     scrollTrigger: {
         trigger: "#competences",
-        start: "top 20%",
-      toggleActions: "play none none reverse" // Se joue une seule fois
+        start: "top 60%", // Modifié de "top 20%" pour commencer plus tôt
+        toggleActions: "play none none reverse"
     },
     y: 300,
     opacity: 0,
@@ -123,7 +123,7 @@ gsap.fromTo(".competence-box",{
         stagger: 0.2,
         scrollTrigger: {
             trigger: "#competences",
-            start: "top 20%",
+            start: "top 60%", // Modifié de "top 20%" pour commencer plus tôt
             toggleActions: "play none none reverse"
         }
     }

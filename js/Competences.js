@@ -64,56 +64,50 @@ document.addEventListener("DOMContentLoaded", function () {
     function filterWithGSAP(filter) {
         isAnimating = true;
         
-        // Trouver les éléments à cacher et à montrer
-        const toHide = Array.from(boxes).filter(box => 
-            !(filter === "all" || box.getAttribute("data-category") === filter)
-        );
-        
+        // Trouver les éléments à montrer après la transition
         const toShow = Array.from(boxes).filter(box => 
             (filter === "all" || box.getAttribute("data-category") === filter)
         );
-
-        // Animation en deux étapes
+        
+        // Animation en deux phases distinctes
         const tl = gsap.timeline({
             onComplete: () => { isAnimating = false; }
         });
 
-        // Étape 1: Masquer les éléments avec animation
-        if (toHide.length > 0) {
-            tl.to(toHide, {
-                scale: 0.8,
-                opacity: 0,
-                y: 20,
-                duration: 0.3,
-                stagger: 0.05,
-                ease: "power2.out",
-                onComplete: () => {
-                    toHide.forEach(box => box.style.display = "none");
-                }
-            });
-        }
-
-        // Étape 2: Afficher les éléments avec animation
-        if (toShow.length > 0) {
-            // D'abord s'assurer qu'ils sont visibles dans le DOM
-            toShow.forEach(box => {
-                if (box.style.display === "none") {
+        // Phase 1: Faire disparaître TOUS les éléments
+        tl.to(boxes, {
+            scale: 0.8,
+            opacity: 0,
+            y: 20,
+            duration: 0.3,
+            stagger: 0.03,
+            ease: "power2.out",
+            onComplete: function() {
+                // Masquer tous les éléments
+                boxes.forEach(box => {
+                    box.style.display = "none";
+                });
+                
+                // Préparer uniquement les éléments qui doivent être affichés
+                toShow.forEach(box => {
                     box.style.display = "flex";
                     gsap.set(box, { opacity: 0, scale: 0.8, y: 20 });
-                }
-            });
+                });
+            }
+        });
 
-            // Animation des éléments à montrer
-            tl.to(toShow, {
-                scale: 1,
-                opacity: 1, 
-                y: 0,
-                duration: 0.4,
-                stagger: 0.08,
-                ease: "back.out(1.2)",
-                clearProps: "all" // Pour éviter les styles inline qui pourraient causer des problèmes
-            }, toHide.length > 0 ? "-=0.1" : 0); // Chevaucher légèrement avec l'animation précédente
-        }
+        // Phase 2: Faire apparaître uniquement les éléments filtrés
+        tl.to(toShow, {
+            scale: 1,
+            opacity: 1, 
+            y: 0,
+            duration: 0.4,
+            stagger: 0.08,
+            ease: "back.out(1.2)",
+            clearProps: "all"
+        }, "+=0.1"); // Petit délai avant l'apparition pour créer une séparation entre les phases
+        
+        return tl;
     }
 
     // Initialiser avec le filtre "all" sans animation au chargement initial
