@@ -1074,6 +1074,46 @@ export default component$(() => {
     <script src="js/Competences.js"></script>
     <script>
         GitHubCalendar(".github-calendar", "francoisdcre", { responsive: true });
+
+        // Initialisation de notification-master
+        const popup = Notification({
+            position: 'top-right',
+            duration: 5000
+        });
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("contact-form").addEventListener("submit", function(e) {
+                e.preventDefault(); // Empêche le rechargement de la page
+                var formData = new FormData(this);
+
+                fetch('php/send-mail.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success){
+                        popup.success({
+                            title: "Mail envoyé !",
+                            message: "Le mail a bien été envoyé avec succès !"
+                        });
+                        // Réinitialiser le formulaire si nécessaire
+                        document.getElementById("contact-form").reset();
+                    } else {
+                        popup.error({
+                            title: "Erreur",
+                            message: data.error || "Le mail n'a pas pu être envoyé."
+                        });
+                    }
+                })
+                .catch(error => {
+                    popup.error({
+                        title: "Erreur",
+                        message: "Erreur réseau"
+                    });
+                });
+            });
+        });
     </script>
 </body>
 

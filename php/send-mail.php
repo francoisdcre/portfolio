@@ -38,7 +38,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $responseData = json_decode($result);
 
     if (!$responseData || !$responseData->success) {
-        header('Location: ../index.php#contact');
+        // echo "La vérification reCAPTCHA a échoué. Veuillez réessayer.";
+        echo json_encode(['success' => false, 'error' => 'La vérification reCAPTCHA a échoué.']);
         exit;
     }
 
@@ -72,11 +73,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         $mail->send();
-        header('Location: ../index.php#contact');
-        exit;
+        // echo 'Le message a été envoyé avec succès';
+        echo json_encode(['success' => true]);
     } catch (Exception $e) {
-        header('Location: ../index.php#contact');
-        exit;
+        // echo "Le message n'a pas pu être envoyé. Erreur: {$mail->ErrorInfo}";
+        echo json_encode(['success' => false, 'error' => $mail->ErrorInfo]);
     }
 
 }
