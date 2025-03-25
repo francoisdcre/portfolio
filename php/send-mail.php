@@ -38,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $responseData = json_decode($result);
 
     if (!$responseData || !$responseData->success) {
-        $_SESSION['error'] = true;
         header('Location: ../index.php#contact');
         exit;
     }
@@ -73,11 +72,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
         $mail->send();
-        $_SESSION['success'] = true;
         header('Location: ../index.php#contact');
         exit;
     } catch (Exception $e) {
-        $_SESSION['success'] = false;
         header('Location: ../index.php#contact');
         exit;
     }
