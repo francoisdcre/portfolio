@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="css/style.css" />
     <link rel="stylesheet" href="css/responsive.css" />
     <link rel="stylesheet" href="css/theme.css" />
+    <link rel="stylesheet" href="assets/lib/notification-master/notification.css" />
     <link href="assets/lib/hamburger/hamburgers.css" rel="stylesheet" />
-    <link rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar-responsive.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar-responsive.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <script src="https://kit.fontawesome.com/01607bf9c6.js" crossorigin="anonymous"></script>
     <script src="js/script.js"></script>
@@ -1072,19 +1072,23 @@ export default component$(() => {
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/Swiper.js"></script>
     <script src="js/Competences.js"></script>
+    <script src="assets/lib/notification-master/notification.js"></script>
     <script>
         GitHubCalendar(".github-calendar", "francoisdcre", { responsive: true });
 
-        // Initialisation de notification-master
-        const popup = Notification({
-            position: 'top-right',
-            duration: 5000
-        });
-
         document.addEventListener("DOMContentLoaded", function() {
-            document.getElementById("contact-form").addEventListener("submit", function(e) {
-                e.preventDefault(); // Empêche le rechargement de la page
-                var formData = new FormData(this);
+            // Initialisation de notification-master
+            const popup = Notification({
+                position: 'top-right',
+                duration: 5000
+            });
+
+            const contactForm = document.getElementById("contact-form");
+
+            if (contactForm) {
+                contactForm.addEventListener("submit", function(e) {
+                e.preventDefault(); // Empêche le comportement par défaut de soumission
+                var formData = new FormData(contactForm);
 
                 fetch('php/send-mail.php', {
                     method: 'POST',
@@ -1093,26 +1097,26 @@ export default component$(() => {
                 .then(response => response.json())
                 .then(data => {
                     if(data.success){
-                        popup.success({
-                            title: "Mail envoyé !",
-                            message: "Le mail a bien été envoyé avec succès !"
-                        });
-                        // Réinitialiser le formulaire si nécessaire
-                        document.getElementById("contact-form").reset();
+                    popup.success({
+                        title: "Mail envoyé !",
+                        message: "Le mail a bien été envoyé avec succès !"
+                    });
+                    contactForm.reset(); // Réinitialise le formulaire
                     } else {
-                        popup.error({
-                            title: "Erreur",
-                            message: data.error || "Le mail n'a pas pu être envoyé."
-                        });
+                    popup.error({
+                        title: "Erreur",
+                        message: data.error || "Le mail n'a pas pu être envoyé."
+                    });
                     }
                 })
                 .catch(error => {
                     popup.error({
-                        title: "Erreur",
-                        message: "Erreur réseau"
+                    title: "Erreur",
+                    message: "Erreur réseau"
                     });
                 });
-            });
+                });
+            }
         });
     </script>
 </body>
