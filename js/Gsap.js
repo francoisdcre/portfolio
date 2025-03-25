@@ -210,3 +210,79 @@ gsap.from('.veille-conclusion', {
     ease: 'power2.out',
     clearProps: 'all'
 });
+
+// Contact
+
+gsap.from('.contact-intro', {
+    scrollTrigger: {
+        trigger: '#contact',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse',
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out',
+    clearProps: 'all'
+});
+
+gsap.from('.contact-form-card', {
+    scrollTrigger: {
+        trigger: '.contact-form-wrapper',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse',
+    },
+    scale: 0.9,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'back.out(1.4)',
+    clearProps: 'transform,opacity,scale'
+});
+
+// Animation séquentielle des éléments du formulaire
+gsap.utils.toArray('.form-group').forEach((group, i) => {
+    gsap.from(group, {
+        scrollTrigger: {
+            trigger: '.contact-form-card',
+            start: 'top 70%',
+            toggleActions: 'play none none reverse',
+        },
+        opacity: 0,
+        x: i % 2 === 0 ? -20 : 20,
+        duration: 0.6,
+        delay: 0.3 + (i * 0.15),
+        ease: 'power2.out',
+        clearProps: 'all'
+    });
+});
+
+// Animation spéciale pour le bouton d'envoi
+gsap.from('.submit-btn', {
+    scrollTrigger: {
+        trigger: '.contact-form-card',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse',
+    },
+    opacity: 0,
+    y: 20,
+    scale: 0.8,
+    duration: 0.7,
+    delay: 0.9,
+    ease: 'elastic.out(1, 0.5)',
+    clearProps: 'transform,opacity,scale'
+});
+
+// Animation pour l'icône du bouton d'envoi
+gsap.to('.submit-btn i', {
+    scrollTrigger: {
+        trigger: '.contact-form-card',
+        start: 'top 70%',
+        toggleActions: 'play none none none',
+    },
+    x: 5,
+    duration: 0.5,
+    delay: 1.3,
+    repeat: 1,
+    yoyo: true,
+    ease: 'power2.inOut'
+});
