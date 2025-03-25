@@ -1076,48 +1076,48 @@ export default component$(() => {
     <script>
         GitHubCalendar(".github-calendar", "francoisdcre", { responsive: true });
 
-        // document.addEventListener("DOMContentLoaded", function() {
-        //     // Initialisation de notification-master
-        //     const popup = Notification({
-        //         position: 'top-right',
-        //         duration: 5000
-        //     });
+        document.addEventListener("DOMContentLoaded", function() {
+            // Initialisation de notification-master
+            const popup = Notification({
+                position: 'top-right',
+                duration: 5000
+            });
 
-        //     const contactForm = document.getElementById("contact-form");
+            const contactForm = document.getElementById("contact-form");
 
-        //     if (contactForm) {
-        //         contactForm.addEventListener("submit", function(e) {
-        //         e.preventDefault(); // Empêche le comportement par défaut de soumission
-        //         var formData = new FormData(contactForm);
+            if (contactForm) {
+                contactForm.addEventListener("submit", function(e) {
+                e.preventDefault(); // Empêche le comportement par défaut de soumission
+                var formData = new FormData(contactForm);
 
-        //         fetch('php/send-mail.php', {
-        //             method: 'POST',
-        //             body: formData
-        //         })
-        //         .then(response => response.json())
-        //         .then(data => {
-        //             if(data.success){
-        //             popup.success({
-        //                 title: "Mail envoyé !",
-        //                 message: "Le mail a bien été envoyé avec succès !"
-        //             });
-        //             contactForm.reset(); // Réinitialise le formulaire
-        //             } else {
-        //             popup.error({
-        //                 title: "Erreur",
-        //                 message: data.error || "Le mail n'a pas pu être envoyé."
-        //             });
-        //             }
-        //         })
-        //         .catch(error => {
-        //             popup.error({
-        //             title: "Erreur",
-        //             message: "Erreur réseau"
-        //             });
-        //         });
-        //         });
-        //     }
-        // });
+                fetch('php/send-mail.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if(data.success){
+                    popup.success({
+                        title: "Mail envoyé !",
+                        message: "Le mail a bien été envoyé avec succès !"
+                    });
+                    contactForm.reset(); // Réinitialise le formulaire
+                    } else {
+                    popup.error({
+                        title: "Erreur",
+                        message: data.error || "Le mail n'a pas pu être envoyé."
+                    });
+                    }
+                })
+                .catch(error => {
+                    popup.error({
+                    title: "Erreur",
+                    message: "Erreur réseau"
+                    });
+                });
+                });
+            }
+        });
     </script>
 </body>
 
