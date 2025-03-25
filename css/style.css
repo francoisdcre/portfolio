@@ -7,26 +7,6 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
-:root {
-    --background-color: #faedcd;
-    --background-color-secondary: #d4a373;
-    --background-color-tertiary: #FFF;
-    --text-color: #000;
-    --text-color-secondary: #402d2d;
-
-    /* Transition for smooth theme switching */
-    --transition-time: 0.3s;
-}
-
-/* Dark theme variables */
-[data-theme="dark"] {
-    --background-color: #1a1a1a;
-    --background-color-secondary: rgb(142, 107, 64);
-    --background-color-tertiary: #2d2d2d;
-    --text-color: #f1f1f1;
-    --text-color-secondary: #d4a373;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -64,7 +44,6 @@ body {
     flex-direction: column;
 }
 
-/* S'assurer qu'il commence bien en position normale */
 #welcome-screen.hidden {
     transform: translateY(-100%);
     opacity: 0;
@@ -431,7 +410,6 @@ nav ul {
 
 .inline {
     display: flex;
-    /* flex-wrap: wrap; */
     align-items: stretch;
     justify-content: center;
     gap: 50px;
@@ -579,20 +557,7 @@ nav ul {
 }
 
 .timeline-item::after {
-    /* Suppression des bulles après les éléments de la timeline */
     display: none;
-    /* Cache le pseudo-élément au lieu de le supprimer complètement */
-}
-
-/* Ajuster la position des cercles pour qu'ils soient parfaitement centrés sur la ligne */
-.timeline-item.left::after {
-    /* right: 27px; */
-    /* Ajustement plus précis */
-}
-
-.timeline-item.right::after {
-    /* left: 27px; */
-    /* Ajustement plus précis */
 }
 
 .timeline-box {
@@ -629,7 +594,6 @@ nav ul {
     Compétences
 ****************************** */
 
-/* Styles pour la section compétences */
 #competences {
     display: flex;
     align-items: center;
@@ -640,7 +604,6 @@ nav ul {
     gap: 50px;
 }
 
-/* Style du menu de filtrage */
 .filter-menu {
     text-align: center;
     margin-bottom: 30px;
@@ -688,7 +651,6 @@ nav ul {
     
 }
 
-/* Utilisation de CSS Grid pour la liste des compétences */
 .hero {
     width: 100%;
     max-width: 1100px;
@@ -697,13 +659,6 @@ nav ul {
     gap: 40px;
 }
 
-@media (max-width: 1100px) {
-    .hero {
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    }
-}
-
-/* Styles pour chaque box de compétence */
 .competence-box {
     display: flex;
     flex-direction: column;
@@ -744,8 +699,6 @@ nav ul {
     margin-top: 0;
     font-style: italic;
 }
-
-
 
 /* ******************************
     Projets
@@ -802,11 +755,146 @@ nav ul {
     box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
     background-color: var(--background-color-tertiary);
     position: relative;
+    margin-right: 50px;
 }
 
 #close-readme-text-btn {
-    margin: 20px;
+    margin: 0;
+    padding: 8px 12px;
     cursor: pointer;
+    z-index: 10;
+    font-size: 0.9em;
+    border-radius: 8px;
+}
+
+.readme-content {
+    padding: 30px 40px;
+    overflow-y: auto;
+    max-height: calc(80vh - 60px);
+    scrollbar-width: thin;
+    scrollbar-color: var(--background-color-secondary) var(--background-color-tertiary);
+}
+
+.readme-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.readme-content::-webkit-scrollbar-track {
+    background: var(--background-color-tertiary);
+    border-radius: 10px;
+}
+
+.readme-content::-webkit-scrollbar-thumb {
+    background-color: var(--background-color-secondary);
+    border-radius: 10px;
+}
+
+.repo-readme h1 {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.readme-content h1 {
+    font-family: 'SundayMidnight', sans-serif;
+    line-height: 3em;
+    font-size: 1.5rem;
+    color: var(--text-color-secondary);
+
+}
+
+.repo-readme h2 {
+    color: var(--text-color-secondary);
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    font-size: 1.6em;
+    border-bottom: 2px solid var(--background-color-secondary);
+    padding-bottom: 0.3em;
+}
+
+.repo-readme p {
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+    font-size: 1.05em;
+}
+
+.repo-readme strong {
+    color: var(--text-color-secondary);
+    font-weight: 700;
+}
+
+.repo-readme ul, .repo-readme ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5em;
+}
+
+.repo-readme li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+.repo-readme pre {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 1.2em;
+    margin: 1.5em 0;
+    overflow-x: auto;
+    border-left: 4px solid var(--background-color-secondary);
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.repo-readme hr {
+    height: 4px;
+    background-color: var(--background-color-secondary);
+    border: none;
+    opacity: 0.3;
+    margin: 2em 0;
+    border-radius: 2px;
+}
+
+.repo-readme a,
+#close-readme-text-btn {
+    text-decoration: none;
+    border: 2px solid var(--text-color-secondary);
+    border-radius: 10px;
+    color: var(--text-color-secondary);
+    background-color: transparent;
+    transition: all 0.25s ease-in-out;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.repo-readme a:hover,
+#close-readme-text-btn:hover {
+    background-color: var(--text-color-secondary);
+    color: var(--background-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.readme-content img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1.5em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.readme-content img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.repo-readme p:has(img) + p:has(img) img {
+    margin-top: -1em;
+}
+
+#close-readme-text-btn {
+    cursor: pointer;
+    margin: 20px;
 }
 
 .readme-content {
@@ -818,8 +906,7 @@ nav ul {
     color: var(--text-color-secondary);
 }
 
-.repo-readme a,
-#close-readme-text-btn {
+.repo-readme a {
     text-decoration: none;
     padding: 8px 15px;
     border: 2px solid var(--text-color-secondary);
@@ -842,56 +929,6 @@ nav ul {
     width: 100%;
 }
 
-/* Nouveau conteneur pour le theme switch à gauche */
-.theme-container {
-    position: fixed;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    top: 40px;
-    left: 40px;
-    z-index: 101;
-}
-
-/* Theme toggle switch styles */
-.theme-switch {
-    position: relative;
-    width: 60px;
-    height: 30px;
-    background-color: var(--background-color-tertiary);
-    border-radius: 15px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 5px;
-    z-index: 102;
-    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.2);
-    transition: background-color var(--transition-time);
-}
-
-.theme-switch i {
-    font-size: 1em;
-    color: var(--text-color);
-    transition: color var(--transition-time);
-}
-
-.theme-switch .toggle-ball {
-    position: absolute;
-    width: 24px;
-    height: 24px;
-    background-color: var(--background-color-secondary);
-    border-radius: 50%;
-    left: 3px;
-    transform: translateX(0);
-    transition: transform var(--transition-time), background-color var(--transition-time);
-}
-
-[data-theme="dark"] .theme-switch .toggle-ball {
-    transform: translateX(30px);
-}
-
-/* All elements with transition for theme change */
 .box,
 .top-box,
 .competence-box,
@@ -906,19 +943,6 @@ nav,
 .hamburger-inner::before,
 .hamburger-inner::after {
     transition: background-color var(--transition-time), color var(--transition-time), border-color var(--transition-time);
-}
-
-/* Fix for hamburger menu in dark mode */
-[data-theme="dark"] .hamburger-inner,
-[data-theme="dark"] .hamburger-inner::before,
-[data-theme="dark"] .hamburger-inner::after {
-    background-color: var(--text-color);
-}
-
-[data-theme="dark"] .hamburger.is-active .hamburger-inner,
-[data-theme="dark"] .hamburger.is-active .hamburger-inner::before,
-[data-theme="dark"] .hamburger.is-active .hamburger-inner::after {
-    background-color: var(--text-color);
 }
 
 /* ******************************
@@ -972,22 +996,16 @@ nav,
     position: relative;
     width: 100%;
     overflow: visible;
-    /* Changed from overflow-x: auto */
     padding: 40px 0;
-    /* Increased padding for navigation buttons */
     display: flex;
     justify-content: center;
-    /* Center the swiper container */
 }
 
 .framework-swiper {
     width: 100%;
     padding-bottom: 50px;
-    /* Space for pagination */
     margin: 0 auto;
-    /* Center the swiper */
     max-width: 1200px;
-    /* Maximum width to maintain proportions */
 }
 
 .swiper-slide {
@@ -996,23 +1014,18 @@ nav,
     align-items: center;
     transition: transform 0.3s ease;
     height: auto;
-    /* Allow natural height */
     opacity: 0.7;
-    /* Slightly fade non-active slides */
     transition: opacity 0.3s ease;
 }
 
 .swiper-slide-active {
     opacity: 1;
-    /* Make active slide fully visible */
 }
 
-/* Adjust framework cards for uniform sizing */
 .framework-card {
     flex: 0 0 auto;
     width: 350px;
     height: 500px;
-    /* Fixed height for all cards */
     border-radius: 15px;
     background-color: var(--background-color-tertiary);
     box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
@@ -1023,10 +1036,8 @@ nav,
     transform-style: preserve-3d;
     perspective: 1000px;
     margin: 0 auto;
-    /* Center cards in slides */
 }
 
-/* Improve navigation buttons positioning */
 .swiper-button-next,
 .swiper-button-prev {
     color: var(--background-color-secondary);
@@ -1037,15 +1048,11 @@ nav,
     align-items: center;
     justify-content: center;
     top: 50%;
-    /* Center vertically */
     transform: translateY(-50%);
-    /* Perfect vertical centering */
 }
 
-/* Adjust pagination spacing */
 .swiper-pagination {
     bottom: 10px;
-    /* Move pagination closer to the bottom */
 }
 
 .timeline-slider {
@@ -1144,7 +1151,6 @@ nav,
     line-height: 1.5;
 }
 
-/* Structure pour les sources de veille */
 .veille-sources {
     margin-top: 40px;
 }
@@ -1213,7 +1219,160 @@ nav,
     line-height: 1.6;
 }
 
-/* Dark theme adjustments for code snippets */
-[data-theme="dark"] .code-snippet {
-    background-color: #121212;
+/* ******************************
+    Veille
+****************************** */
+
+.framework-comparisons {
+    margin-top: 50px;
+    width: 100%;
+}
+
+.framework-comparisons h3 {
+    text-align: center;
+    color: var(--text-color-secondary);
+    margin-bottom: 15px;
+    font-family: 'SundayMidnight', sans-serif;
+    line-height: 5;
+}
+
+.framework-comparisons p {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 30px;
+    line-height: 1.6;
+}
+
+.comparison-container {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.comparison-card {
+    background-color: var(--background-color-tertiary);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.comparison-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 15px 15px 0 rgba(0, 0, 0, 0.15);
+}
+
+.comparison-card h4 {
+    color: var(--text-color-secondary);
+    text-align: center;
+    margin: -25px -25px 25px -25px;
+    padding: 15px 20px;
+    font-size: 1.4rem;
+    background-color: var(--background-color-secondary);
+    color: var(--text-color);
+    position: relative;
+    font-weight: 600;
+}
+
+.comparison-card h4::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        var(--text-color-secondary) 50%, 
+        transparent 100%);
+}
+
+.comparison-table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table th,
+.comparison-table td {
+    padding: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.comparison-table th {
+    background-color: var(--background-color-secondary);
+    color: var(--text-color);
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+}
+
+.comparison-table th:first-child,
+.comparison-table td:first-child {
+    text-align: left;
+    font-weight: bold;
+    background-color: rgba(0, 0, 0, 0.02);
+    border-right: 1px solid rgba(0, 0, 0, 0.08);
+    min-width: 120px;
+}
+
+.comparison-table tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.comparison-table tr:last-child {
+    border-bottom: none;
+}
+
+.comparison-table tr:nth-child(even) {
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.comparison-table tr:hover td {
+    background-color: rgba(212, 163, 115, 0.15);
+}
+
+.comparison-table td[data-value="Excellente"],
+.comparison-table td:contains("Excellente") {
+    color: #2e7d32;
+    font-weight: 600;
+}
+
+.comparison-table td[data-value="Très bonne"],
+.comparison-table td:contains("Très bonne"),
+.comparison-table td:contains("Très mature"),
+.comparison-table td:contains("Très léger") {
+    color: #1e88e5;
+    font-weight: 600;
+}
+
+.comparison-table td[data-value="Bonne"],
+.comparison-table td:contains("Bonne"),
+.comparison-table td:contains("Modéré") {
+    color: #7b1fa2;
+}
+
+.comparison-table td.with-icon {
+    position: relative;
+}
+
+.comparison-table td.with-icon::before {
+    margin-right: 5px;
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
 }

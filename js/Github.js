@@ -93,6 +93,9 @@ async function loadReadme(owner, repoName) {
       <div class="readme-content">${html}</div>
     `;
 
+    // Ajouter l'icône aux liens "Visiter le site"
+    enhanceReadmeLinks();
+
     const closeReadme = () => {
       readmeContainer.innerHTML = '';
       readmeContainer.classList.remove("readme");
@@ -128,7 +131,7 @@ async function loadLocalProject(jsonPath) {
       <button id="close-readme-text-btn">Fermer le README</button>
       <div class="readme-content">
         <h1 align='center'>${data.titre}</h1>
-        <p><a href="${data.lien}" target="_blank">Visiter le site</a></p>
+        <p><a href="${data.lien}" target="_blank">Visiter le site <i class="fa-solid fa-up-right-from-square"></i></a></p>
         <p>${data.description}</p>
         <h2>Technologies</h2>
         <ul>${data.technologie.map(t => `<li>${t}</li>`).join('')}</ul>
@@ -151,4 +154,35 @@ async function loadLocalProject(jsonPath) {
     readmeContainer.classList.add('readme');
     readmeContainer.innerHTML = `<p class="error">Erreur : ${e.message}</p>`;
   }
+}
+
+// Fonction pour ajouter l'icône aux liens "Visiter le site"
+function enhanceReadmeLinks() {
+  const readmeContent = document.querySelector('.readme-content');
+  if (!readmeContent) return;
+  
+  // Recherche tous les liens dans le README
+  const links = readmeContent.querySelectorAll('a');
+  
+  links.forEach(link => {
+    // Cherche les liens avec le texte "Visiter le site" ou similaire
+    if (link.textContent.toLowerCase().includes('visiter le site') || 
+        link.textContent.toLowerCase().includes('voir le site') ||
+        link.textContent.toLowerCase().includes('site web')) {
+      
+      // Vérifie si l'icône n'est pas déjà présente
+      if (!link.querySelector('.fa-up-right-from-square')) {
+        // Ajoute un espace et l'icône
+        const icon = document.createElement('i');
+        icon.className = 'fa-solid fa-up-right-from-square';
+        icon.style.marginLeft = '5px';
+        link.appendChild(document.createTextNode(' '));
+        link.appendChild(icon);
+      }
+      
+      // S'assure que le lien s'ouvre dans un nouvel onglet
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  });
 }

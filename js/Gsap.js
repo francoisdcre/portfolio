@@ -25,9 +25,8 @@ animatedTexts.forEach((el, index) => {
 
     letters.forEach(letter => {
         const span = document.createElement('span');
-        // Gestion des espaces
         if (letter === ' ') {
-        span.innerHTML = '&nbsp;'; // espace insécable
+        span.innerHTML = '&nbsp;';
         } else {
         span.textContent = letter;
         }
@@ -52,7 +51,6 @@ animatedTexts.forEach((el, index) => {
 
 // Parcours
 
-// Animation de la section Parcours
 gsap.from('.timeline-header', {
     scrollTrigger: {
         trigger: '#parcours',
@@ -65,7 +63,6 @@ gsap.from('.timeline-header', {
     ease: 'power.out',
 });
 
-// Animation pour les éléments de la timeline
 gsap.utils.toArray('.timeline-item').forEach((item, i) => {
     const direction = item.classList.contains('left') ? -1 : 1;
     
@@ -83,7 +80,6 @@ gsap.utils.toArray('.timeline-item').forEach((item, i) => {
     });
 });
 
-// Animation pour les cercles de la timeline
 gsap.from('.timeline-item::after', {
     scrollTrigger: {
         trigger: '.timeline',
@@ -101,7 +97,7 @@ gsap.from('.timeline-item::after', {
 gsap.from(".hero", {
     scrollTrigger: {
         trigger: "#competences",
-        start: "top 60%", // Modifié de "top 20%" pour commencer plus tôt
+        start: "top 60%",
         toggleActions: "play none none reverse"
     },
     y: 300,
@@ -110,7 +106,6 @@ gsap.from(".hero", {
     ease: "power.out"
 });
 
-// Animation en cascade pour .competence-box
 gsap.fromTo(".competence-box",{
         opacity: 0,
         y: 50
@@ -123,8 +118,89 @@ gsap.fromTo(".competence-box",{
         stagger: 0.2,
         scrollTrigger: {
             trigger: "#competences",
-            start: "top 60%", // Modifié de "top 20%" pour commencer plus tôt
+            start: "top 60%",
             toggleActions: "play none none reverse"
         }
     }
 );
+
+// Veille
+
+gsap.from('.veille-intro', {
+    scrollTrigger: {
+        trigger: '#veille',
+        start: 'top 60%',
+        toggleActions: 'play none none reverse',
+    },
+    y: 50,
+    opacity: 0,
+    duration: 0.8,
+    ease: 'power2.out'
+});
+
+gsap.from('.framework-card', {
+    scrollTrigger: {
+        trigger: '.framework-timeline',
+        start: 'top 70%',
+        toggleActions: 'play none none reverse',
+    },
+    opacity: 0,
+    stagger: 0.1,
+    duration: 0.7,
+    ease: 'back.out(1.2)'
+});
+
+gsap.from('.source-item', {
+    scrollTrigger: {
+        trigger: '.veille-sources',
+        start: 'top 75%',
+        toggleActions: 'play none none reverse',
+    },
+    scale: 0.8,
+    opacity: 0,
+    stagger: 0.15,
+    duration: 0.6,
+    ease: 'power1.out'
+});
+
+gsap.utils.toArray('.comparison-card').forEach((card, i) => {
+    gsap.from(card, {
+        scrollTrigger: {
+            trigger: card,
+            start: 'top 80%',
+            toggleActions: 'play none none reverse',
+        },
+        x: i % 2 === 0 ? -50 : 50,
+        opacity: 0,
+        duration: 0.8,
+        delay: i * 0.2,
+        ease: 'power2.out'
+    });
+});
+
+gsap.utils.toArray('.comparison-table tbody tr').forEach((row, i) => {
+    gsap.from(row, {
+        scrollTrigger: {
+            trigger: row.closest('.comparison-card'),
+            start: 'top 75%',
+            toggleActions: 'play none none reverse',
+        },
+        opacity: 0,
+        y: 20,
+        duration: 0.4,
+        delay: i * 0.1 + 0.4,
+        ease: 'power1.out'
+    });
+});
+
+gsap.from('.veille-conclusion', {
+    scrollTrigger: {
+        trigger: '.veille-conclusion',
+        start: 'top 80%',
+        toggleActions: 'play none none reverse',
+    },
+    y: 40,
+    opacity: 0,
+    duration: 0.9,
+    ease: 'power2.out'
+});
