@@ -697,12 +697,6 @@ nav ul {
     gap: 40px;
 }
 
-@media (max-width: 1100px) {
-    .hero {
-        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-    }
-}
-
 /* Styles pour chaque box de compétence */
 .competence-box {
     display: flex;
@@ -802,11 +796,155 @@ nav ul {
     box-shadow: 20px 20px 0 rgba(0, 0, 0, 0.5);
     background-color: var(--background-color-tertiary);
     position: relative;
+    margin-right: 50px;
 }
 
 #close-readme-text-btn {
-    margin: 20px;
+    margin: 0;
+    padding: 8px 12px;
     cursor: pointer;
+    z-index: 10;
+    font-size: 0.9em;
+    border-radius: 8px;
+}
+
+.readme-content {
+    padding: 30px 40px;
+    overflow-y: auto;
+    max-height: calc(80vh - 60px);
+    scrollbar-width: thin;
+    scrollbar-color: var(--background-color-secondary) var(--background-color-tertiary);
+}
+
+.readme-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.readme-content::-webkit-scrollbar-track {
+    background: var(--background-color-tertiary);
+    border-radius: 10px;
+}
+
+.readme-content::-webkit-scrollbar-thumb {
+    background-color: var(--background-color-secondary);
+    border-radius: 10px;
+}
+
+/* Styles for README content */
+.repo-readme h1 {
+    color: var(--text-color);
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+.readme-content h1 {
+    font-family: 'SundayMidnight', sans-serif;
+    line-height: 3em;
+    font-size: 1.5rem;
+    color: var(--text-color-secondary);
+
+}
+
+.repo-readme h2 {
+    color: var(--text-color-secondary);
+    margin-top: 1.5em;
+    margin-bottom: 0.8em;
+    font-size: 1.6em;
+    border-bottom: 2px solid var(--background-color-secondary);
+    padding-bottom: 0.3em;
+}
+
+.repo-readme p {
+    line-height: 1.7;
+    margin-bottom: 1.2em;
+    font-size: 1.05em;
+}
+
+.repo-readme strong {
+    color: var(--text-color-secondary);
+    font-weight: 700;
+}
+
+.repo-readme ul, .repo-readme ol {
+    margin-bottom: 1.5em;
+    padding-left: 1.5em;
+}
+
+.repo-readme li {
+    margin-bottom: 0.5em;
+    line-height: 1.6;
+}
+
+.repo-readme pre {
+    background-color: var(--background-color);
+    border-radius: 8px;
+    padding: 1.2em;
+    margin: 1.5em 0;
+    overflow-x: auto;
+    border-left: 4px solid var(--background-color-secondary);
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+.repo-readme hr {
+    height: 4px;
+    background-color: var(--background-color-secondary);
+    border: none;
+    opacity: 0.3;
+    margin: 2em 0;
+    border-radius: 2px;
+}
+
+.repo-readme a,
+#close-readme-text-btn {
+    text-decoration: none;
+    border: 2px solid var(--text-color-secondary);
+    border-radius: 10px;
+    color: var(--text-color-secondary);
+    background-color: transparent;
+    transition: all 0.25s ease-in-out;
+    display: inline-block;
+    font-weight: 500;
+}
+
+.repo-readme a:hover,
+#close-readme-text-btn:hover {
+    background-color: var(--text-color-secondary);
+    color: var(--background-color);
+    transform: translateY(-3px);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Image gallery for README screenshots */
+.readme-content img {
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 1.5em;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.readme-content img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Create a gallery layout for consecutive images */
+.repo-readme p:has(img) + p:has(img) img {
+    margin-top: -1em;
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] .repo-readme pre {
+    background-color: #212121;
+    border-left-color: var(--background-color-secondary);
+}
+
+#close-readme-text-btn {
+    cursor: pointer;
+    margin: 20px;
 }
 
 .readme-content {
@@ -818,8 +956,7 @@ nav ul {
     color: var(--text-color-secondary);
 }
 
-.repo-readme a,
-#close-readme-text-btn {
+.repo-readme a {
     text-decoration: none;
     padding: 8px 15px;
     border: 2px solid var(--text-color-secondary);
@@ -1376,32 +1513,6 @@ nav,
     margin-right: 5px;
     font-family: 'Font Awesome 5 Free';
     font-weight: 900;
-}
-
-/* Responsive adjustments for tables */
-@media (max-width: 768px) {
-    .comparison-table {
-        font-size: 0.8rem;
-    }
-    
-    .comparison-table th,
-    .comparison-table td {
-        padding: 10px 8px;
-    }
-    
-    /* Force tables to be scrollable on small screens */
-    .comparison-card {
-        overflow-x: auto;
-        padding: 15px;
-        padding-top: 0;
-    }
-    
-    .comparison-card h4 {
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        margin: 0 -15px 15px -15px;
-    }
 }
 
 /* Dark theme adjustments for tables */
