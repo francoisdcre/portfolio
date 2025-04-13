@@ -45,6 +45,8 @@ section {
     transition: transform 1s ease-in, opacity 1s ease-in;
     display: flex;
     flex-direction: column;
+    font-family: 'SundayMidnight', sans-serif;
+    line-height: 5;
 }
 
 #welcome-screen.hidden {

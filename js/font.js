@@ -35,4 +35,4 @@ setTimeout(() => {
             document.querySelector('.ml11 .line').style.display = "none";
         }
     });
-}, 4000);
+}, 2000);
