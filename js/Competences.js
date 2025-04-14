@@ -1,12 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
     const buttons = document.querySelectorAll(".filter-btn");
     const boxes = document.querySelectorAll(".competence-box");
+    const certificationBoxes = document.querySelectorAll(".competence-box[data-category='certifications']");
+    const nonCertificationBoxes = document.querySelectorAll(".competence-box:not([data-category='certifications'])");
 
     const categoryCount = {
-        all: boxes.length,
+        all: nonCertificationBoxes.length, // Modifier pour ne compter que les éléments non-certification
         "front-end": 0,
         "back-end": 0,
         outils: 0,
+        certifications: 0,
     };
 
     boxes.forEach((box) => {
@@ -29,6 +32,11 @@ document.addEventListener("DOMContentLoaded", function () {
     let isAnimating = false;
     let isFirstLoad = true;
 
+    // Masquer les certifications au chargement initial
+    certificationBoxes.forEach(box => {
+        box.style.display = "none";
+    });
+
     buttons.forEach((btn) => {
         btn.addEventListener("click", function () {
             if (isAnimating) return;
@@ -42,10 +50,17 @@ document.addEventListener("DOMContentLoaded", function () {
                 filterWithGSAP(filter);
             } else {
                 boxes.forEach((box) => {
-                    if (filter === "all" || box.getAttribute("data-category") === filter) {
-                        box.style.display = "flex";
+                    const boxCategory = box.getAttribute("data-category");
+                    
+                    if (filter === "all") {
+                        // Pour "all", n'afficher que les non-certifications
+                        box.style.display = boxCategory !== "certifications" ? "flex" : "none";
+                    } else if (filter === "certifications") {
+                        // Pour "certifications", n'afficher que les certifications
+                        box.style.display = boxCategory === "certifications" ? "flex" : "none";
                     } else {
-                        box.style.display = "none";
+                        // Pour les autres filtres, comportement standard
+                        box.style.display = filter === boxCategory ? "flex" : "none";
                     }
                 });
                 isFirstLoad = false;
@@ -55,9 +70,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     function filterWithGSAP(filter) {
         isAnimating = true;
-        const toShow = Array.from(boxes).filter(box => 
-            (filter === "all" || box.getAttribute("data-category") === filter)
-        );
+        
+        // Adapter la logique de filtrage pour gérer le cas "all" spécialement
+        const toShow = Array.from(boxes).filter(box => {
+            const boxCategory = box.getAttribute("data-category");
+            if (filter === "all") {
+                return boxCategory !== "certifications";
+            } else {
+                return filter === boxCategory;
+            }
+        });
         
         const tl = gsap.timeline({
             onComplete: () => { isAnimating = false; }
