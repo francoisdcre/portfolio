@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,8 +6,42 @@
     <title>François Dancre</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/theme.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.40/dist/fullpage.min.js"></script>
   </head>
   <body>
-    <section id="header"></section>
+    <div id="fullpage">
+      <div class="section relative h-dvh flex items-center justify-center">
+        <div
+          class="w-fit absolute top-16 text-center z-10 text-[clamp(1rem,8vw,9rem)]"
+        >
+          <h1 class="font-bold uppercase text-white/40 whitespace-nowrap">
+            Web Developer
+          </h1>
+        </div>
+
+        <div class="relative z-20">
+          <img src="assets/img/Medusa.svg" class="w-xl xl:w-2xl" />
+        </div>
+
+        <img
+          src="assets/img/backgroundLeft.webp"
+          class="absolute left-0 top-0 md:block md:top-1/2 md:-translate-y-1/2 w-xs lg:w-sm xl:w-md z-0"
+        />
+
+        <img
+          src="assets/img/backgroundRight.webp"
+          class="absolute right-0 bottom-0 md:block md:top-1/2 md:-translate-y-1/2 w-xs lg:w-sm xl:w-md z-0"
+        />
+        <video
+          autoplay
+          muted
+          loop
+          class="absolute bottom-10 left-1/2 -translate-x-1/2 z-0 w-20"
+        >
+          <source src="assets/video/scrollDown.webm" type="video/mp4" />
+        </video>
+      </div>
+    </div>
   </body>
 </html>
