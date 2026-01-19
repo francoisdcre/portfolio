@@ -9,3 +9,7 @@ body {
   background-color: var(--background-color);
   color: var(--primary-color);
 }
+
+a[href*="alvarotrigo.com/fullPage"] {
+  display: none !important;
+}
