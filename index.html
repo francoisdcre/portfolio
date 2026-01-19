@@ -12,6 +12,8 @@
     />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.40/dist/fullpage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
   </head>
   <body>
     <div id="fullpage">
@@ -19,7 +21,7 @@
         <div
           class="w-fit absolute top-20 xl:top-16 text-center z-10 text-[clamp(1rem,8vw,9rem)]"
         >
-          <h1 class="font-bold uppercase text-white/40 whitespace-nowrap">
+          <h1 class="font-bold uppercase text-white/40 whitespace-nowrap split">
             Web Developer
           </h1>
         </div>
@@ -28,15 +30,24 @@
           <img src="assets/img/angel.webp" class="w-xl xl:w-2xl" />
         </div>
 
-        <img
-          src="assets/img/backgroundLeft.webp"
-          class="absolute left-0 top-0 md:block md:top-1/2 md:-translate-y-1/2 w-xs lg:w-sm xl:w-md z-0"
-        />
+        <div
+          class="absolute left-0 top-0 md:block md:top-1/2 md:-translate-y-1/2"
+        >
+          <img
+            src="assets/img/backgroundLeft.webp"
+            class="w-xs lg:w-sm xl:w-md"
+          />
+        </div>
 
-        <img
-          src="assets/img/backgroundRight.webp"
-          class="absolute right-0 bottom-0 md:block md:top-1/2 md:-translate-y-1/2 w-xs lg:w-sm xl:w-md z-0"
-        />
+        <div
+          class="absolute right-0 bottom-0 md:block md:top-1/2 md:-translate-y-1/2 z-0"
+        >
+          <img
+            src="assets/img/backgroundRight.webp"
+            class="w-xs lg:w-sm xl:w-md"
+          />
+        </div>
+
         <video
           autoplay
           muted
@@ -51,5 +62,6 @@
       ></div>
     </div>
     <script src="js/fullPage.js"></script>
+    <script src="js/gsap.js"></script>
   </body>
 </html>
