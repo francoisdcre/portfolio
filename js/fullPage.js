@@ -1,4 +1,5 @@
 let aboutAnimated = false;
+let journeyAnimated = false;
 var myFullpage = new fullpage("#fullpage", {
   anchors: ["home", "about", "journey"],
   menu: "#menu",
@@ -45,6 +46,14 @@ var myFullpage = new fullpage("#fullpage", {
         duration: 1,
         ease: "power4.out",
       });
+    }
+
+    // Journey section animation trigger
+    if (destination.anchor === "journey" && !journeyAnimated) {
+      journeyAnimated = true;
+      if (typeof window.animateJourneySection === "function") {
+        window.animateJourneySection();
+      }
     }
   },
 });
