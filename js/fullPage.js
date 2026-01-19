@@ -29,13 +29,21 @@ var myFullpage = new fullpage("#fullpage", {
     if (destination.anchor === "about" && !aboutAnimated) {
       // animate characters in about section
       aboutAnimated = true;
-      gsap.from(splitAbout.words, {
-        y: -100,
-        opacity: 0,
-        rotation: "random(-80, 80)",
+      gsap.to(splitAbout.words, {
+        y: 0,
+        opacity: 1,
+        rotation: 0,
         duration: 0.7,
         ease: "back",
         stagger: 0.15,
+      });
+
+      gsap.to(cherryBlossoms, {
+        x: 0, // décalage gauche
+        y: 0,
+        rotation: 0,
+        duration: 1,
+        ease: "power4.out",
       });
     }
   },

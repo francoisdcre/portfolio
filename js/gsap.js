@@ -5,6 +5,13 @@ let splitAbout = SplitText.create(".split-about", {
   type: "words, chars",
 });
 
+// Set initial state for about section words (hidden)
+gsap.set(splitAbout.words, {
+  y: -100,
+  opacity: 0,
+  rotation: "random(-80, 80)",
+});
+
 // now animate the characters in a staggered fashion
 gsap.from(split.chars, {
   x: 150,
@@ -26,13 +33,25 @@ const rightDeco = document.querySelector(
 
 // Slide horizontal au chargement
 gsap.from(leftDeco, {
-  x: -300, // décalage gauche
+  x: -300,
   duration: 1,
   ease: "power4.out",
 });
 
 gsap.from(rightDeco, {
-  x: 300, // décalage droite
+  x: 300,
   duration: 1,
   ease: "power4.out",
+});
+
+// Animation cherry blossoms about section
+
+const cherryBlossoms = document.querySelector(
+  'div > img[src="assets/img/CherryBlossomIa.webp"]',
+);
+
+gsap.set(cherryBlossoms, {
+  x: 1000,
+  y: 1000,
+  rotation: -80,
 });
