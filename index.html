@@ -17,6 +17,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
   </head>
   <body>
+    <!-- Navigation Menu -->
     <nav
       id="menu"
       class="w-full fixed top-2 left-0 z-10 transition-opacity duration-500 opacity-0"
@@ -45,7 +46,9 @@
         </li>
       </ul>
     </nav>
+    <!-- Fullpage Sections -->
     <div id="fullpage">
+      <!-- Home Section -->
       <div class="section relative h-dvh flex items-center justify-center">
         <div
           class="w-full absolute top-20 xl:top-16 text-center z-10 text-[clamp(1rem,8vw,9rem)]"
@@ -95,6 +98,7 @@
           </video>
         </a>
       </div>
+      <!-- About Section -->
       <div class="section about h-dvh relative flex items-start justify-center">
         <div class="flex items-start justify-center flex-col px-15 gap-2 z-10">
           <h1 class="flex items-center justify-center gap-2 text-3xl font-bold">
@@ -102,12 +106,15 @@
             <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
           </h1>
           <p class="text-[clamp(0.7rem,1vw,1rem)] max-w-3xl split-about">
-            Hello! I'm François Dancre, a passionate web developer with a knack
-            for creating beautiful and functional websites. With a strong
-            foundation in both front-end and back-end technologies, I strive to
-            deliver seamless user experiences. When I'm not coding, you can find
-            me exploring the latest tech trends or indulging in my love for
-            photography.
+            Hello! I'm
+            <span
+              class="text-black [text-shadow:_-1px_-1px_0_#fff,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff,_0_-1px_0_#fff,_0_1px_0_#fff,_-1px_0_0_#fff,_1px_0_0_#fff]"
+              >François Dancre</span
+            >, a passionate web developer with a knack for creating beautiful
+            and functional websites. With a strong foundation in both front-end
+            and back-end technologies, I strive to deliver seamless user
+            experiences. When I'm not coding, you can find me exploring the
+            latest tech trends or indulging in my love for photography.
           </p>
         </div>
         <div
@@ -120,9 +127,33 @@
           />
         </div>
       </div>
+      <!-- Journey Section -->
       <div
         class="section journey h-dvh relative flex items-center justify-center"
-      ></div>
+      >
+        <div class="flex flex-col items-center justify-center w-full">
+          <div
+            class="flex items-start justify-center flex-col w-full px-15 gap-2 z-10"
+          >
+            <h1
+              class="flex items-start justify-center gap-2 text-3xl font-bold z-10"
+            >
+              Journey
+              <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+            </h1>
+          </div>
+          <div class="flex justify-between items-center relative"></div>
+        </div>
+        <div
+          class="absolute right-0 bottom-0 md:block lg:top-1/3 lg:-translate-y-1/2 z-0"
+        >
+          <img
+            src="assets/img/Cyndi.svg"
+            alt="Cherry Blowsom"
+            class="w-2xs lg:w-sm xl:w-xl"
+          />
+        </div>
+      </div>
     </div>
     <script src="js/fullPage.js"></script>
     <script src="js/gsap.js"></script>
