@@ -131,7 +131,7 @@ function animateJourneySection() {
     .to(
       ".journey-deco",
       {
-        opacity: 0.5,
+        opacity: 1,
         x: 0,
         rotation: 0,
         duration: 1,
