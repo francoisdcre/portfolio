@@ -17,9 +17,10 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
   </head>
   <body>
+    <!-- Navigation Menu -->
     <nav
       id="menu"
-      class="w-full fixed top-0 left-0 z-10 transition-opacity duration-500 opacity-0"
+      class="w-full fixed top-2 left-0 z-10 transition-opacity duration-500 opacity-0"
     >
       <ul class="flex align-center justify-around">
         <li class="hidden lg:block">
@@ -45,7 +46,9 @@
         </li>
       </ul>
     </nav>
+    <!-- Fullpage Sections -->
     <div id="fullpage">
+      <!-- Home Section -->
       <div class="section relative h-dvh flex items-center justify-center">
         <div
           class="w-full absolute top-20 xl:top-16 text-center z-10 text-[clamp(1rem,8vw,9rem)]"
@@ -95,6 +98,7 @@
           </video>
         </a>
       </div>
+      <!-- About Section -->
       <div class="section about h-dvh relative flex items-start justify-center">
         <div class="flex items-start justify-center flex-col px-15 gap-2 z-10">
           <h1 class="flex items-center justify-center gap-2 text-3xl font-bold">
@@ -102,12 +106,15 @@
             <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
           </h1>
           <p class="text-[clamp(0.7rem,1vw,1rem)] max-w-3xl split-about">
-            Hello! I'm François Dancre, a passionate web developer with a knack
-            for creating beautiful and functional websites. With a strong
-            foundation in both front-end and back-end technologies, I strive to
-            deliver seamless user experiences. When I'm not coding, you can find
-            me exploring the latest tech trends or indulging in my love for
-            photography.
+            Hello! I'm
+            <span
+              class="text-black [text-shadow:_-1px_-1px_0_#fff,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff,_0_-1px_0_#fff,_0_1px_0_#fff,_-1px_0_0_#fff,_1px_0_0_#fff]"
+              >François Dancre</span
+            >, a passionate web developer with a knack for creating beautiful
+            and functional websites. With a strong foundation in both front-end
+            and back-end technologies, I strive to deliver seamless user
+            experiences. When I'm not coding, you can find me exploring the
+            latest tech trends or indulging in my love for photography.
           </p>
         </div>
         <div
@@ -120,11 +127,140 @@
           />
         </div>
       </div>
+      <!-- Journey Section -->
       <div
-        class="section journey h-dvh relative flex items-center justify-center"
-      ></div>
+        class="section journey h-dvh relative flex items-center justify-center overflow-hidden"
+      >
+        <div
+          class="flex flex-col items-center w-full px-8 md:px-15 gap-12 z-10"
+        >
+          <!-- Titre -->
+          <div class="w-full">
+            <h1
+              class="journey-title flex items-start gap-2 text-3xl font-bold mb-2"
+            >
+              Journey
+              <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+            </h1>
+            <p class="journey-subtitle text-sm md:text-base opacity-70">
+              Mon parcours professionnel & formation
+            </p>
+          </div>
+
+          <!-- Timeline Container -->
+          <div class="relative w-full flex justify-center max-w-5xl">
+            <!-- Vertical Line -->
+            <div
+              class="timeline-line absolute left-4 md:left-1/2 top-0 w-px h-full bg-white/30"
+            ></div>
+
+            <!-- Timeline Items -->
+            <div class="space-y-12 md:space-y-16">
+              <!-- Item 1 - Recent/Current -->
+              <div
+                class="timeline-item relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8"
+              >
+                <img
+                  src="assets/img/rose.webp"
+                  alt="Rose"
+                  class="timeline-dot absolute left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-8 h-8"
+                />
+                <div class="timeline-card md:text-right md:pr-8">
+                  <span class="text-[0.65rem] md:text-sm opacity-60"
+                    >2024 - Présent</span
+                  >
+                  <h3 class="text-base md:text-xl font-bold mt-1">
+                    Web Developer
+                  </h3>
+                  <p class="text-xs md:text-sm opacity-80 mt-2">
+                    Développement de sites web modernes avec React, Node.js et
+                    des technologies front-end innovantes
+                  </p>
+                </div>
+                <div class="hidden md:block"></div>
+              </div>
+
+              <!-- Item 2 -->
+              <div
+                class="timeline-item relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8"
+              >
+                <img
+                  src="assets/img/rose.webp"
+                  alt="Rose"
+                  class="timeline-dot absolute left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-8 h-8"
+                />
+                <div class="hidden md:block"></div>
+                <div class="timeline-card md:pl-8">
+                  <span class="text-[0.65rem] md:text-sm opacity-60">2023</span>
+                  <h3 class="text-base md:text-xl font-bold mt-1">
+                    Formation Full-Stack
+                  </h3>
+                  <p class="text-xs md:text-sm opacity-80 mt-2">
+                    Formation intensive en développement web full-stack,
+                    maîtrise des frameworks modernes et des bonnes pratiques
+                  </p>
+                </div>
+              </div>
+
+              <!-- Item 3 -->
+              <div
+                class="timeline-item relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8"
+              >
+                <img
+                  src="assets/img/rose.webp"
+                  alt="Rose"
+                  class="timeline-dot absolute left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-8 h-8"
+                />
+                <div class="timeline-card md:text-right md:pr-8">
+                  <span class="text-[0.65rem] md:text-sm opacity-60">2022</span>
+                  <h3 class="text-base md:text-xl font-bold mt-1">
+                    Premiers Projets
+                  </h3>
+                  <p class="text-xs md:text-sm opacity-80 mt-2">
+                    Début de mon aventure dans le développement web avec HTML,
+                    CSS et JavaScript
+                  </p>
+                </div>
+                <div class="hidden md:block"></div>
+              </div>
+
+              <!-- Item 4 -->
+              <div
+                class="timeline-item relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8"
+              >
+                <img
+                  src="assets/img/rose.webp"
+                  alt="Rose"
+                  class="timeline-dot absolute left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-8 h-8"
+                />
+                <div class="hidden md:block"></div>
+                <div class="timeline-card md:pl-8">
+                  <span class="text-[0.65rem] md:text-sm opacity-60">2021</span>
+                  <h3 class="text-base md:text-xl font-bold mt-1">
+                    Découverte du Code
+                  </h3>
+                  <p class="text-xs md:text-sm opacity-80 mt-2">
+                    Passion naissante pour la programmation et le design web
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Image -->
+        <div
+          class="journey-deco absolute right-0 bottom-0 hidden md:block md:top-1/3 md:-translate-y-1/2 pointer-events-none"
+        >
+          <img
+            src="assets/img/Cyndi.svg"
+            alt="Cherry Blowsom"
+            class="w-2xs lg:w-sm xl:w-xl"
+          />
+        </div>
+      </div>
     </div>
-    <script src="js/gsap.js"></script>
     <script src="js/fullPage.js"></script>
+    <script src="js/gsap.js"></script>
   </body>
 </html>
