@@ -22,13 +22,13 @@ const rightDeco = document.querySelector(
 
 // Slide horizontal au chargement
 gsap.from(leftDeco, {
-  x: -200, // décalage gauche
+  x: -300, // décalage gauche
   duration: 1,
   ease: "power4.out",
 });
 
 gsap.from(rightDeco, {
-  x: 200, // décalage droite
+  x: 300, // décalage droite
   duration: 1,
   ease: "power4.out",
 });

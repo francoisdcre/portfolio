@@ -1,5 +1,6 @@
 var myFullpage = new fullpage("#fullpage", {
   anchors: ["home", "about"],
+  menu: "#menu",
   navigation: true,
   navigationTooltips: ["Home", "About"],
   slidesNavigation: true,
@@ -13,4 +14,15 @@ var myFullpage = new fullpage("#fullpage", {
   lazyLoading: false,
   // Get your license at https://alvarotrigo.com/fullPage/pricing/
   licenseKey: "YOUR_LICENSE_KEY_HERE",
+  afterLoad: function (origin, destination, direction) {
+    const nav = document.getElementById("menu");
+
+    if (destination.anchor === "home") {
+      nav.classList.add("opacity-0");
+      nav.classList.remove("opacity-100");
+    } else {
+      nav.classList.add("opacity-100");
+      nav.classList.remove("opacity-0");
+    }
+  },
 });
