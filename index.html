@@ -13,6 +13,7 @@
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     <script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.40/dist/fullpage.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
   </head>
   <body>
@@ -47,15 +48,19 @@
     <div id="fullpage">
       <div class="section relative h-dvh flex items-center justify-center">
         <div
-          class="w-fit absolute top-20 xl:top-16 text-center z-10 text-[clamp(1rem,8vw,9rem)]"
+          class="w-full absolute top-20 xl:top-16 text-center z-10 text-[clamp(1rem,8vw,9rem)]"
         >
           <h1 class="font-bold uppercase text-white/40 whitespace-nowrap split">
             Web Developer
           </h1>
         </div>
 
-        <div class="relative z-10">
-          <img src="assets/img/angel.webp" class="w-xl xl:w-3xl" />
+        <div class="relative z-10 flex items-center justify-center">
+          <img
+            src="assets/img/angel.webp"
+            alt="Angel image"
+            class="w-xl xl:w-3xl"
+          />
         </div>
 
         <div
@@ -90,11 +95,33 @@
           </video>
         </a>
       </div>
-      <div
-        class="section h-dvh relative flex items-center justify-center"
-      ></div>
+      <div class="section about h-dvh relative flex items-start justify-center">
+        <div class="flex items-start justify-center flex-col px-15 gap-2">
+          <h1 class="flex items-center justify-center gap-2 text-2xl font-bold">
+            About
+            <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+          </h1>
+          <p class="max-w-3xl text-justify split-about">
+            Hello! I'm François Dancre, a passionate web developer with a knack
+            for creating beautiful and functional websites. With a strong
+            foundation in both front-end and back-end technologies, I strive to
+            deliver seamless user experiences. When I'm not coding, you can find
+            me exploring the latest tech trends or indulging in my love for
+            photography.
+          </p>
+        </div>
+        <div
+          class="absolute right-0 bottom-0 md:block md:top-1/2 md:-translate-y-1/2 z-0"
+        >
+          <img
+            src="assets/img/CherryBlossomIa.webp"
+            alt="Cherry Blowsom"
+            class="w-sm lg:w-md xl:w-2xl"
+          />
+        </div>
+      </div>
     </div>
-    <script src="js/fullPage.js"></script>
     <script src="js/gsap.js"></script>
+    <script src="js/fullPage.js"></script>
   </body>
 </html>
