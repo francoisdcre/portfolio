@@ -1,9 +1,9 @@
 let aboutAnimated = false;
 var myFullpage = new fullpage("#fullpage", {
-  anchors: ["home", "about"],
+  anchors: ["home", "about", "journey"],
   menu: "#menu",
   navigation: true,
-  navigationTooltips: ["Home", "About"],
+  navigationTooltips: ["Home", "About", "Journey"],
   slidesNavigation: true,
   scrollingSpeed: "1000",
   fitToSectionDelay: "600",
