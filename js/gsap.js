@@ -7,7 +7,7 @@ let splitAbout = SplitText.create(".split-about", {
 
 // Set initial state for about section words (hidden)
 gsap.set(splitAbout.words, {
-  y: -100,
+  y: -40,
   opacity: 0,
   rotation: "random(-80, 80)",
 });
