@@ -1,5 +1,9 @@
 // split all elements with the class "split" into words and characters
 let split = SplitText.create(".split", { type: "words, chars" });
+// split text about section
+let splitAbout = SplitText.create(".split-about", {
+  type: "words, chars",
+});
 
 // now animate the characters in a staggered fashion
 gsap.from(split.chars, {

@@ -1,3 +1,4 @@
+let aboutAnimated = false;
 var myFullpage = new fullpage("#fullpage", {
   anchors: ["home", "about"],
   menu: "#menu",
@@ -23,6 +24,19 @@ var myFullpage = new fullpage("#fullpage", {
     } else {
       nav.classList.add("opacity-100");
       nav.classList.remove("opacity-0");
+    }
+
+    if (destination.anchor === "about" && !aboutAnimated) {
+      // animate characters in about section
+      aboutAnimated = true;
+      gsap.from(splitAbout.words, {
+        y: -100,
+        opacity: 0,
+        rotation: "random(-80, 80)",
+        duration: 0.7,
+        ease: "back",
+        stagger: 0.15,
+      });
     }
   },
 });
