@@ -12,6 +12,12 @@ gsap.set(splitAbout.words, {
   rotation: "random(-80, 80)",
 });
 
+// Set initial state for about title
+gsap.set(".about h1", {
+  opacity: 0,
+  x: -50,
+});
+
 // now animate the characters in a staggered fashion
 gsap.from(split.chars, {
   x: 150,
@@ -169,3 +175,59 @@ function animateJourneySection() {
 
 // Export or make available globally
 window.animateJourneySection = animateJourneySection;
+
+// ============================================
+// SKILLS SECTION ANIMATIONS
+// ============================================
+
+// Set initial state for SVG paths (hidden)
+gsap.set(".skillsPath", {
+  strokeDasharray: 1000,
+  strokeDashoffset: 1000,
+});
+
+// Set initial states for skills elements
+gsap.set(".skills h1", { opacity: 0, x: -50 });
+gsap.set(".skills .group", { opacity: 0, scale: 0.8, y: 30 });
+
+// Function to animate Skills section
+function animateSkillsSection() {
+  const tl = gsap.timeline();
+
+  // Animate title
+  tl.to(".skills h1", {
+    opacity: 1,
+    x: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
+    // Animate SVG drawing
+    .to(
+      ".skillsPath",
+      {
+        strokeDashoffset: 0,
+        duration: 2.5,
+        ease: "power1.inOut",
+      },
+      "-=0.3",
+    )
+    // Animate skill cards with stagger
+    .to(
+      ".skills .group",
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.5,
+        stagger: {
+          amount: 0.8,
+          from: "start",
+        },
+        ease: "back.out(1.4)",
+      },
+      "-=2",
+    );
+}
+
+// Export function globally
+window.animateSkillsSection = animateSkillsSection;

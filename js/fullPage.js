@@ -1,10 +1,11 @@
 let aboutAnimated = false;
 let journeyAnimated = false;
+let skillsAnimated = false;
 var myFullpage = new fullpage("#fullpage", {
-  anchors: ["home", "about", "journey"],
+  anchors: ["home", "about", "journey", "skills"],
   menu: "#menu",
   navigation: true,
-  navigationTooltips: ["Home", "About", "Journey"],
+  navigationTooltips: ["Home", "About", "Journey", "Skills"],
   slidesNavigation: true,
   scrollingSpeed: "1000",
   fitToSectionDelay: "600",
@@ -30,6 +31,15 @@ var myFullpage = new fullpage("#fullpage", {
     if (destination.anchor === "about" && !aboutAnimated) {
       // animate characters in about section
       aboutAnimated = true;
+
+      // Animate title
+      gsap.to(".about h1", {
+        opacity: 1,
+        x: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      });
+
       gsap.to(splitAbout.words, {
         y: 0,
         opacity: 1,
@@ -37,6 +47,7 @@ var myFullpage = new fullpage("#fullpage", {
         duration: 0.4,
         ease: "back",
         stagger: 0.15,
+        delay: 0.2,
       });
 
       gsap.to(cherryBlossoms, {
@@ -53,6 +64,14 @@ var myFullpage = new fullpage("#fullpage", {
       journeyAnimated = true;
       if (typeof window.animateJourneySection === "function") {
         window.animateJourneySection();
+      }
+    }
+
+    // Skills section animation trigger
+    if (destination.anchor === "skills" && !skillsAnimated) {
+      skillsAnimated = true;
+      if (typeof window.animateSkillsSection === "function") {
+        window.animateSkillsSection();
       }
     }
   },
