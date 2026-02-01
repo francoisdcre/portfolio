@@ -2,10 +2,10 @@ let aboutAnimated = false;
 let journeyAnimated = false;
 let skillsAnimated = false;
 var myFullpage = new fullpage("#fullpage", {
-  anchors: ["home", "about", "journey", "skills"],
+  anchors: ["home", "about", "journey", "skills", "projects"],
   menu: "#menu",
   navigation: true,
-  navigationTooltips: ["Home", "About", "Journey", "Skills"],
+  navigationTooltips: ["Home", "About", "Journey", "Skills", "Projects"],
   slidesNavigation: true,
   scrollingSpeed: "1000",
   fitToSectionDelay: "600",
