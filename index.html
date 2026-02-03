@@ -19,6 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   </head>
   <body>
     <!-- Navigation Menu -->
@@ -545,15 +546,15 @@
           </div>
 
           <!-- Formulaire de contact -->
-          <form class="w-full flex flex-col gap-6">
+          <form id="contact-form" class="w-full flex flex-col gap-6">
             <!-- Nom et Prénom -->
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div class="relative">
                 <input
                   type="text"
-                  id="firstName"
-                  name="firstName"
-                  placeholder="First Name"
+                  id="name"
+                  name="name"
+                  placeholder="Name"
                   required
                   class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300"
                 />
@@ -561,9 +562,9 @@
               <div class="relative">
                 <input
                   type="text"
-                  id="lastName"
-                  name="lastName"
-                  placeholder="Last Name"
+                  id="subject"
+                  name="subject"
+                  placeholder="Objet"
                   required
                   class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300"
                 />
@@ -592,6 +593,14 @@
                 required
                 class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300 resize-none"
               ></textarea>
+            </div>
+
+            <!-- reCAPTCHA -->
+            <div class="flex justify-center w-full">
+              <div
+                class="g-recaptcha"
+                data-sitekey="6Ld3AQArAAAAAE9Le5179dadeLq9VNvhUE0CARqR"
+              ></div>
             </div>
 
             <!-- Bouton Submit -->
@@ -631,5 +640,17 @@
     <script src="js/fullPage.js"></script>
     <script src="js/gsap.js"></script>
     <script src="js/repoFetch.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "8jCZE-BxBp6MozCPJ",
+        });
+      })();
+    </script>
+    <script src="js/contactForm.js"></script>
   </body>
 </html>
