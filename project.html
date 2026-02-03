@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects - François Dancre</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/theme.css" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
+  <body class="min-h-screen">
+    <!-- Navigation Menu -->
+    <nav id="menu" class="w-full fixed top-2 left-0 z-10">
+      <ul class="flex align-center justify-around">
+        <li class="hidden lg:block">
+          <a href="index.html#home">Home</a>
+        </li>
+        <li class="hidden lg:block">
+          <a href="index.html#about">About</a>
+        </li>
+        <li class="hidden lg:block">
+          <a href="index.html#journey">Journey</a>
+        </li>
+        <li>
+          <h1 class="text-xl lg:text-3xl font-bold">François Dancre</h1>
+        </li>
+        <li class="hidden lg:block">
+          <a href="index.html#skills">Skills</a>
+        </li>
+        <li class="hidden lg:block">
+          <a href="index.html#projects">Projects</a>
+        </li>
+        <li class="hidden lg:block">
+          <a href="index.html#contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Main Content -->
+    <main
+      class="min-h-screen flex items-center justify-center px-8 md:px-15 py-24"
+    >
+      <div class="flex flex-col items-center w-full gap-12 max-w-7xl">
+        <!-- Titre -->
+        <div class="w-full text-center">
+          <h1
+            class="flex items-center justify-center gap-2 text-3xl md:text-4xl font-bold mb-2"
+          >
+            Tous mes projets
+            <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+          </h1>
+          <p class="text-sm md:text-base opacity-70">
+            Découvrez tous mes projets GitHub
+          </p>
+        </div>
+
+        <!-- Liste des projets -->
+        <div
+          id="repos"
+          class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 justify-items-center"
+        >
+          <!-- Les projets seront chargés dynamiquement ici -->
+        </div>
+
+        <!-- Pagination -->
+        <div id="pagination" class="flex items-center gap-3">
+          <!-- La pagination sera générée dynamiquement ici -->
+        </div>
+      </div>
+    </main>
+
+    <script src="js/allRepos.js"></script>
+  </body>
+</html>

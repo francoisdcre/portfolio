@@ -481,7 +481,7 @@
         class="section projects h-dvh relative flex items-center justify-center overflow-hidden"
       >
         <div
-          class="flex flex-col items-center w-full px-8 md:px-15 gap-12 z-10"
+          class="flex flex-col items-center w-full px-8 md:px-15 gap-10 z-10"
         >
           <!-- Titre -->
           <div class="w-full">
@@ -496,10 +496,32 @@
             </p>
           </div>
           <!-- Liste des projets -->
-           
+          <div
+            id="repos"
+            class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl justify-items-center"
+          >
+            <!-- Les projets seront chargés dynamiquement ici -->
+          </div>
+          <!-- Bouton Voir tous les projets -->
+          <a
+            href="project.html"
+            class="group relative overflow-hidden bg-white/15 backdrop-blur-sm rounded-md px-6 py-3 flex items-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/25 hover:-translate-y-1 mt-4"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></div>
+            <span class="text-sm md:text-base font-semibold relative z-10"
+              >Voir tous les projets</span
+            >
+            <i
+              class="fa-solid fa-arrow-right text-sm relative z-10 group-hover:translate-x-1 transition-transform duration-300"
+            ></i>
+          </a>
         </div>
+      </div>
     </div>
     <script src="js/fullPage.js"></script>
     <script src="js/gsap.js"></script>
+    <script src="js/repoFetch.js"></script>
   </body>
 </html>
