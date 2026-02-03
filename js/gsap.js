@@ -18,6 +18,13 @@ gsap.set(".about h1", {
   x: -50,
 });
 
+// Set initial state for social links
+gsap.set(".about .flex.items-center.gap-4 a", {
+  opacity: 0,
+  scale: 0,
+  rotation: -180,
+});
+
 // now animate the characters in a staggered fashion
 gsap.from(split.chars, {
   x: 150,

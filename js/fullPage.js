@@ -66,6 +66,17 @@ var myFullpage = new fullpage("#fullpage", {
         duration: 1,
         ease: "power4.out",
       });
+
+      // Animate social links
+      gsap.to(".about .flex.items-center.gap-4 a", {
+        opacity: 1,
+        scale: 1,
+        rotation: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: "back.out(2)",
+        delay: 0.6,
+      });
     }
 
     // Journey section animation trigger
