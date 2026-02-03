@@ -78,6 +78,14 @@ async function displayThreeRepos() {
 
       container.appendChild(card);
     });
+
+    // Appliquer l'état initial GSAP sur les cards après leur création
+    gsap.set(".project-card", { opacity: 0, scale: 0.8, y: 40 });
+
+    // Déclencher l'animation si on est sur la section projects
+    if (window.projectsCardsLoaded) {
+      window.projectsCardsLoaded();
+    }
   } catch (error) {
     console.error("Erreur lors de la récupération des repos:", error);
   }

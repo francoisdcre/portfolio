@@ -231,3 +231,160 @@ function animateSkillsSection() {
 
 // Export function globally
 window.animateSkillsSection = animateSkillsSection;
+
+// ============================================
+// PROJECTS SECTION ANIMATIONS
+// ============================================
+
+// Set initial states for projects elements (sauf les cards qui sont dynamiques)
+gsap.set(".projects-title", { opacity: 0, y: -30 });
+gsap.set(".projects-subtitle", { opacity: 0, y: -20 });
+gsap.set(".projects a[href='project.html']", { opacity: 0, scale: 0.8 });
+gsap.set(".projects .absolute.right-0.bottom-0", {
+  opacity: 0,
+  x: 200,
+  rotation: 15,
+});
+
+// Function to animate Projects section
+function animateProjectsSection() {
+  const tl = gsap.timeline();
+
+  // Animate title and subtitle
+  tl.to(".projects-title", {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
+    .to(
+      ".projects-subtitle",
+      {
+        opacity: 1,
+        y: 0,
+        duration: 0.4,
+        ease: "power3.out",
+      },
+      "-=0.3",
+    )
+    // Animate project cards with stagger
+    .to(
+      ".project-card",
+      {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 0.6,
+        stagger: 0.15,
+        ease: "back.out(1.4)",
+      },
+      "-=0.2",
+    )
+    // Animate button
+    .to(
+      ".projects a[href='project.html']",
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: "back.out(1.7)",
+      },
+      "-=0.4",
+    )
+    // Animate decorative branch
+    .to(
+      ".projects .absolute.right-0.bottom-0",
+      {
+        opacity: 1,
+        x: 0,
+        rotation: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.8",
+    );
+}
+
+// Export function globally
+window.animateProjectsSection = animateProjectsSection;
+
+// ============================================
+// CONTACT SECTION ANIMATIONS
+// ============================================
+
+// Set initial states for contact elements
+gsap.set(".contact-title", { opacity: 0, y: -30 });
+gsap.set(".contact input, .contact textarea", { opacity: 0, x: -30 });
+gsap.set(".contact button", { opacity: 0, scale: 0.8 });
+gsap.set(".contact .absolute.left-0.top-0", {
+  opacity: 0,
+  x: -200,
+  rotation: -15,
+});
+gsap.set(".contact .absolute.right-0.bottom-0", {
+  opacity: 0,
+  x: 200,
+  rotation: 15,
+});
+
+// Function to animate Contact section
+function animateContactSection() {
+  const tl = gsap.timeline();
+
+  // Animate title
+  tl.to(".contact-title", {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
+    ease: "power3.out",
+  })
+    // Animate form fields with stagger
+    .to(
+      ".contact input, .contact textarea",
+      {
+        opacity: 1,
+        x: 0,
+        duration: 0.5,
+        stagger: 0.1,
+        ease: "power3.out",
+      },
+      "-=0.3",
+    )
+    // Animate submit button
+    .to(
+      ".contact button",
+      {
+        opacity: 1,
+        scale: 1,
+        duration: 0.5,
+        ease: "back.out(1.7)",
+      },
+      "-=0.2",
+    )
+    // Animate decorative branches
+    .to(
+      ".contact .absolute.left-0.top-0",
+      {
+        opacity: 1,
+        x: 0,
+        rotation: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.8",
+    )
+    .to(
+      ".contact .absolute.right-0.bottom-0",
+      {
+        opacity: 1,
+        x: 0,
+        rotation: 0,
+        duration: 1,
+        ease: "power2.out",
+      },
+      "-=0.9",
+    );
+}
+
+// Export function globally
+window.animateContactSection = animateContactSection;

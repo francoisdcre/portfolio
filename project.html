@@ -42,7 +42,7 @@
 
     <!-- Main Content -->
     <main
-      class="min-h-screen flex items-center justify-center px-8 md:px-15 py-24"
+      class="min-h-screen flex items-center justify-center px-8 md:px-15 py-24 relative overflow-hidden"
     >
       <div class="flex flex-col items-center w-full gap-12 max-w-7xl">
         <!-- Titre -->
@@ -70,6 +70,15 @@
         <div id="pagination" class="flex items-center gap-3">
           <!-- La pagination sera générée dynamiquement ici -->
         </div>
+      </div>
+
+      <!-- Decorative Image -->
+      <div class="absolute right-0 bottom-0 pointer-events-none z-0">
+        <img
+          src="assets/img/CherryBlossomBranch.svg"
+          alt="Cherry Blossom Branch"
+          class="w-2xs md:w-xs lg:w-sm xl:w-md"
+        />
       </div>
     </main>
 

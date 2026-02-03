@@ -1,11 +1,20 @@
 let aboutAnimated = false;
 let journeyAnimated = false;
 let skillsAnimated = false;
+let projectsAnimated = false;
+let contactAnimated = false;
 var myFullpage = new fullpage("#fullpage", {
-  anchors: ["home", "about", "journey", "skills", "projects"],
+  anchors: ["home", "about", "journey", "skills", "projects", "contact"],
   menu: "#menu",
   navigation: true,
-  navigationTooltips: ["Home", "About", "Journey", "Skills", "Projects"],
+  navigationTooltips: [
+    "Home",
+    "About",
+    "Journey",
+    "Skills",
+    "Projects",
+    "Contact",
+  ],
   slidesNavigation: true,
   scrollingSpeed: "1000",
   fitToSectionDelay: "600",
@@ -72,6 +81,33 @@ var myFullpage = new fullpage("#fullpage", {
       skillsAnimated = true;
       if (typeof window.animateSkillsSection === "function") {
         window.animateSkillsSection();
+      }
+    }
+
+    // Projects section animation trigger
+    if (destination.anchor === "projects" && !projectsAnimated) {
+      projectsAnimated = true;
+
+      // Callback pour animer les cards une fois qu'elles sont chargées
+      window.projectsCardsLoaded = function () {
+        if (typeof window.animateProjectsSection === "function") {
+          window.animateProjectsSection();
+        }
+      };
+
+      // Si les cards sont déjà chargées, animer immédiatement
+      if (document.querySelectorAll(".project-card").length > 0) {
+        if (typeof window.animateProjectsSection === "function") {
+          window.animateProjectsSection();
+        }
+      }
+    }
+
+    // Contact section animation trigger
+    if (destination.anchor === "contact" && !contactAnimated) {
+      contactAnimated = true;
+      if (typeof window.animateContactSection === "function") {
+        window.animateContactSection();
       }
     }
   },

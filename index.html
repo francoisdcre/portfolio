@@ -481,7 +481,7 @@
         class="section projects h-dvh relative flex items-center justify-center overflow-hidden"
       >
         <div
-          class="flex flex-col items-center w-full px-8 md:px-15 gap-10 z-10"
+          class="flex flex-col items-center w-full px-8 md:px-15 gap-2 md:gap-10 lg:gap-12 z-10"
         >
           <!-- Titre -->
           <div class="w-full">
@@ -517,6 +517,114 @@
               class="fa-solid fa-arrow-right text-sm relative z-10 group-hover:translate-x-1 transition-transform duration-300"
             ></i>
           </a>
+        </div>
+        <!-- Decorative Image -->
+        <div class="absolute right-0 bottom-0 pointer-events-none z-0">
+          <img
+            src="assets/img/CherryBlossomBranch.svg"
+            alt="Cherry Blossom Branch"
+            class="w-2xs md:w-xs lg:w-sm xl:w-md"
+          />
+        </div>
+      </div>
+      <!-- Section Contact -->
+      <div
+        class="section contact h-dvh relative flex items-center justify-center overflow-hidden"
+      >
+        <div
+          class="flex flex-col items-center w-full px-8 md:px-15 gap-8 md:gap-12 z-10 max-w-3xl"
+        >
+          <!-- Titre -->
+          <div class="w-full">
+            <h1
+              class="contact-title flex items-center gap-2 text-3xl font-bold mb-2"
+            >
+              Contact
+              <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+            </h1>
+          </div>
+
+          <!-- Formulaire de contact -->
+          <form class="w-full flex flex-col gap-6">
+            <!-- Nom et Prénom -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="relative">
+                <input
+                  type="text"
+                  id="firstName"
+                  name="firstName"
+                  placeholder="First Name"
+                  required
+                  class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300"
+                />
+              </div>
+              <div class="relative">
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  placeholder="Last Name"
+                  required
+                  class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="relative">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+                class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300"
+              />
+            </div>
+
+            <!-- Message -->
+            <div class="relative">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                rows="5"
+                required
+                class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300 resize-none"
+              ></textarea>
+            </div>
+
+            <!-- Bouton Submit -->
+            <button
+              type="submit"
+              class="group relative overflow-hidden bg-white/15 backdrop-blur-sm rounded-md px-8 py-3 self-start cursor-pointer transition-all duration-500 hover:bg-white/25 hover:-translate-y-1"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <span class="text-sm md:text-base font-semibold relative z-10"
+                >Submit</span
+              >
+            </button>
+          </form>
+        </div>
+
+        <!-- Decorative Images -->
+        <div
+          class="absolute left-0 top-0 pointer-events-none z-0 hidden md:block"
+        >
+          <img
+            src="assets/img/CherryBlossomBranch.svg"
+            alt="Cherry Blossom Branch"
+            class="w-xs lg:w-sm xl:w-md scale-x-[-1] scale-y-[-1]"
+          />
+        </div>
+        <div class="absolute right-0 bottom-0 pointer-events-none z-0">
+          <img
+            src="assets/img/CherryBlossomBranch.svg"
+            alt="Cherry Blossom Branch"
+            class="w-2xs md:w-xs lg:w-sm xl:w-md"
+          />
         </div>
       </div>
     </div>
