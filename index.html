@@ -1,1290 +1,760 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>François Dancre</title>
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/responsive.css" />
+    <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/theme.css" />
-    <link rel="stylesheet" href="assets/lib/notification-master/notification.css" />
-    <link href="assets/lib/hamburger/hamburgers.css" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar-responsive.css" />
-    <link rel="icon" type="image/x-icon" href="assets/icon/favicon.png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <script src="https://kit.fontawesome.com/01607bf9c6.js" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/4.2.12/marked.min.js"></script>
-    <script src="js/Progression.js"></script>
+    <link
+      href=" https://cdn.jsdelivr.net/npm/fullpage.js@4.0.40/dist/fullpage.min.css "
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.40/dist/fullpage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.1/dist/SplitText.min.js"></script>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</head>
-
-<body>
-    <!-- Barre de progression -->
-    <div class="progress-container">
-        <div class="progress-bar">
-            <div class="progress-indicator"></div>
-        </div>
-        <div class="section-dots">
-            <a href="#main-content" class="section-dot" data-section="main-content">
-                <span class="dot-tooltip">Accueil</span>
-            </a>
-            <a href="#about" class="section-dot" data-section="about">
-                <span class="dot-tooltip">À propos</span>
-            </a>
-            <a href="#parcours" class="section-dot" data-section="parcours">
-                <span class="dot-tooltip">Parcours</span>
-            </a>
-            <a href="#competences" class="section-dot" data-section="competences">
-                <span class="dot-tooltip">Compétences</span>
-            </a>
-            <a href="#projets" class="section-dot" data-section="projets">
-                <span class="dot-tooltip">Projets</span>
-            </a>
-            <a href="#veille" class="section-dot" data-section="experience">
-                <span class="dot-tooltip">Veille</span>
-            </a>
-            <a href="#contact" class="section-dot" data-section="contact">
-                <span class="dot-tooltip">Contact</span>
-            </a>
-        </div>
-    </div>
-
-    <!-- Theme Toggle Switch - Repositionné à gauche -->
-    <div class="theme-container">
-        <div class="theme-switch">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-            <div class="toggle-ball"></div>
-        </div>
-    </div>
-
-    <!-- Ecran de bienvenue -->
-    <div id="welcome-screen">
-        <p>www . Francois - Dancre . fr</p>
-    </div>
-
-    <!-- Menu - Switch de thème retiré d'ici -->
-    <div class="menu">
-        <button class="hamburger hamburger--elastic" type="button">
-            <span class="hamburger-box">
-                <span class="hamburger-inner"></span>
-            </span>
-        </button>
-    </div>
-
-    <nav>
-        <ul>
-            <li><a href="#main-content">Accueil</a></li>
-            <li><a href="#about">À propos</a></li>
-            <li><a href="#parcours">Parcours</a></li>
-            <li><a href="#competences">Compétences</a></li>
-            <li><a href="#projets">Projets</a></li>
-            <li><a href="#veille">Veille</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+  </head>
+  <body>
+    <!-- Navigation Menu -->
+    <nav
+      id="menu"
+      class="w-full fixed top-2 left-0 z-10 transition-opacity duration-500 opacity-0"
+    >
+      <ul class="flex align-center justify-around">
+        <li class="hidden lg:block">
+          <a href="#home">Accueil</a>
+        </li>
+        <li class="hidden lg:block">
+          <a href="#about">À propos</a>
+        </li>
+        <li class="hidden lg:block">
+          <a href="#journey">Parcours</a>
+        </li>
+        <li>
+          <h1 class="text-xl lg:text-3xl font-bold">François Dancre</h1>
+        </li>
+        <li class="hidden lg:block">
+          <a href="#skills">Compétences</a>
+        </li>
+        <li class="hidden lg:block">
+          <a href="#projects">Projets</a>
+        </li>
+        <li class="hidden lg:block">
+          <a href="#contact">Me Contacter</a>
+        </li>
+      </ul>
     </nav>
-    <!-- Header -->
-    <header id="main-content">
-        <h1 class="ml11">
-            <span class="text-wrapper">
-                <span class="line line1"></span>
-                <span class="letters">François Dancre</span>
-            </span>
-        </h1>
-        <a href="#" class="scroll-down" address="true"></a>
-    </header>
-    <!-- A propos -->
-    <section id="about">
-        <aside class="title">
-            <h1>Mon Profil</h1>
-            <div class="line">
-                <div class="circle"></div>
-            </div>
-        </aside>
-        <div class="container">
-            <div class="inline">
-                <div class="box">
-                    <div class="top-box">
-                        <h1>Photo</h1>
-                        <div class="icon">
-                            <img src="assets/icon/minimize.png" alt="A propos" />
-                            <img src="assets/icon/copy.png" alt="A propos" />
-                            <img src="assets/icon/close-window.png" alt="A propos" />
-                        </div>
-                    </div>
-                    <img src="assets/img/mich_no_watermark.jpg" class="photo" alt="Photo" />
-                </div>
-                <div class="box">
-                    <div class="top-box">
-                        <h1>À propos</h1>
-                        <div class="icon">
-                            <img src="assets/icon/minimize.png" alt="A propos" />
-                            <img src="assets/icon/copy.png" alt="A propos" />
-                            <img src="assets/icon/close-window.png" alt="A propos" />
-                        </div>
-                    </div>
-                    <div class="content">
-                        <h1>
-                            <span style="color: var(--background-color-secondary)">
-                                Etudiant en informatique
-                            </span>
-                        </h1>
-                        <p>
-                            Je m'appelle
-                            <span class="animated-text" style="color: var(--background-color-secondary)">François Dancre</span>,
-                            un étudiant de 21 ans actuellement inscrit en <span class="animated-text" style="color: var(--background-color-secondary)">Bachelor Développeur Web</span>
-                            chez My Digital School Annecy. Mon intérêt
-                            marqué pour le développement web m'a conduit à explorer les
-                            multiples facettes de la création en ligne.
-                        </p>
-                        <div class="social">
-                            <a class="social-link" href="https://www.linkedin.com/in/fran%C3%A7ois-dancre-bb597a292/"
-                                target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                            <a class="social-link" href="https://github.com/francoisdcre" target="_blank"><i
-                                    class="fa-brands fa-github"></i></a>
-                            <a class="social-link" href="mailto:francois.dcre@gmail.com"><i
-                                    class="fa-solid fa-envelope"></i></a>
-                            <a class="social-link" href="https://codepen.io/AllMichto" target="_blank"><i
-                                    class="fa-brands fa-codepen"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="box github">
-                <div class="top-box">
-                    <h1>Contribution GitHub</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <div class="github-calendar"></div>
-            </div>
-        </div>
-    </section>
-    <!-- Parcours -->
-    <section id="parcours">
-        <aside class="title">
-            <h1>Parcours</h1>
-            <div class="line">
-                <div class="circle"></div>
-            </div>
-        </aside>
-        <div class="timeline-container">
-            <div class="timeline">
-                <div class="timeline-item right">
-                    <div class="box timeline-box">
-                        <div class="top-box">
-                            <h1>My Digital School</h1>
-                            <div class="icon">
-                                <img src="assets/icon/minimize.png" alt="Minimize" />
-                                <img src="assets/icon/copy.png" alt="Copy" />
-                                <img src="assets/icon/close-window.png" alt="Close" />
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">2025 - Aujourd'hui</span>
-                            <h3>Bachelor Développeur Web</h3>
-                            <p>My Digital School, Annecy</p>
-                            <p>
-                                Formation en développement web moderne, front-end et back-end,
-                                projets pratiques et professionnalisation.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="box timeline-box">
-                        <div class="top-box">
-                            <h1>BTS SIO SLAM</h1>
-                            <div class="icon">
-                                <img src="assets/icon/minimize.png" alt="Minimize" />
-                                <img src="assets/icon/copy.png" alt="Copy" />
-                                <img src="assets/icon/close-window.png" alt="Close" />
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">2023 - 2025</span>
-                            <h3>BTS Services Informatiques aux Organisations</h3>
-                            <p>
-                                Option Solutions Logicielles et Applications Métiers (SLAM)
-                            </p>
-                            <p>Lycée Saint Michel, 74600 Annecy</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="box timeline-box">
-                        <div class="top-box">
-                            <h1>Stage - FolloYou</h1>
-                            <div class="icon">
-                                <img src="assets/icon/minimize.png" alt="Minimize" />
-                                <img src="assets/icon/copy.png" alt="Copy" />
-                                <img src="assets/icon/close-window.png" alt="Close" />
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Janvier - Février 2025</span>
-                            <h3>Stagiaire Développeur Web</h3>
-                            <p>Utopia Informatique</p>
-                            <p>
-                                Développement d'une application web pour gérer les clients et
-                                devis des entreprises utilisant Batigest.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item left">
-                    <div class="box timeline-box">
-                        <div class="top-box">
-                            <h1>Stage - Attelages</h1>
-                            <div class="icon">
-                                <img src="assets/icon/minimize.png" alt="Minimize" />
-                                <img src="assets/icon/copy.png" alt="Copy" />
-                                <img src="assets/icon/close-window.png" alt="Close" />
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">Mai - Juin 2024</span>
-                            <h3>Développeur WordPress</h3>
-                            <p>Aura Marketing</p>
-                            <p>
-                                Création d'un site web pour une association dédiée à
-                                l'équitation, permettant la gestion des articles, dates de
-                                concours et photos.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="timeline-item right">
-                    <div class="box timeline-box">
-                        <div class="top-box">
-                            <h1>Baccalauréat</h1>
-                            <div class="icon">
-                                <img src="assets/icon/minimize.png" alt="Minimize" />
-                                <img src="assets/icon/copy.png" alt="Copy" />
-                                <img src="assets/icon/close-window.png" alt="Close" />
-                            </div>
-                        </div>
-                        <div class="timeline-content">
-                            <span class="date">2022 - 2023</span>
-                            <h3>Baccalauréat</h3>
-                            <p>Lycée Louis Lachenal, 74019 Argonay</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Compétences -->
-    <section id="competences">
-        <aside class="title">
-            <h1>Compétences</h1>
-            <div class="line">
-                <div class="circle"></div>
-            </div>
-        </aside>
-
-        <!-- Menu de filtrage -->
-        <div class="filter-menu">
-            <button class="filter-btn active" data-filter="all">Tous</button>
-            <button class="filter-btn" data-filter="front-end">Front-end</button>
-            <button class="filter-btn" data-filter="back-end">Back-end</button>
-            <button class="filter-btn" data-filter="outils">Outils</button>
-            <button class="filter-btn" data-filter="certifications">Certifications</button>
+    <!-- Fullpage Sections -->
+    <div id="fullpage">
+      <!-- Home Section -->
+      <div class="section relative h-dvh flex items-center justify-center">
+        <div
+          class="w-full absolute top-20 xl:top-16 text-center z-10 text-[clamp(1rem,8vw,9rem)]"
+        >
+          <h1 class="font-bold uppercase text-white/40 whitespace-nowrap split">
+            Web Developer
+          </h1>
         </div>
 
-        <div class="hero">
-            <!-- Compétences Front-end -->
-            <div class="competence-box" data-category="front-end" data-tilt>
-                <div class="top-box">
-                    <h1>HTML</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-html5" style="color: #e44d26"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Structure et sémantique</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="front-end" data-tilt>
-                <div class="top-box">
-                    <h1>CSS</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-css3-alt" style="color: #264de4"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Design responsive</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="front-end" data-tilt>
-                <div class="top-box">
-                    <h1>JavaScript</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-js" style="color: #f0db4f"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Frameworks et animations</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="back-end" data-tilt>
-                <div class="top-box">
-                    <h1>PHP</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-php" style="color: #8892be"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Application web</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="back-end" data-tilt>
-                <div class="top-box">
-                    <h1>Python</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-python" style="color: #306998"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Scripts et exercices en cours</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="back-end" data-tilt>
-                <div class="top-box">
-                    <h1>MySQL</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-solid fa-database" style="color: #00758f"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Modélisation de base de données</div>
-                </div>
-            </div>
-
-            <!-- Ajout de Symfony -->
-            <div class="competence-box" data-category="back-end" data-tilt>
-                <div class="top-box">
-                    <h1>Symfony</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-symfony" style="color: #000000"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Framework PHP robuste et flexible</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="outils" data-tilt>
-                <div class="top-box">
-                    <h1>WordPress</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-wordpress" style="color: #21759b"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Création de site web</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="front-end" data-tilt>
-                <div class="top-box">
-                    <h1>React</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-react" style="color: #61dafb"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Components</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="outils" data-tilt>
-                <div class="top-box">
-                    <h1>C# / C++</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-solid fa-c" style="color: #5c2d91"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Exercices en cours</div>
-                </div>
-            </div>
-
-            <div class="competence-box" data-category="outils" data-tilt>
-                <div class="top-box">
-                    <h1>VS Code</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-solid fa-code" style="color: #007ACC"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Environnement de développement</div>
-                </div>
-            </div>
-            
-            <div class="competence-box" data-category="outils" data-tilt>
-                <div class="top-box">
-                    <h1>Git</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="A propos" />
-                        <img src="assets/icon/copy.png" alt="A propos" />
-                        <img src="assets/icon/close-window.png" alt="A propos" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-git-alt" style="color: #F05032"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Contrôle de version</div>
-                </div>
-            </div>
-            
-            <!-- Certifications Microsoft Learn - Base de données -->
-            <div class="competence-box" data-category="certifications" data-tilt>
-                <div class="top-box">
-                    <h1>SQL Server</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="Certification" />
-                        <img src="assets/icon/copy.png" alt="Certification" />
-                        <img src="assets/icon/close-window.png" alt="Certification" />
-                    </div>
-                </div>
-                <i class="fa-solid fa-database" style="color: #0078d4"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Introduction aux bases de données relationnelles</div>
-                    <a href="https://learn.microsoft.com/api/achievements/share/fr-fr/francoisdancre-5805/FZN5BYUX?sharingId=B7F3C93B77156719" target="_blank" class="certification-link">Voir le certificat</a>
-                </div>
-            </div>
-            
-            <div class="competence-box" data-category="certifications" data-tilt>
-                <div class="top-box">
-                    <h1>Conception de BDD</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="Certification" />
-                        <img src="assets/icon/copy.png" alt="Certification" />
-                        <img src="assets/icon/close-window.png" alt="Certification" />
-                    </div>
-                </div>
-                <i class="fa-solid fa-diagram-project" style="color: #0078d4"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Conception et implémentation de bases de données</div>
-                    <a href="https://learn.microsoft.com/api/achievements/share/fr-fr/francoisdancre-5805/AQYSS6S7?sharingId=B7F3C93B77156719" target="_blank" class="certification-link">Voir le certificat</a>
-                </div>
-            </div>
-            
-            <!-- Certifications Microsoft Learn - JavaScript -->
-            <div class="competence-box" data-category="certifications" data-tilt>
-                <div class="top-box">
-                    <h1>JavaScript Fondamentaux</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="Certification" />
-                        <img src="assets/icon/copy.png" alt="Certification" />
-                        <img src="assets/icon/close-window.png" alt="Certification" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-js" style="color: #f7df1e"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Bases et fondamentaux du langage JavaScript</div>
-                    <a href="https://learn.microsoft.com/api/achievements/share/fr-fr/francoisdancre-5805/EJGXXDVP?sharingId=B7F3C93B77156719" target="_blank" class="certification-link">Voir le certificat</a>
-                </div>
-            </div>
-            
-            <div class="competence-box" data-category="certifications" data-tilt>
-                <div class="top-box">
-                    <h1>JavaScript Intermédiaire</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="Certification" />
-                        <img src="assets/icon/copy.png" alt="Certification" />
-                        <img src="assets/icon/close-window.png" alt="Certification" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-js" style="color: #f7df1e"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Concepts intermédiaires en JavaScript</div>
-                    <a href="https://learn.microsoft.com/api/achievements/share/fr-fr/francoisdancre-5805/HY2TLY78?sharingId=B7F3C93B77156719" target="_blank" class="certification-link">Voir le certificat</a>
-                </div>
-            </div>
-            
-            <div class="competence-box" data-category="certifications" data-tilt>
-                <div class="top-box">
-                    <h1>JavaScript Avancé</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="Certification" />
-                        <img src="assets/icon/copy.png" alt="Certification" />
-                        <img src="assets/icon/close-window.png" alt="Certification" />
-                    </div>
-                </div>
-                <i class="fa-brands fa-js" style="color: #f7df1e"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Fonctionnalités avancées et développement moderne</div>
-                    <a href="https://learn.microsoft.com/api/achievements/share/fr-fr/francoisdancre-5805/EJ9YLDTP?sharingId=B7F3C93B77156719" target="_blank" class="certification-link">Voir le certificat</a>
-                </div>
-            </div>
-            
-            <!-- Certification Microsoft Learn - Programmation -->
-            <div class="competence-box" data-category="certifications" data-tilt>
-                <div class="top-box">
-                    <h1>Programmation</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="Certification" />
-                        <img src="assets/icon/copy.png" alt="Certification" />
-                        <img src="assets/icon/close-window.png" alt="Certification" />
-                    </div>
-                </div>
-                <i class="fa-solid fa-code" style="color: #3A9104"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Principes fondamentaux de programmation</div>
-                    <a href="https://learn.microsoft.com/api/achievements/share/fr-fr/francoisdancre-5805/X24LJCNY?sharingId=B7F3C93B77156719" target="_blank" class="certification-link">Voir le certificat</a>
-                </div>
-            </div>
-            
-            <!-- Ajout de la certification de cybersécurité -->
-            <div class="competence-box" data-category="certifications" data-tilt>
-                <div class="top-box">
-                    <h1>Cybersécurité</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="Certification" />
-                        <img src="assets/icon/copy.png" alt="Certification" />
-                        <img src="assets/icon/close-window.png" alt="Certification" />
-                    </div>
-                </div>
-                <i class="fa-solid fa-shield-halved" style="color: #E40046"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Introduction à la cybersécurité</div>
-                    <a href="assets/pdf/Certification-introduction-à-la-cybersécurité.pdf" target="_blank" class="certification-link">Voir le certificat</a>
-                </div>
-            </div>
-            
-            <!-- Ajout de la certification PIX -->
-            <div class="competence-box" data-category="certifications" data-tilt>
-                <div class="top-box">
-                    <h1>PIX</h1>
-                    <div class="icon">
-                        <img src="assets/icon/minimize.png" alt="Certification" />
-                        <img src="assets/icon/copy.png" alt="Certification" />
-                        <img src="assets/icon/close-window.png" alt="Certification" />
-                    </div>
-                </div>
-                <i class="fa-solid fa-certificate" style="color: #2D9CDB"></i>
-                <div class="skill-info">
-                    <div class="skill-description">Compétences numériques</div>
-                    <a href="assets/pdf/certification-pix.pdf" target="_blank" class="certification-link">Voir le certificat</a>
-                </div>
-            </div>
+        <div class="relative z-10 flex items-center justify-center">
+          <img
+            src="assets/img/angel.webp"
+            alt="Angel image"
+            class="w-xl xl:w-3xl"
+          />
         </div>
-    </section>
-    <!-- Projets -->
-    <section id="projets">
-        <aside class="title">
-            <h1>Projets</h1>
-            <div class="line">
-                <div class="circle"></div>
-            </div>
-        </aside>
-        <div class="main-content">
-            <div class="git-repo">
-                <div class="repo-title" data-json="js/json/FolloYou.json">
-                    <h1>FolloYou</h1>
-                </div>
-                <hr />
-                <div class="repo-title" data-json="js/json/attelages.json">
-                    <h1>Attelage.org</h1>
-                </div>
-                <hr />
-            </div>
-            <div class="repo-readme"></div>
+
+        <div
+          class="absolute left-0 top-0 md:block md:top-1/2 md:-translate-y-1/2"
+        >
+          <img
+            src="assets/img/backgroundLeft.webp"
+            class="w-xs lg:w-sm xl:w-md"
+          />
         </div>
-    </section>
-    <!-- Veille -->
-    <section id="veille">
-        <aside class="title">
-            <h1>Veille</h1>
-            <div class="line">
-                <div class="circle"></div>
-            </div>
-        </aside>
-        <div class="veille-container">
-            <div class="veille-intro">
-                <h2>Frameworks de Développement Émergents</h2>
-                <p>
-                    Ma veille technologique se concentre sur les frameworks de
-                    développement émergents qui transforment l'écosystème du
-                    développement web et logiciel.
-                </p>
-            </div>
 
-            <div class="framework-timeline">
-                <!-- Swiper container -->
-                <div class="swiper framework-swiper">
-                    <div class="swiper-wrapper">
-                        <!-- First slide - Svelte -->
-                        <div class="swiper-slide">
-                            <div class="framework-card">
-                                <div class="framework-header">
-                                    <i class="fas fa-bolt"></i>
-                                    <h3>Svelte</h3>
-                                    <span class="year-tag">2019</span>
-                                </div>
-                                <div class="framework-content">
-                                    <p>
-                                        Compilateur plutôt qu'un framework traditionnel, Svelte
-                                        déplace le travail du navigateur vers le build.
-                                    </p>
-                                    <div class="tech-tags">
-                                        <span>Front-end</span>
-                                        <span>Léger</span>
-                                        <span>Réactif</span>
-                                    </div>
-                                </div>
-                                <div class="code-snippet">
-                                    <pre><code>// Exemple Svelte
-&lt;script&gt;
-  let count = 0;
-  const increment = () => count += 1;
-&lt;/script&gt;
-
-&lt;button on:click={increment}&gt;
-  Clicks: {count}
-&lt;/button&gt;</code></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Second slide - Deno -->
-                        <div class="swiper-slide">
-                            <div class="framework-card">
-                                <div class="framework-header">
-                                    <i class="fas fa-wind"></i>
-                                    <h3>Deno</h3>
-                                    <span class="year-tag">2020</span>
-                                </div>
-                                <div class="framework-content">
-                                    <p>
-                                        Runtime JavaScript/TypeScript sécurisé par défaut, créé
-                                        par le fondateur de Node.js.
-                                    </p>
-                                    <div class="tech-tags">
-                                        <span>Runtime</span>
-                                        <span>TypeScript</span>
-                                        <span>Sécurité</span>
-                                    </div>
-                                </div>
-                                <div class="code-snippet">
-                                    <pre><code>// Exemple Deno
-import { serve } from "https://deno.land/std/http/server.ts";
-
-const server = serve({ port: 8000 });
-console.log("Serveur lancé sur http://localhost:8000/");
-
-for await (const req of server) {
-  req.respond({ body: "Hello World\n" });
-}</code></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Third slide - Flutter -->
-                        <div class="swiper-slide">
-                            <div class="framework-card">
-                                <div class="framework-header">
-                                    <i class="fas fa-feather-alt"></i>
-                                    <h3>Flutter</h3>
-                                    <span class="year-tag">2018</span>
-                                </div>
-                                <div class="framework-content">
-                                    <p>
-                                        Framework UI de Google pour créer des applications natives
-                                        multi-plateformes depuis une seule base de code.
-                                    </p>
-                                    <div class="tech-tags">
-                                        <span>Mobile</span>
-                                        <span>Multi-plateforme</span>
-                                        <span>Dart</span>
-                                    </div>
-                                </div>
-                                <div class="code-snippet">
-                                    <pre><code>// Exemple Flutter
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: Text('Flutter Demo')),
-        body: Center(child: Text('Hello World')),
-      ),
-    );
-  }
-}</code></pre>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Fourth slide - Next.js -->
-                        <div class="swiper-slide">
-                            <div class="framework-card">
-                                <div class="framework-header">
-                                    <i class="fas fa-atom"></i>
-                                    <h3>Next.js</h3>
-                                    <span class="year-tag">2021</span>
-                                </div>
-                                <div class="framework-content">
-                                    <p>
-                                        Framework React avec rendu côté serveur et génération de
-                                        sites statiques offrant des performances optimales.
-                                    </p>
-                                    <div class="tech-tags">
-                                        <span>React</span>
-                                        <span>SSR</span>
-                                        <span>Vercel</span>
-                                    </div>
-                                </div>
-                                <div class="code-snippet">
-                                    <pre><code>// Exemple Next.js
-// pages/index.js
-export default function Home() {
-  return (
-    &lt;div&gt;
-      &lt;h1&gt;Welcome to Next.js!&lt;/h1&gt;
-    &lt;/div&gt;
-  )
-}
-
-export async function getStaticProps() {
-  return {
-    props: { /* données */ },
-  }
-}</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Fifth slide - Astro -->
-                        <div class="swiper-slide">
-                            <div class="framework-card">
-                                <div class="framework-header">
-                                    <i class="fas fa-rocket"></i>
-                                    <h3>Astro</h3>
-                                    <span class="year-tag">2022</span>
-                                </div>
-                                <div class="framework-content">
-                                    <p>
-                                        Framework web moderne axé sur le contenu qui livre moins de JavaScript
-                                        tout en offrant une expérience développeur exceptionnelle.
-                                    </p>
-                                    <div class="tech-tags">
-                                        <span>Content-focused</span>
-                                        <span>Islandable</span>
-                                        <span>Multi-framework</span>
-                                    </div>
-                                </div>
-                                <div class="code-snippet">
-                                    <pre><code>// Exemple Astro
----
-// Frontmatter pour la logique de composant
-const title = "Hello Astro";
----
-&lt;html&gt;
-  &lt;head&gt;&lt;title&gt;{title}&lt;/title&gt;&lt;/head&gt;
-  &lt;body&gt;
-    &lt;h1&gt;{title}&lt;/h1&gt;
-  &lt;/body&gt;
-&lt;/html&gt;</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Sixth slide - Bun -->
-                        <div class="swiper-slide">
-                            <div class="framework-card">
-                                <div class="framework-header">
-                                    <i class="fas fa-hamburger"></i>
-                                    <h3>Bun</h3>
-                                    <span class="year-tag">2023</span>
-                                </div>
-                                <div class="framework-content">
-                                    <p>
-                                        Runtime JavaScript tout-en-un ultra-rapide avec bundler, 
-                                        transpileur, gestionnaire de packages et runner de tests intégrés.
-                                    </p>
-                                    <div class="tech-tags">
-                                        <span>Runtime</span>
-                                        <span>Performance</span>
-                                        <span>JavaScript/TypeScript</span>
-                                    </div>
-                                </div>
-                                <div class="code-snippet">
-                                    <pre><code>// Exemple Bun
-// server.js
-export default {
-  port: 3000,
-  fetch(request) {
-    return new Response("Hello from Bun!");
-  },
-};
-
-// Démarrer avec: bun server.js</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Seventh slide - SolidJS -->
-                        <div class="swiper-slide">
-                            <div class="framework-card">
-                                <div class="framework-header">
-                                    <i class="fas fa-cube"></i>
-                                    <h3>SolidJS</h3>
-                                    <span class="year-tag">2018</span>
-                                </div>
-                                <div class="framework-content">
-                                    <p>
-                                        Framework déclaratif qui compile les expressions réactives en micro-tâches 
-                                        ciblées sans DOM virtuel, offrant des performances supérieures.
-                                    </p>
-                                    <div class="tech-tags">
-                                        <span>Réactivité fine</span>
-                                        <span>Sans VDOM</span>
-                                        <span>Ultra-performant</span>
-                                    </div>
-                                </div>
-                                <div class="code-snippet">
-                                    <pre><code>// Exemple SolidJS
-import { createSignal } from "solid-js";
-
-function Counter() {
-  const [count, setCount] = createSignal(0);
-  
-  return (
-    &lt;button onClick={() => setCount(count() + 1)}&gt;
-      Clicks: {count()}
-    &lt;/button&gt;
-  );
-}</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <!-- Eighth slide - Qwik -->
-                        <div class="swiper-slide">
-                            <div class="framework-card">
-                                <div class="framework-header">
-                                    <i class="fas fa-bolt-lightning"></i>
-                                    <h3>Qwik</h3>
-                                    <span class="year-tag">2022</span>
-                                </div>
-                                <div class="framework-content">
-                                    <p>
-                                        Framework "resumable" qui élimine l'hydratation en chargeant uniquement le JavaScript 
-                                        nécessaire lors de l'interaction, pour une performance initiale inégalée.
-                                    </p>
-                                    <div class="tech-tags">
-                                        <span>Resumable</span>
-                                        <span>Lazy-loading</span>
-                                        <span>Builder.io</span>
-                                    </div>
-                                </div>
-                                <div class="code-snippet">
-                                    <pre><code>// Exemple Qwik
-import { component$, useSignal } from '@builder.io/qwik';
-
-export default component$(() => {
-  const count = useSignal(0);
-  
-  return (
-    &lt;button onClick$={() => count.value++}&gt;
-      Clicks: {count.value}
-    &lt;/button&gt;
-  );
-});</code></pre>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Add pagination -->
-                    <div class="swiper-pagination"></div>
-
-                    <!-- Navigation buttons -->
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
-                </div>
-            </div>
-            
-            <!-- Nouvelle section de comparaisons de frameworks -->
-            <div class="framework-comparisons">
-                <h3>Comparaisons de Frameworks</h3>
-                <p>Ma veille me permet d'analyser et de comparer les forces et faiblesses des différentes solutions technologiques.</p>
-                
-                <div class="comparison-container">
-                    <div class="comparison-card">
-                        <h4>Runtimes JavaScript</h4>
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Critère</th>
-                                    <th>Node.js</th>
-                                    <th>Deno</th>
-                                    <th>Bun</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Performance</td>
-                                    <td>Bonne</td>
-                                    <td>Meilleure</td>
-                                    <td>Excellente</td>
-                                </tr>
-                                <tr>
-                                    <td>Sécurité</td>
-                                    <td>Standard</td>
-                                    <td>Sécurisé par défaut</td>
-                                    <td>Standard</td>
-                                </tr>
-                                <tr>
-                                    <td>Écosystème</td>
-                                    <td>Très mature</td>
-                                    <td>En croissance</td>
-                                    <td>Naissant</td>
-                                </tr>
-                                <tr>
-                                    <td>TypeScript</td>
-                                    <td>Avec transpilation</td>
-                                    <td>Natif</td>
-                                    <td>Natif</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="comparison-card">
-                        <h4>Frameworks UI</h4>
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Critère</th>
-                                    <th>React</th>
-                                    <th>Svelte</th>
-                                    <th>Vue</th>
-                                    <th>SolidJS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Bundle size</td>
-                                    <td>Lourd</td>
-                                    <td>Très léger</td>
-                                    <td>Modéré</td>
-                                    <td>Très léger</td>
-                                </tr>
-                                <tr>
-                                    <td>Performances</td>
-                                    <td>Bonnes</td>
-                                    <td>Excellentes</td>
-                                    <td>Très bonnes</td>
-                                    <td>Excellentes</td>
-                                </tr>
-                                <tr>
-                                    <td>Adoption</td>
-                                    <td>Massive</td>
-                                    <td>Croissante</td>
-                                    <td>Importante</td>
-                                    <td>Émergente</td>
-                                </tr>
-                                <tr>
-                                    <td>Paradigme</td>
-                                    <td>Virtuel DOM</td>
-                                    <td>Compilation</td>
-                                    <td>Hybride</td>
-                                    <td>Réactivité fine</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    
-                    <div class="comparison-card">
-                        <h4>Meta-frameworks</h4>
-                        <table class="comparison-table">
-                            <thead>
-                                <tr>
-                                    <th>Critère</th>
-                                    <th>Next.js</th>
-                                    <th>SvelteKit</th>
-                                    <th>Astro</th>
-                                    <th>Qwik</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Base</td>
-                                    <td>React</td>
-                                    <td>Svelte</td>
-                                    <td>Multi-frameworks</td>
-                                    <td>Qwik</td>
-                                </tr>
-                                <tr>
-                                    <td>Rendu</td>
-                                    <td>SSR, SSG, CSR</td>
-                                    <td>SSR, SSG, CSR</td>
-                                    <td>SSG, Îles</td>
-                                    <td>SSR, Resumable</td>
-                                </tr>
-                                <tr>
-                                    <td>JavaScript client</td>
-                                    <td>Complet</td>
-                                    <td>Modéré</td>
-                                    <td>Minimal</td>
-                                    <td>Progressif</td>
-                                </tr>
-                                <tr>
-                                    <td>Focus</td>
-                                    <td>Applications</td>
-                                    <td>Applications</td>
-                                    <td>Sites de contenu</td>
-                                    <td>Performance</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-
-            <div class="veille-sources">
-                <h3>Sources et méthodes de veille</h3>
-                <div class="sources-grid">
-                    <div class="source-item">
-                        <i class="fab fa-github"></i>
-                        <h4>GitHub Trending</h4>
-                        <p><a href="https://github.com/trending/javascript?since=weekly" target="_blank">Dépôts JavaScript tendance de la semaine</a></p>
-                    </div>
-                    <div class="source-item">
-                        <i class="fas fa-newspaper"></i>
-                        <h4>State of JS</h4>
-                        <p><a href="https://stateofjs.com" target="_blank">Enquête annuelle sur l'écosystème JavaScript</a></p>
-                    </div>
-                    <div class="source-item">
-                        <i class="fas fa-rss"></i>
-                        <h4>JavaScript Weekly</h4>
-                        <p><a href="https://javascriptweekly.com/" target="_blank">Newsletter hebdomadaire sur l'écosystème JS</a></p>
-                    </div>
-                    <div class="source-item">
-                        <i class="fab fa-youtube"></i>
-                        <h4>Fireship</h4>
-                        <p><a href="https://www.youtube.com/c/Fireship" target="_blank">Chaîne de tutoriels sur les frameworks modernes</a></p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="veille-conclusion">
-                <h3>Impact sur mon apprentissage</h3>
-                <p>
-                    Cette veille me permet d'anticiper les évolutions du marché et
-                    d'adapter mon apprentissage aux technologies les plus prometteuses.
-                    Comprendre les nouvelles approches de développement enrichit ma
-                    capacité à concevoir des solutions innovantes.
-                </p>
-            </div>
+        <div
+          class="absolute right-0 bottom-0 md:block md:top-1/2 md:-translate-y-1/2 z-0"
+        >
+          <img
+            src="assets/img/backgroundRight.webp"
+            class="w-xs lg:w-sm xl:w-md"
+          />
         </div>
-    </section>
-    <!-- Contact -->
-    <section id="contact">
-        <aside class="title">
-            <h1>Contact</h1>
-            <div class="line">
-                <div class="circle"></div>
-            </div>
-        </aside>
-        
-        <div class="contact-container">
-            <div class="contact-intro">
-                <h2>Contactez-moi</h2>
-            </div>
 
-            <div class="contact-form-wrapper">
-                <div class="contact-form-card">
-                    <div class="top-box">
-                        <h1>Formulaire de contact</h1>
-                        <div class="icon">
-                            <img src="assets/icon/minimize.png" alt="Minimize" />
-                            <img src="assets/icon/copy.png" alt="Copy" />
-                            <img src="assets/icon/close-window.png" alt="Close" />
-                        </div>
-                    </div>
-                    
-                    <form id="contact-form" class="contact-form" method="post" action="php/send-mail.php">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <input type="text" id="name" name="name" required>
-                                <label for="name">Nom</label>
-                                <div class="input-line"></div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <input type="email" id="email" name="email" required>
-                                <label for="email">Email</label>
-                                <div class="input-line"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" required>
-                            <label for="subject">Sujet</label>
-                            <div class="input-line"></div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <textarea id="message" name="message" required></textarea>
-                            <label for="message">Message</label>
-                            <div class="input-line"></div>
-                        </div>
-                        <div class="recaptcha">
-                            <div class="g-recaptcha" data-sitekey="6Ld3AQArAAAAAE9Le5179dadeLq9VNvhUE0CARqR"></div>
-                        </div>
-                        <button type="submit" class="submit-btn">
-                            <span>Envoyer</span>
-                            <i class="fas fa-paper-plane"></i>
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section about">
-                <h3>François Dancre</h3>
-                <p>Développeur web passionné et étudiant Bachelor Développeur Web</p>
-                <div class="social-footer">
-                    <a href="https://www.linkedin.com/in/fran%C3%A7ois-dancre-bb597a292/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="https://github.com/francoisdcre" target="_blank"><i class="fa-brands fa-github"></i></a>
-                    <a href="mailto:francois.dcre@gmail.com"><i class="fa-solid fa-envelope"></i></a>
-                    <a href="https://codepen.io/AllMichto" target="_blank"><i class="fa-brands fa-codepen"></i></a>
-                </div>
-            </div>
-            
-            <div class="footer-section links">
-                <h3>Navigation</h3>
-                <ul>
-                    <li><a href="#main-content">Accueil</a></li>
-                    <li><a href="#about">À propos</a></li>
-                    <li><a href="#parcours">Parcours</a></li>
-                    <li><a href="#competences">Compétences</a></li>
-                    <li><a href="#projets">Projets</a></li>
-                    <li><a href="#veille">Veille</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-        
-        <div class="footer-bottom">
-            <p>&copy; 2025 François Dancre | Tous droits réservés</p>
-            <a href="#main-content" class="back-to-top">
-                <i class="fa-solid fa-arrow-up"></i>
+        <a
+          href="#about"
+          class="absolute bottom-10 left-1/2 -translate-x-1/2 z-0 w-20 z-20"
+        >
+          <video
+            autoplay
+            muted
+            loop
+            class="absolute bottom-10 left-1/2 -translate-x-1/2 z-0 w-10 sm:w-20"
+          >
+            <source src="assets/video/scrollDown.webm" type="video/mp4" />
+          </video>
+        </a>
+      </div>
+      <!-- About Section -->
+      <div class="section about h-dvh relative flex items-start justify-center">
+        <div class="flex items-start justify-center flex-col px-15 gap-2 z-10">
+          <h1 class="flex items-center justify-center gap-2 text-3xl font-bold">
+            À propos
+            <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+          </h1>
+          <p class="text-[clamp(0.7rem,1vw,1rem)] max-w-3xl split-about">
+            Bonjour ! Je suis
+            <span
+              class="text-black [text-shadow:_-1px_-1px_0_#fff,_1px_-1px_0_#fff,_-1px_1px_0_#fff,_1px_1px_0_#fff,_0_-1px_0_#fff,_0_1px_0_#fff,_-1px_0_0_#fff,_1px_0_0_#fff]"
+              >François Dancre</span
+            >, étudiant en développement web passionné par les technologies du
+            web. Diplômé d'un BTS SIO option SLAM, je suis actuellement en
+            recherche d'alternance pour un Bachelor Développement Web chez My
+            Digital School. Je me spécialise dans la création de sites web
+            modernes et performants, en explorant les différentes technologies
+            front-end et back-end.
+          </p>
+          <!-- Social Links -->
+          <div class="flex items-center gap-4 mt-4">
+            <a
+              href="https://www.linkedin.com/in/fran%C3%A7ois-dancre-bb597a292/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
+            >
+              <i class="fa-brands fa-linkedin text-2xl"></i>
             </a>
+            <a
+              href="mailto:francois.dcre@gmail.com"
+              class="text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
+            >
+              <i class="fa-solid fa-envelope text-2xl"></i>
+            </a>
+            <a
+              href="https://github.com/francoisdcre"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
+            >
+              <i class="fa-brands fa-github text-2xl"></i>
+            </a>
+          </div>
         </div>
-    </footer>
-    
-    <!-- Script -->
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
-    <script src="js/font.js"></script>
-    <script src="js/navbar.js"></script>
-    <script src="js/Gsap.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/github-calendar@latest/dist/github-calendar.min.js"></script>
-    <script src="assets/lib/vanilla-tilt.min.js"></script>
-    <script src="js/Github.js"></script>
-    <script src="js/theme.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-    <script src="js/Swiper.js"></script>
-    <script src="js/Competences.js"></script>
-    <script src="assets/lib/notification-master/notification.js"></script>
-    <script>
-        GitHubCalendar(".github-calendar", "francoisdcre", { responsive: true });
+        <div
+          class="absolute right-0 bottom-0 md:block lg:top-1/2 lg:-translate-y-1/2 z-0"
+        >
+          <img
+            src="assets/img/CherryBlossomIa.webp"
+            alt="Cherry Blowsom"
+            class="w-2xs lg:w-sm xl:w-2xl"
+          />
+        </div>
+      </div>
+      <!-- Journey Section -->
+      <div
+        class="section journey h-dvh relative flex items-center justify-center overflow-hidden"
+      >
+        <div class="flex flex-col items-center w-full px-8 md:px-15 gap-6 z-10">
+          <!-- Titre -->
+          <div class="w-full">
+            <h1
+              class="journey-title flex items-center gap-2 text-3xl font-bold mb-2"
+            >
+              Parcours
+              <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+            </h1>
+            <p class="journey-subtitle text-sm md:text-base opacity-70">
+              Mon parcours professionnel & formation
+            </p>
+          </div>
 
-        document.addEventListener("DOMContentLoaded", function() {
-            // Initialisation de notification-master
-            const popup = Notification({
-                position: 'top-right',
-                duration: 5000
-            });
+          <!-- Timeline Container -->
+          <div class="relative w-full flex justify-center max-w-5xl">
+            <!-- Vertical Line -->
+            <div
+              class="timeline-line absolute left-4 md:left-1/2 top-0 w-px h-full bg-white/30"
+            ></div>
 
-            const contactForm = document.getElementById("contact-form");
+            <!-- Timeline Items -->
+            <div class="space-y-10 md:space-y-16">
+              <!-- Item 1 -->
+              <div
+                class="timeline-item relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8"
+              >
+                <img
+                  src="assets/img/rose.webp"
+                  alt="Rose"
+                  class="timeline-dot absolute left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-8 h-8"
+                />
+                <div class="hidden md:block"></div>
+                <div class="timeline-card md:pl-8">
+                  <span class="text-[0.65rem] md:text-sm opacity-60"
+                    >Septembre - Décembre 2025</span
+                  >
+                  <h3 class="text-base md:text-xl font-bold mt-1">
+                    Bachelor Développeur Web MydigitalSchool
+                  </h3>
+                  <p class="text-xs md:text-sm opacity-80 mt-2">
+                    Début de formation Développeur Web chez MydigitalSchool sans
+                    alternance
+                  </p>
+                </div>
+              </div>
+              <!-- Item 2 -->
+              <div
+                class="timeline-item relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8"
+              >
+                <img
+                  src="assets/img/rose.webp"
+                  alt="Rose"
+                  class="timeline-dot absolute left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-8 h-8"
+                />
+                <div class="timeline-card md:text-right md:pr-8">
+                  <span class="text-[0.65rem] md:text-sm opacity-60"
+                    >2023 - 2025</span
+                  >
+                  <h3 class="text-base md:text-xl font-bold mt-1">
+                    BTS SIO option SLAM
+                  </h3>
+                  <p class="text-xs md:text-sm opacity-80 mt-2">
+                    Formation en développement d'applications, bases de données,
+                    programmation orientée objet et gestion de projets web
+                  </p>
+                </div>
+                <div class="hidden md:block"></div>
+              </div>
 
-            if (contactForm) {
-                contactForm.addEventListener("submit", function(e) {
-                e.preventDefault(); // Empêche le comportement par défaut de soumission
-                var formData = new FormData(contactForm);
+              <!-- Item 3 -->
+              <div
+                class="timeline-item relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8"
+              >
+                <img
+                  src="assets/img/rose.webp"
+                  alt="Rose"
+                  class="timeline-dot absolute left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-8 h-8"
+                />
+                <div class="hidden md:block"></div>
+                <div class="timeline-card md:pl-8">
+                  <span class="text-[0.65rem] md:text-sm opacity-60"
+                    >Janvier - Février 2025</span
+                  >
+                  <h3 class="text-base md:text-xl font-bold mt-1">
+                    Stage UtopiaInformatique - FolloYou
+                  </h3>
+                  <p class="text-xs md:text-sm opacity-80 mt-2">
+                    Développement d'une application web pour gérer les clients
+                    et devis des entreprises utilisant Batigest.
+                  </p>
+                </div>
+              </div>
 
-                fetch('php/send-mail.php', {
-                    method: 'POST',
-                    body: formData
-                })
-                .then(response => response.json())
-                .then(data => {
-                    if(data.success){
-                    popup.success({
-                        title: "Mail envoyé !",
-                        message: "Le mail a bien été envoyé avec succès !"
-                    });
-                    contactForm.reset(); // Réinitialise le formulaire
-                    } else {
-                    popup.error({
-                        title: "Erreur",
-                        message: data.error || "Le mail n'a pas pu être envoyé."
-                    });
-                    }
-                })
-                .catch(error => {
-                    popup.error({
-                    title: "Erreur",
-                    message: "Erreur réseau"
-                    });
-                });
-                });
-            }
+              <!-- Item 4 -->
+              <div
+                class="timeline-item relative pl-12 md:pl-0 md:grid md:grid-cols-2 md:gap-8"
+              >
+                <img
+                  src="assets/img/rose.webp"
+                  alt="Rose"
+                  class="timeline-dot absolute left-4 -translate-x-1/2 md:left-1/2 md:-translate-x-1/2 w-8 h-8"
+                />
+                <div class="timeline-card md:text-right md:pr-8">
+                  <span class="text-[0.65rem] md:text-sm opacity-60"
+                    >Mai - Juin 2024</span
+                  >
+                  <h3 class="text-base md:text-xl font-bold mt-1">
+                    Stage - Aura Marketing
+                  </h3>
+                  <p class="text-xs md:text-sm opacity-80 mt-2">
+                    Création d'un site web pour une association dédiée à
+                    l'équitation, permettant la gestion des articles, dates de
+                    concours et photos sur Wordpress.
+                  </p>
+                </div>
+                <div class="hidden md:block"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Image -->
+        <div
+          class="journey-deco absolute right-0 bottom-0 hidden md:block md:top-1/3 md:-translate-y-1/2 pointer-events-none"
+        >
+          <img
+            src="assets/img/Cyndi.svg"
+            alt="Cherry Blowsom"
+            class="w-2xs lg:w-sm xl:w-xl"
+          />
+        </div>
+      </div>
+      <!-- Skills Section -->
+      <div
+        class="section skills h-dvh relative flex items-center justify-center overflow-hidden px-8 md:px-15"
+      >
+        <div class="w-full">
+          <h1 class="flex items-center gap-2 text-3xl font-bold mb-2">
+            Compétences
+            <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+          </h1>
+        </div>
+        <div
+          class="flex flex-col items-start w-full max-w-6xl px-8 md:px-15 gap-8 md:gap-12 z-10"
+        >
+          <!-- Skills Grid -->
+          <div
+            class="w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-4 lg:gap-6"
+          >
+            <!-- HTML -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-brands fa-html5 text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >HTML</span
+              >
+            </div>
+
+            <!-- CSS -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-brands fa-css3-alt text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >CSS</span
+              >
+            </div>
+
+            <!-- JavaScript -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-brands fa-js text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >JavaScript</span
+              >
+            </div>
+
+            <!-- PHP -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-brands fa-php text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >PHP</span
+              >
+            </div>
+
+            <!-- MySQL -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-solid fa-database text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >MySQL</span
+              >
+            </div>
+
+            <!-- WordPress -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-brands fa-wordpress text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >WordPress</span
+              >
+            </div>
+
+            <!-- Symfony -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-brands fa-symfony text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >Symfony</span
+              >
+            </div>
+
+            <!-- Git -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-brands fa-git-alt text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >Git</span
+              >
+            </div>
+
+            <!-- VSCode -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-solid fa-code text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >VSCode</span
+              >
+            </div>
+
+            <!-- Tailwind -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-solid fa-wind text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >Tailwind</span
+              >
+            </div>
+
+            <!-- Express -->
+            <div
+              class="group relative overflow-hidden bg-white/5 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/10 hover:-translate-y-2"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <i
+                class="fa-brands fa-node-js text-3xl md:text-5xl lg:text-6xl relative z-10 opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-300"
+              ></i>
+              <span
+                class="text-xs md:text-sm lg:text-base font-bold relative z-10"
+                >Express</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Images -->
+        <div
+          class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none rotate-[25deg]"
+        >
+          <svg
+            viewBox="0 0 60 74"
+            fill="none"
+            stroke="#fff"
+            stroke-width="0.2"
+            xmlns="http://www.w3.org/2000/svg"
+            class="skillsPath w-48 md:w-80 lg:w-96 xl:w-[600px]"
+          >
+            <path
+              d="M59.7511 4.92337C60.173 2.00147 57.2003 0.18507 57.0714 0.10307H56.88C53.9933 -0.14302 51.087 0.0522895 48.2589 0.68119C45.8175 1.39213 41.1378 3.21239 37.7279 4.53279C36.267 5.09138 35.0873 5.53279 34.5091 5.76329C33.4114 6.02501 32.2903 6.15782 31.1614 6.15001C29.0442 6.16564 26.9426 6.50548 24.9309 7.15001C21.7121 8.36881 18.5403 9.38831 14.1609 10.7398V10.7437C12.3679 11.2242 10.5476 11.5836 8.7078 11.8218C7.0086 11.9859 5.3484 12.4351 3.8016 13.1499C2.5399 13.8648 1.3993 14.7671 0.411003 15.8218C-0.284307 16.8179 -0.0772772 18.1851 0.879753 18.9312C1.69225 19.6968 2.76255 20.1304 3.87975 20.15C3.71178 20.732 3.661 21.3414 3.73131 21.943C3.8524 22.8532 4.78991 23.4039 5.73131 23.943C6.25475 24.1735 6.7274 24.5133 7.11021 24.943C7.5438 25.5524 7.79771 26.275 7.84849 27.0211C8.0399 28.2516 8.84849 28.5719 9.27039 28.5719C9.51258 28.568 9.7157 28.3922 9.75086 28.15C10.2001 31.8805 10.7509 35.9586 11.0517 38.271C11.2509 39.5913 11.4735 40.7515 11.6806 41.8022C10.5439 44.0327 8.84857 45.9272 6.75867 47.3022C5.47747 48.0913 5.68057 49.8139 5.84851 51.3022C5.84851 51.5522 5.84851 51.7905 5.91882 52.021C5.95007 52.5288 5.90711 53.0366 5.78991 53.5327C5.45007 54.9077 5.48132 56.3491 5.87976 57.7124C6.55945 60.1929 10.8798 72.5914 29.6608 73.7124H30.6608C48.4418 73.7124 59.5908 45.1924 59.7698 43.3024C59.8791 42.2438 58.551 41.6305 56.7112 40.7829C54.8714 39.9313 52.3518 38.7829 51.0628 36.9118C48.8323 33.6618 49.7737 28.0016 49.8636 27.5016H49.8596C50.0667 27.0875 50.2503 26.6578 50.4104 26.2204C51.1448 26.5368 51.9299 26.7126 52.7307 26.7438C53.0706 26.7438 53.4065 26.6891 53.7307 26.5837C54.8088 26.1032 55.7229 25.3181 56.3596 24.322C56.8479 24.1227 57.8284 23.3923 58.3596 20.7009C58.8479 18.3923 57.4182 17.0407 56.3596 16.0525C55.8987 15.6111 55.4612 15.2009 55.3596 14.8923C55.219 13.7751 55.6214 12.6579 56.4494 11.8923C57.0627 11.1188 57.344 10.1345 57.2385 9.15007C58.5744 8.10317 59.4699 6.59527 59.7511 4.92337ZM54.3995 5.4429C53.6612 9.9038 52.6925 14.3218 51.5011 18.6809C51.2511 19.552 51.0324 20.4192 50.8097 21.2707C50.3605 23.5129 49.6105 25.6809 48.5792 27.7199C48.5011 27.8215 40.8019 39.5909 33.8802 39.6419H32.0013C28.7904 39.6419 26.6732 39.72 25.0599 38.8802C23.7591 38.1888 17.1497 34.5794 14.3689 30.8216L14.0798 30.4427C11.6306 27.1224 11.2517 26.6146 10.5212 23.0325C9.89233 20.0325 9.15014 16.7044 8.86104 15.4622L9.86104 15.2903L14.0798 14.5989V14.6028C18.736 13.9387 23.3571 13.0403 27.9198 11.9114C30.0331 11.345 32.1698 10.8919 34.33 10.552C34.33 10.552 34.33 10.6106 34.3886 10.6223L34.1582 11.6223H34.1621C34.1269 11.7473 34.1464 11.884 34.2168 11.9973C34.2832 12.1106 34.3925 12.1926 34.5215 12.22H34.6425C34.873 12.22 35.0722 12.0637 35.1308 11.841C35.2675 11.3645 35.3261 10.8684 35.3027 10.3722C36.6621 10.2004 38.0019 9.88787 39.3027 9.44256C39.08 10.2355 38.9472 11.0481 38.9004 11.8723C38.9121 12.341 38.959 12.8098 39.041 13.2707C39.2754 14.2082 39.2519 15.1887 38.9707 16.1105C38.9004 16.2237 38.8808 16.3605 38.9121 16.4933C38.9433 16.6222 39.0254 16.7315 39.1425 16.8019C39.2207 16.8448 39.3105 16.8683 39.4004 16.8722C39.5761 16.8683 39.7402 16.7745 39.83 16.6222C40.3808 15.7003 40.1894 14.3331 40.0293 13.1339V13.13C39.955 12.7237 39.9043 12.3136 39.8808 11.8995C39.9746 10.8292 40.1894 9.76666 40.5214 8.74326C41.5878 8.00107 42.7519 7.41126 43.9823 6.99326C44.5331 6.90342 45.0917 6.84873 45.6503 6.82138C46.7441 6.7667 47.8261 6.587 48.8808 6.29013C49.8105 5.87216 50.6308 5.24323 51.2714 4.45033C52.4589 4.52455 53.5995 3.96595 54.2714 2.98153L54.4511 2.79012C54.4824 3.67684 54.4659 4.5601 54.3995 5.4429ZM4.30151 14.021C5.75071 13.3765 7.29761 12.9741 8.87961 12.8218C10.7546 12.5484 12.6101 12.1421 14.4304 11.6109C18.8288 10.2515 22.0202 9.232 25.2704 8.0015C27.1884 7.40384 29.1806 7.10306 31.1884 7.10306C32.415 7.10306 33.6337 6.95462 34.8212 6.64994C35.4111 6.439 36.6024 5.97806 38.0712 5.41164C41.2704 4.17334 46.0712 2.29054 48.5202 1.59134C50.3757 1.13431 52.2858 0.91946 54.1999 0.95072H54.9812C54.8757 1.03275 54.7741 1.11869 54.6804 1.21244C54.614 1.23978 54.5554 1.28666 54.5085 1.34135C54.1452 1.64213 53.8093 1.97416 53.5085 2.34135C53.0358 3.1226 52.1413 3.54445 51.239 3.41165C51.0398 3.35306 50.821 3.41946 50.6882 3.58353C50.1257 4.32181 49.3952 4.92333 48.5593 5.33353C47.5788 5.59134 46.5749 5.74369 45.5593 5.78275C44.9617 5.81791 44.3679 5.88822 43.7781 5.99369C42.282 6.5015 40.864 7.22419 39.5711 8.13039L39.1219 8.41164H39.118C37.6063 8.97805 36.0282 9.34914 34.4188 9.52104C32.1376 9.8726 29.8797 10.3492 27.6493 10.9507C24.1102 11.9507 18.6493 12.8296 13.9303 13.6109L9.6998 14.3102C6.5084 14.8609 3.8209 15.2203 2.2389 15.4118C2.88734 14.8922 3.57491 14.4272 4.30151 14.021ZM9.24291 27.599C9.24291 27.599 8.89135 27.5482 8.79369 26.8998H8.78979C8.71948 26.0326 8.4226 25.2006 7.93041 24.4818C7.47338 23.8724 6.87181 23.388 6.18041 23.0716C5.50853 22.681 4.75071 22.2317 4.69211 21.8099H4.6882C4.61789 21.1263 4.73508 20.4388 5.02023 19.8099C5.11398 19.6497 5.11398 19.4505 5.02023 19.2903C4.91085 19.1419 4.72335 19.0638 4.53976 19.0911C3.47336 19.22 2.39916 18.888 1.59056 18.181C0.828841 17.4193 0.981181 16.8099 1.12181 16.5326C1.89134 16.4544 4.50071 16.1537 7.94991 15.6029C8.12179 16.3216 8.46163 17.8412 8.84835 19.6029C8.78195 19.6966 8.7546 19.8138 8.77023 19.931C8.77023 20.0013 9.19992 23.6693 9.69992 27.8529C9.60226 27.6927 9.42648 27.5951 9.23898 27.6029L9.24291 27.599ZM50.2429 37.4779C51.6843 39.5677 54.2429 40.7474 56.2429 41.6888C57.2429 42.1497 58.7624 42.849 58.7312 43.2005C58.532 45.0716 47.0902 73.7005 29.7312 72.6805C11.6612 71.6297 7.50121 59.8215 6.87921 57.4505C6.50812 56.2786 6.45343 55.0247 6.71905 53.8216C6.86358 53.22 6.91436 52.5989 6.87921 51.9818C6.87921 51.7435 6.87921 51.4935 6.80109 51.2435C6.66047 49.9623 6.51203 48.6341 7.2425 48.1849L7.23859 48.181C9.15659 46.9505 10.7659 45.2943 11.9378 43.3412V43.5209C12.3284 44.8647 12.512 46.2631 12.4808 47.6615C12.4534 47.7904 12.4808 47.9232 12.5511 48.0326C12.6253 48.142 12.7386 48.2162 12.8675 48.2435H12.969C13.2073 48.2435 13.4105 48.0756 13.4573 47.8412C13.6565 46.8412 13.3558 45.4506 12.9183 43.31C12.6292 41.9194 12.2698 40.1889 11.9183 38.1381C11.5394 35.5483 10.9183 30.6967 10.4495 26.6501C11.1917 28.2282 12.1331 29.7009 13.2503 31.0407L13.5315 31.4196C16.3713 35.2594 22.6917 38.779 24.5315 39.7712H24.5276C26.2385 40.5095 28.1018 40.8181 29.9573 40.6735H33.8167C39.8167 40.6735 46.2857 32.5251 48.5077 29.4545C48.4569 31.6303 48.5585 35.0717 50.2186 37.4818L50.2429 37.4779ZM56.5515 8.4779V8.48181C56.3953 8.59119 56.3132 8.77478 56.3406 8.96228C56.4656 9.73572 56.282 10.5287 55.8288 11.1732C54.7741 12.1693 54.2781 13.6185 54.5008 15.0521C54.7117 15.7552 55.1414 16.3763 55.7313 16.8216C56.7313 17.7317 57.7899 18.7708 57.4227 20.5325C56.8523 23.1731 55.9617 23.4427 55.9734 23.4427H55.9695C55.8172 23.4622 55.6805 23.5521 55.5985 23.681C55.0789 24.552 54.3094 25.2513 53.3915 25.681C52.4852 25.8489 51.5477 25.72 50.7196 25.3216C51.0985 24.1732 51.4305 22.8802 51.7782 21.5599C51.9891 20.72 52.2196 19.8607 52.4578 18.9896V18.9935C53.6766 14.5716 54.657 10.0951 55.3992 5.57148C55.4852 4.35668 55.4852 3.13788 55.3992 1.92308C55.8094 1.60277 56.2547 1.33714 56.7312 1.13011C57.3094 1.54027 59.0203 2.91131 58.7312 4.80981C58.4734 6.26681 57.6921 7.57931 56.5281 8.49341L56.5515 8.4779ZM28.9695 17.8217C27.7078 16.5209 29.3601 13.9623 29.5476 13.6733H29.5515C29.6219 13.56 29.739 13.4858 29.8679 13.4624C29.9969 13.435 30.1297 13.4663 30.239 13.5405C30.4695 13.6928 30.532 14.0014 30.3797 14.2319C29.9109 14.9311 29.1297 16.56 29.6882 17.1303C30.1218 17.6303 30.7 17.9819 31.3406 18.1303C31.614 18.1733 31.8054 18.4272 31.7702 18.7006C31.7351 18.9467 31.5281 19.1303 31.2781 19.1303H31.2195C30.3484 18.9506 29.5593 18.4897 28.9695 17.8217ZM41.4495 14.6615C41.93 15.849 42.0276 17.1576 41.7308 18.3998C41.6019 19.0326 41.2112 19.5795 40.6605 19.9115C40.4964 19.9935 40.3128 20.0365 40.1292 20.0326C40.0003 20.0326 39.8714 20.0092 39.7503 19.9701C39.4925 19.8685 39.3675 19.5717 39.473 19.3178C39.5784 19.0599 39.8714 18.9349 40.1292 19.0404C40.1292 19.0404 40.2894 19.0404 40.4183 18.8412C40.3011 18.892 40.1683 18.892 40.0511 18.8412C39.93 18.8099 39.8323 18.7357 39.7698 18.6303L39.4691 18.8021C38.4066 19.5209 37.1605 19.9271 35.8793 19.9701C34.5277 19.9701 33.4379 18.9701 32.641 18.1889V18.1928C32.4222 17.9741 32.1878 17.771 31.9378 17.5913C31.5667 17.3999 31.3792 17.521 31.3597 17.5327C31.266 17.6264 31.141 17.6772 31.0082 17.6772C30.8792 17.6772 30.7503 17.6264 30.6605 17.5327C30.4691 17.3335 30.4691 17.021 30.6605 16.8217C31.1488 16.4428 31.8285 16.4116 32.348 16.7514C32.6917 16.9585 33.0042 17.2124 33.2777 17.5014C33.9457 18.2827 34.8675 18.8022 35.8793 18.9702C36.9809 18.9273 38.0512 18.5835 38.9691 17.9702L39.2777 17.7905C39.4886 17.6695 40.0472 17.3609 40.4691 17.689V17.6929C40.641 17.8374 40.7386 18.0562 40.7308 18.2827C40.7308 18.2124 40.7308 18.1616 40.8011 18.0835C41.0199 17.0562 40.9339 15.9897 40.5589 15.0132C40.4925 14.8882 40.4808 14.7398 40.5316 14.607C40.5784 14.4741 40.68 14.3687 40.8089 14.314C40.9417 14.2632 41.0863 14.2671 41.2152 14.3257C41.3402 14.3843 41.4378 14.4976 41.4808 14.6304L41.4495 14.6615ZM41.0276 24.7705C41.2308 24.9463 41.2581 25.251 41.0901 25.4619C40.7464 25.8135 40.2894 26.0244 39.801 26.0596H39.5198C39.0042 26.0361 38.5042 25.876 38.0706 25.6025C37.8128 25.4385 37.5276 25.3291 37.2308 25.2705C36.9417 25.2471 36.6526 25.3057 36.3987 25.4424C35.8753 25.6807 35.3049 25.8018 34.7307 25.7901C34.0628 25.7822 33.4143 25.5635 32.8791 25.1611C32.6174 24.9541 32.3088 24.8174 31.9807 24.7627C31.633 24.7197 31.2815 24.794 30.9807 24.9697C30.4182 25.2354 29.8088 25.3799 29.1877 25.3916C28.258 25.4385 27.3322 25.1807 26.5588 24.6611C26.3439 24.4893 26.3088 24.1768 26.4807 23.9619C26.6213 23.7822 26.8713 23.7236 27.0783 23.8213C27.7775 23.4111 31.3595 21.3916 32.5978 21.4697C33.1486 21.5009 33.6837 21.6806 34.1408 21.9931C34.2893 22.1103 34.4689 22.1806 34.6603 22.2002C34.9182 22.1806 35.1682 22.1181 35.4103 22.0205C35.9689 21.8134 36.5626 21.7002 37.1603 21.6924C38.2736 21.8369 39.2658 22.4619 39.8791 23.3994C40.0198 23.6259 39.9573 23.9228 39.7385 24.0751C39.5198 24.2275 39.2229 24.1806 39.0588 23.9697C38.8088 23.6103 37.9885 22.6885 37.219 22.6885V22.6924C36.7268 22.6963 36.2386 22.79 35.7776 22.9697C35.4417 23.1064 35.0823 23.1845 34.719 23.2002C34.3558 23.1806 34.0081 23.0556 33.719 22.8408C33.3987 22.6181 33.0198 22.4931 32.6292 22.4697C31.9808 22.4697 29.93 23.4697 28.3401 24.2978V24.3017C28.6409 24.3642 28.9495 24.3955 29.2581 24.3916C29.7464 24.3798 30.2308 24.2626 30.6683 24.0517C31.1331 23.8291 31.6527 23.747 32.1605 23.8212C32.6293 23.8994 33.0746 24.0908 33.4574 24.372C33.8285 24.6611 34.2816 24.8212 34.7504 24.833C35.1918 24.8447 35.6293 24.7509 36.0277 24.5595C36.4379 24.3486 36.9027 24.2666 37.3597 24.3212C37.7777 24.3916 38.1761 24.54 38.5394 24.7627C38.8753 24.9853 39.2738 25.0986 39.68 25.0908C39.9183 25.0791 40.1488 24.9853 40.3284 24.833C40.4964 24.6142 40.8128 24.5752 41.0277 24.7431L41.0276 24.7705ZM39.7268 26.9189L39.7307 26.9228C39.4886 28.1337 38.5276 29.0751 37.3088 29.29C36.7151 29.4463 36.1018 29.5244 35.4885 29.5205C35.0042 29.5166 34.5198 29.4853 34.0393 29.4306C33.4378 29.3564 32.8362 29.3134 32.2307 29.3017C29.8791 29.2431 27.8792 26.8212 27.7894 26.6728C27.6175 26.4541 27.6565 26.1416 27.8675 25.9697C27.969 25.8877 28.1019 25.8447 28.2347 25.8564C28.3675 25.872 28.4886 25.9385 28.5706 26.04C28.5706 26.04 30.3909 28.2509 32.2425 28.2705C32.9925 28.2705 33.6019 28.3486 34.1409 28.3994C35.1097 28.5557 36.1018 28.5205 37.0589 28.29C37.8675 28.1885 38.5316 27.6065 38.7386 26.8212C38.7738 26.5478 39.0277 26.3564 39.3011 26.3916C39.5511 26.4228 39.7347 26.6376 39.7308 26.8916L39.7268 26.9189ZM38.9886 31.9189V31.9228C38.9026 32.0986 38.7229 32.208 38.5276 32.2119C38.4573 32.2119 38.3831 32.1962 38.3206 32.1611C37.0276 31.6572 35.6878 31.2939 34.3206 31.083C32.3636 30.8095 30.3792 30.8877 28.4495 31.3017C28.1722 31.3603 27.8987 31.1885 27.8401 30.9111C27.7776 30.6338 27.9534 30.3603 28.2307 30.3017C30.2932 29.8564 32.4182 29.7783 34.508 30.0713C35.9533 30.2939 37.3674 30.6885 38.7189 31.2432C38.9377 31.3447 39.051 31.5869 38.9885 31.8213L38.9886 31.9189ZM30.9886 46.9189V46.9228C30.9104 47.1142 30.7268 47.2392 30.5198 47.2431C30.4612 47.2509 30.4065 47.2509 30.3479 47.2431C25.926 45.6142 25.0784 42.2431 25.0393 42.0947V42.0908C25.0081 41.9619 25.0315 41.8252 25.1057 41.7119C25.1761 41.5986 25.2893 41.5205 25.4182 41.4931C25.5472 41.458 25.6839 41.4775 25.7971 41.5478C25.9104 41.6181 25.9925 41.7314 26.0198 41.8603C26.0198 41.9814 26.8011 44.8603 30.6917 46.3017H30.6878C30.9026 46.4111 31.012 46.6494 30.9573 46.8799L30.9886 46.9189ZM20.7586 64.0319C22.1375 65.8405 24.4578 69.0319 24.4578 69.7311C24.4578 69.8639 24.407 69.9889 24.3132 70.0827C24.2195 70.1764 24.0906 70.2311 23.9578 70.2311C23.6843 70.2311 23.4578 70.0084 23.4578 69.7311C23.4578 69.7311 23.1179 68.7311 19.9578 64.6295C17.7976 61.8443 16.1297 58.7037 15.0398 55.3522C14.9695 55.0866 15.1257 54.8131 15.3913 54.7428C15.5163 54.7038 15.653 54.7194 15.7663 54.7819C15.8796 54.8483 15.9655 54.9538 16.0007 55.0827C17.0788 58.3054 18.6883 61.3327 20.7586 64.0319Z"
+            />
+          </svg>
+        </div>
+      </div>
+      <!-- Section Projects -->
+      <div
+        class="section projects h-dvh relative flex items-center justify-center overflow-hidden"
+      >
+        <div
+          class="flex flex-col items-center w-full px-8 md:px-15 gap-2 md:gap-10 lg:gap-12 z-10"
+        >
+          <!-- Titre -->
+          <div class="w-full">
+            <h1
+              class="projects-title flex items-center gap-2 text-3xl font-bold mb-2"
+            >
+              Projets
+              <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+            </h1>
+            <p class="projects-subtitle text-sm md:text-base opacity-70">
+              Mes projets réalisés
+            </p>
+          </div>
+          <!-- Liste des projets -->
+          <div
+            id="repos"
+            class="w-full grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl justify-items-center"
+          >
+            <!-- Les projets seront chargés dynamiquement ici -->
+          </div>
+          <!-- Bouton Voir tous les projets -->
+          <a
+            href="project.html"
+            class="group relative overflow-hidden bg-white/15 backdrop-blur-sm rounded-md px-6 py-3 flex items-center gap-2 cursor-pointer transition-all duration-500 hover:bg-white/25 hover:-translate-y-1 mt-4"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+            ></div>
+            <span class="text-sm md:text-base font-semibold relative z-10"
+              >Voir tous les projets</span
+            >
+            <i
+              class="fa-solid fa-arrow-right text-sm relative z-10 group-hover:translate-x-1 transition-transform duration-300"
+            ></i>
+          </a>
+        </div>
+        <!-- Decorative Image -->
+        <div class="absolute right-0 bottom-0 pointer-events-none z-0">
+          <img
+            src="assets/img/CherryBlossomBranch.svg"
+            alt="Cherry Blossom Branch"
+            class="w-2xs md:w-xs lg:w-sm xl:w-md"
+          />
+        </div>
+      </div>
+      <!-- Section Contact -->
+      <div
+        class="section contact h-dvh relative flex items-center justify-center overflow-hidden"
+      >
+        <div
+          class="flex flex-col items-center w-full px-8 md:px-15 gap-8 md:gap-12 z-10 max-w-3xl"
+        >
+          <!-- Titre -->
+          <div class="w-full">
+            <h1
+              class="contact-title flex items-center gap-2 text-3xl font-bold mb-2"
+            >
+              Me Contacter
+              <img src="assets/img/LogoFlower.svg" alt="Flower Logo" />
+            </h1>
+          </div>
+
+          <!-- Formulaire de contact -->
+          <form id="contact-form" class="w-full flex flex-col gap-6">
+            <!-- Nom et Prénom -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div class="relative">
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  placeholder="Nom et Prénom"
+                  required
+                  class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300"
+                />
+              </div>
+              <div class="relative">
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  placeholder="Objet"
+                  required
+                  class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300"
+                />
+              </div>
+            </div>
+
+            <!-- Email -->
+            <div class="relative">
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                required
+                class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300"
+              />
+            </div>
+
+            <!-- Message -->
+            <div class="relative">
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Message"
+                rows="5"
+                required
+                class="w-full bg-transparent border-0 border-b border-white/50 py-3 px-0 text-white placeholder-white/50 focus:outline-none focus:border-white transition-all duration-300 resize-none"
+              ></textarea>
+            </div>
+
+            <!-- reCAPTCHA -->
+            <div class="flex justify-center w-full">
+              <div
+                class="g-recaptcha"
+                data-sitekey="6Ld3AQArAAAAAE9Le5179dadeLq9VNvhUE0CARqR"
+              ></div>
+            </div>
+
+            <!-- Bouton Submit -->
+            <button
+              type="submit"
+              class="group relative overflow-hidden bg-white/15 backdrop-blur-sm rounded-md px-8 py-3 self-start cursor-pointer transition-all duration-500 hover:bg-white/25 hover:-translate-y-1"
+            >
+              <div
+                class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+              ></div>
+              <span class="text-sm md:text-base font-semibold relative z-10"
+                >Submit</span
+              >
+            </button>
+          </form>
+        </div>
+
+        <!-- Decorative Images -->
+        <div
+          class="absolute left-0 top-0 pointer-events-none z-0 hidden md:block"
+        >
+          <img
+            src="assets/img/CherryBlossomBranch.svg"
+            alt="Cherry Blossom Branch"
+            class="w-xs lg:w-sm xl:w-md scale-x-[-1] scale-y-[-1]"
+          />
+        </div>
+        <div class="absolute right-0 bottom-0 pointer-events-none z-0">
+          <img
+            src="assets/img/CherryBlossomBranch.svg"
+            alt="Cherry Blossom Branch"
+            class="w-2xs md:w-xs lg:w-sm xl:w-md"
+          />
+        </div>
+      </div>
+      <!-- Footer Section -->
+      <div class="section fp-auto-height">
+        <footer
+          class="relative bg-black/20 backdrop-blur-sm py-8 px-4 md:px-8 lg:px-15"
+        >
+          <div
+            class="mx-auto flex flex-col md:flex-row justify-between items-center gap-6 md:gap-8"
+          >
+            <!-- Left: Name & Copyright -->
+            <div class="text-center md:text-left md:flex-shrink-0">
+              <h3 class="text-xl font-bold mb-2">François Dancre</h3>
+              <p class="text-sm opacity-70">© 2026 - Tous droits réservés</p>
+            </div>
+
+            <!-- Center: Quick Links -->
+            <div class="flex flex-wrap gap-4 md:gap-6 text-sm justify-center">
+              <a
+                href="#about"
+                class="opacity-70 hover:opacity-100 transition-opacity duration-300"
+                >About</a
+              >
+              <a
+                href="#journey"
+                class="opacity-70 hover:opacity-100 transition-opacity duration-300"
+                >Journey</a
+              >
+              <a
+                href="#skills"
+                class="opacity-70 hover:opacity-100 transition-opacity duration-300"
+                >Skills</a
+              >
+              <a
+                href="#projects"
+                class="opacity-70 hover:opacity-100 transition-opacity duration-300"
+                >Projects</a
+              >
+              <a
+                href="#contact"
+                class="opacity-70 hover:opacity-100 transition-opacity duration-300"
+                >Contact</a
+              >
+            </div>
+
+            <!-- Right: Social Links -->
+            <div
+              class="flex items-center gap-4 justify-center md:justify-end md:flex-shrink-0"
+            >
+              <a
+                href="https://www.linkedin.com/in/fran%C3%A7ois-dancre-bb597a292/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
+              >
+                <i class="fa-brands fa-linkedin text-xl"></i>
+              </a>
+              <a
+                href="mailto:francois.dcre@gmail.com"
+                class="text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
+              >
+                <i class="fa-solid fa-envelope text-xl"></i>
+              </a>
+              <a
+                href="https://github.com/francoisdcre"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-white/70 hover:text-white transition-all duration-300 hover:scale-110"
+              >
+                <i class="fa-brands fa-github text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </div>
+    <script src="js/fullPage.js"></script>
+    <script src="js/gsap.js"></script>
+    <script src="js/repoFetch.js"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+    <script type="text/javascript">
+      (function () {
+        emailjs.init({
+          publicKey: "8jCZE-BxBp6MozCPJ",
         });
+      })();
     </script>
-</body>
-
+    <script src="js/contactForm.js"></script>
+  </body>
 </html>

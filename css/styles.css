@@ -1,0 +1,19 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Dela Gothic One", sans-serif;
+  background-color: var(--background-color);
+  color: var(--primary-color);
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+a[href*="alvarotrigo.com/fullPage"] {
+  display: none !important;
+}
