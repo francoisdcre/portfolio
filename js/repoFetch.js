@@ -63,16 +63,16 @@ async function displayThreeRepos() {
       card.href = repo.url;
       card.target = "_blank";
       card.className =
-        "project-card group relative overflow-hidden bg-white/15 backdrop-blur-sm rounded-md p-3 md:p-8 flex flex-col items-center justify-center gap-2 md:gap-3 cursor-pointer transition-all duration-500 hover:bg-white/25 hover:-translate-y-2 aspect-square w-[180px] md:w-[200px] xl:w-[300px]";
+        "project-card group relative overflow-hidden bg-white/15 backdrop-blur-sm rounded-md p-1.5 sm:p-2 md:p-6 lg:p-8 flex flex-col items-center justify-center gap-1 sm:gap-1.5 md:gap-3 cursor-pointer transition-all duration-500 hover:bg-white/25 hover:-translate-y-2 aspect-square w-[120px] sm:w-[140px] md:w-[180px] xl:w-[300px]";
 
       const languageIcon = getLanguageIcon(repo.mainLanguage);
 
       card.innerHTML = `
         <div class="absolute inset-0 bg-gradient-to-br from-white/0 to-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-        <h3 class="text-sm md:text-xl font-bold relative z-10 group-hover:scale-105 transition-transform duration-300 text-center leading-tight">${repo.name}</h3>
-        <div class="flex items-center gap-1.5 md:gap-2 relative z-10">
-          <i class="${languageIcon} text-xs md:text-sm opacity-70"></i>
-          <span class="text-xs md:text-sm opacity-70">${repo.mainLanguage || "N/A"}</span>
+        <h3 class="text-xs sm:text-sm md:text-xl font-bold relative z-10 group-hover:scale-105 transition-transform duration-300 text-center leading-tight">${repo.name}</h3>
+        <div class="flex items-center gap-1 md:gap-1.5 lg:gap-2 relative z-10">
+          <i class="${languageIcon} text-[0.65rem] sm:text-xs md:text-sm opacity-70"></i>
+          <span class="text-[0.65rem] sm:text-xs md:text-sm opacity-70">${repo.mainLanguage || "N/A"}</span>
         </div>
       `;
 
